@@ -5,7 +5,10 @@ import com.ead.authuser.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
@@ -15,6 +18,9 @@ import java.util.UUID;
 @Table(name = "TB_USERS")
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class UserModel {
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +28,7 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
     @Column(nullable = false, unique = true, length = 50)
-    private String username;
+    private String userName;
     @Column(nullable = false, unique = true, length = 50)
     private String email;
     @Column(nullable = false, length = 255)
