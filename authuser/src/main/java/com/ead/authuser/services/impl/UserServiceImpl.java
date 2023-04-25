@@ -1,6 +1,11 @@
 package com.ead.authuser.services.impl;
 
+import com.ead.authuser.dto.UserDto;
+import com.ead.authuser.enums.UserStatus;
+import com.ead.authuser.enums.UserType;
+import com.ead.authuser.exceptions.UserConflictException;
 import com.ead.authuser.exceptions.UserNotFoundException;
+import com.ead.authuser.mapper.UserMapper;
 import com.ead.authuser.models.UserModel;
 import com.ead.authuser.repositories.UserRepository;
 import com.ead.authuser.services.UserService;
@@ -11,53 +16,90 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-import static java.lang.Boolean.*;
+import static java.lang.Boolean.TRUE;
 import static java.util.Optional.of;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class UserServiceImpl implements UserService {
+    private final UserMapper userMapper;
     private final UserRepository userRepository;
 
-    private IllegalArgumentException throwException(String msg) {
-        return new IllegalArgumentException(msg);
+    @Override
+    public List<UserDto> findAll() {
+        return userMapper.toDto(userRepository.findAll());
     }
 
     @Override
-    public List<UserModel> findAll() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public UserModel findById(UUID userId) {
-        return userRepository.findById(userId)
-                .orElseThrow(()->new UserNotFoundException("User not found"));
+    public UserDto getOneUser(UUID userId) {
+        return userMapper.toDto(findUserById(userId));
     }
 
     @Override
     public void deleteById(UUID userId) {
-        of(findById(userId))
-                .ifPresent((userModel)->userRepository.deleteById(userModel.getUserId()));
+        userRepository.deleteById(findUserById(userId).getUserId());
     }
 
     @Override
-    public void save(UserModel userModel) {
-        validUsername(userModel.getUserName());
-        validEmail(userModel.getEmail());
+    public UserDto updateUser(UUID userId, UserDto userDto) {
+        var userModel = findUserById(userId);
+        userModel.setFullName(userDto.getFullName());
+        userModel.setPhoneNumber(userDto.getPhoneNumber());
+        userModel.setCpf(userDto.getCpf());
+        return userMapper.toDto(userRepository.save(userModel));
+    }
+
+    @Override
+    public void updatePassword(UUID userId, UserDto userDto) {
+        var userModel = findUserById(userId);
+
+        if (!userDto.getOldPassword().equals(userModel.getPassword())){
+            throw new UserConflictException("Error: Mismatched old password");
+        }
+
+        userModel.setPassword(userDto.getPassword());
         userRepository.save(userModel);
+    }
+
+    @Override
+    public UserDto updateImage(UUID userId, UserDto userDto) {
+        var userModel = findUserById(userId);
+        userModel.setImageUrl(userDto.getImageUrl());
+        return userMapper.toDto( userRepository.save(userModel));
+    }
+
+    @Override
+    public UserDto save(UserDto userDto) {
+        validUsername(userDto.getNickName());
+        validEmail(userDto.getEmail());
+
+        var userModel = userMapper.toModel(userDto);
+        userModel.setUserStatus(UserStatus.ACTIVE);
+        userModel.setUserType(UserType.STUDENT);
+
+        return userMapper.toDto(userRepository.save(userModel));
+    }
+
+    private UserModel findUserById(UUID userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 
     private void validEmail(String email) {
         of(userRepository.existsByEmail(email))
                 .filter(TRUE::equals)
-                .map(exists->throwException("Error: email is Already Taken!"));
+                .map(exists-> throwUserConflictException("Error: email is Already Taken!"));
     }
 
     private void validUsername(String userName) {
         of(userRepository.existsByUserName(userName))
                 .filter(TRUE::equals)
-                .map(exists-> throwException("Error: Username is Already Taken!"));
+                .map(exists-> throwUserConflictException("Error: Username is Already Taken!"));
+    }
+
+    private UserConflictException throwUserConflictException(String msg) {
+        return new UserConflictException(msg);
     }
 
 }
