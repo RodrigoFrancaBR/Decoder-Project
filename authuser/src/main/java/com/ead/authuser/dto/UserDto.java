@@ -40,11 +40,9 @@ public class UserDto {
     @JsonView({UserReturnView.Default.class, UserEntryView.RegisterUser.class, UserEntryView.UpdateUser.class})
     private String fullName;
 
-    // verificar no video de model mapper como passar apenas o valor do enum e não o enum inteiro
     @JsonView({UserReturnView.Default.class})
     private UserStatus userStatus;
 
-    // verificar no video de model mapper como passar apenas o valor do enum e não o enum inteiro
     @JsonView({UserReturnView.Default.class})
     private UserType userType;
 
