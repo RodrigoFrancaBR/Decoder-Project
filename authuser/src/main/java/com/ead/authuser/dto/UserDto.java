@@ -11,6 +11,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -19,25 +22,33 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto {
+public class    UserDto {
 
     @JsonView({UserReturnView.Default.class})
     private UUID userId;
 
-    @JsonView({UserReturnView.Default.class, UserEntryView.RegisterUser.class})
-    // trocar userName por nickName só pra fins de teste com o modelmapper
+    @Size(min = 4, max = 50, groups = UserEntryView.RegisterUser.class)
+    @NotBlank(groups = UserEntryView.RegisterUser.class)
+    @JsonView({UserEntryView.RegisterUser.class, UserReturnView.Default.class})
     private String nickName;
 
-    @JsonView({UserReturnView.Default.class, UserEntryView.RegisterUser.class})
+    @Size(min = 4, max = 50, groups = UserEntryView.RegisterUser.class)
+    @Email(groups = UserEntryView.RegisterUser.class)
+    @NotBlank(groups = UserEntryView.RegisterUser.class)
+    @JsonView({UserEntryView.RegisterUser.class, UserReturnView.Default.class})
     private String email;
 
+    @Size(min = 6, max = 20, groups = {UserEntryView.RegisterUser.class, UserEntryView.UpdatePassword.class})
+    @NotBlank(groups = {UserEntryView.RegisterUser.class, UserEntryView.UpdatePassword.class})
     @JsonView({UserEntryView.RegisterUser.class, UserEntryView.UpdatePassword.class})
     private String password;
 
+    @Size(min = 6, max = 20, groups = UserEntryView.UpdatePassword.class)
+    @NotBlank(groups = UserEntryView.UpdatePassword.class)
     @JsonView({UserEntryView.UpdatePassword.class})
     private String oldPassword;
 
-    @JsonView({UserReturnView.Default.class, UserEntryView.RegisterUser.class, UserEntryView.UpdateUser.class})
+    @JsonView({UserEntryView.RegisterUser.class, UserEntryView.UpdateUser.class, UserReturnView.Default.class})
     private String fullName;
 
     @JsonView({UserReturnView.Default.class})
@@ -46,13 +57,14 @@ public class UserDto {
     @JsonView({UserReturnView.Default.class})
     private UserType userType;
 
-    @JsonView({UserReturnView.Default.class, UserEntryView.RegisterUser.class, UserEntryView.UpdateUser.class})
+    @JsonView({UserEntryView.RegisterUser.class, UserEntryView.UpdateUser.class, UserReturnView.Default.class})
     private String phoneNumber;
 
-    @JsonView({UserReturnView.Default.class, UserEntryView.RegisterUser.class, UserEntryView.UpdateUser.class})
+    @JsonView({UserEntryView.RegisterUser.class, UserEntryView.UpdateUser.class, UserReturnView.Default.class})
     private String cpf;
 
-    @JsonView({UserReturnView.Default.class, UserEntryView.UpdateImage.class})
+    @NotBlank(groups = UserEntryView.UpdateImage.class)
+    @JsonView({UserEntryView.UpdateImage.class, UserReturnView.Default.class})
     private String imageUrl;
 
     @JsonView({UserReturnView.Default.class})

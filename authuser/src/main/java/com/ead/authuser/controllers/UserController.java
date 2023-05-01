@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,7 +54,11 @@ public class UserController {
     @PutMapping(path = "/{userId}/password")
     public ResponseEntity<String> updatePassword(
             @PathVariable UUID userId,
-            @RequestBody UserDto userDto){
+            @RequestBody
+            @Validated(UserEntryView.UpdatePassword.class)
+            @JsonView(UserEntryView.UpdatePassword.class)
+            UserDto userDto)
+        {
         userService.updatePassword(userId, userDto);
         return ResponseEntity.ok().body("Password updated successfully.");
     }
@@ -64,6 +69,7 @@ public class UserController {
             @PathVariable UUID userId,
             @RequestBody
             @JsonView(UserEntryView.UpdateImage.class)
+            @Validated(UserEntryView.UpdateImage.class)
             UserDto userDto){
         return userService.updateImage(userId, userDto);
     }

@@ -6,6 +6,7 @@ import com.ead.authuser.enums.UserType;
 import com.ead.authuser.exceptions.UserConflictException;
 import com.ead.authuser.exceptions.UserNotFoundException;
 import com.ead.authuser.mapper.UserMapper;
+import com.ead.authuser.mapper.UserMapperRegister;
 import com.ead.authuser.models.UserModel;
 import com.ead.authuser.repositories.UserRepository;
 import com.ead.authuser.services.UserService;
@@ -24,6 +25,7 @@ import static java.util.Optional.of;
 @Slf4j
 public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
+    private final UserMapperRegister userMapperRegister;
     private final UserRepository userRepository;
 
     @Override
@@ -54,7 +56,7 @@ public class UserServiceImpl implements UserService {
     public void updatePassword(UUID userId, UserDto userDto) {
         var userModel = findUserById(userId);
 
-        if (!userDto.getOldPassword().equals(userModel.getPassword())){
+        if (!userDto.getOldPassword().equals(userModel.getPassword())) {
             throw new UserConflictException("Error: Mismatched old password");
         }
 
@@ -66,18 +68,14 @@ public class UserServiceImpl implements UserService {
     public UserDto updateImage(UUID userId, UserDto userDto) {
         var userModel = findUserById(userId);
         userModel.setImageUrl(userDto.getImageUrl());
-        return userMapper.toDto( userRepository.save(userModel));
+        return userMapper.toDto(userRepository.save(userModel));
     }
 
     @Override
     public UserDto save(UserDto userDto) {
         validUsername(userDto.getNickName());
         validEmail(userDto.getEmail());
-
-        var userModel = userMapper.toModel(userDto);
-        userModel.setUserStatus(UserStatus.ACTIVE);
-        userModel.setUserType(UserType.STUDENT);
-
+        var userModel = userMapperRegister.toModel(userDto);
         return userMapper.toDto(userRepository.save(userModel));
     }
 
@@ -89,17 +87,17 @@ public class UserServiceImpl implements UserService {
     private void validEmail(String email) {
         of(userRepository.existsByEmail(email))
                 .filter(TRUE::equals)
-                .map(exists-> throwUserConflictException("Error: email is Already Taken!"));
+                .map(exists -> throwUserConflictException("Error: email is Already Taken!"));
     }
 
     private void validUsername(String userName) {
         of(userRepository.existsByUserName(userName))
                 .filter(TRUE::equals)
-                .map(exists-> throwUserConflictException("Error: Username is Already Taken!"));
+                .map(exists -> throwUserConflictException("Error: Username is Already Taken!"));
     }
 
     private UserConflictException throwUserConflictException(String msg) {
-        return new UserConflictException(msg);
+        throw new UserConflictException(msg);
     }
 
 }

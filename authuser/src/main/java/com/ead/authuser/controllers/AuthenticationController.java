@@ -7,6 +7,7 @@ import com.ead.authuser.services.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -23,6 +24,7 @@ public class AuthenticationController {
     @PostMapping(path = "/signup")
     public ResponseEntity<UserDto> registerUser(
             @RequestBody
+            @Validated(UserEntryView.RegisterUser.class)
             @JsonView(UserEntryView.RegisterUser.class)
             UserDto userDto){
         var savedDto = userService.save(userDto);
