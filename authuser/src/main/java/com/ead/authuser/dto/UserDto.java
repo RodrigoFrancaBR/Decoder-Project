@@ -4,17 +4,28 @@ import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
 import com.ead.authuser.enums.UserStatus;
 import com.ead.authuser.enums.UserType;
+import com.ead.authuser.models.UserModel;
+import com.ead.authuser.validation.UserNameConstraint;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.util.StringUtils;
 
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -22,7 +33,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class    UserDto {
+public class UserDto {
 
     @JsonView({UserReturnView.Default.class})
     private UUID userId;
@@ -30,6 +41,7 @@ public class    UserDto {
     @Size(min = 4, max = 50, groups = UserEntryView.RegisterUser.class)
     @NotBlank(groups = UserEntryView.RegisterUser.class)
     @JsonView({UserEntryView.RegisterUser.class, UserReturnView.Default.class})
+    @UserNameConstraint(groups = UserEntryView.RegisterUser.class)
     private String nickName;
 
     @Size(min = 4, max = 50, groups = UserEntryView.RegisterUser.class)

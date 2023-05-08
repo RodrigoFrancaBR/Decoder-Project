@@ -7,6 +7,10 @@ import com.ead.authuser.services.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +29,10 @@ public class UserController {
 
     @JsonView(UserReturnView.Default.class)
     @GetMapping
-    public List<UserDto> getAllUsers(){
-        return userService.findAll();
+    public ResponseEntity<Page<UserDto>> getAllUsers(@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
+        Page<UserDto> userDtoPage = userService.findAll(pageable);
+
+        return ResponseEntity.status(200).body(userDtoPage);
     }
 
     @JsonView(UserReturnView.Default.class)
@@ -36,7 +42,7 @@ public class UserController {
     }
 
     @DeleteMapping(path = "/{userId}")
-    public ResponseEntity<String> deleteUser(@PathVariable UUID userId){
+    public ResponseEntity<String> deleteUser(@PathVariable UUID userId) {
         userService.deleteById(userId);
         return ResponseEntity.ok().body("User deleted successfully");
     }
@@ -47,7 +53,7 @@ public class UserController {
             @PathVariable UUID userId,
             @RequestBody
             @JsonView(UserEntryView.UpdateUser.class)
-            UserDto userDto){
+            UserDto userDto) {
         return userService.updateUser(userId, userDto);
     }
 
@@ -57,8 +63,7 @@ public class UserController {
             @RequestBody
             @Validated(UserEntryView.UpdatePassword.class)
             @JsonView(UserEntryView.UpdatePassword.class)
-            UserDto userDto)
-        {
+            UserDto userDto) {
         userService.updatePassword(userId, userDto);
         return ResponseEntity.ok().body("Password updated successfully.");
     }
@@ -70,8 +75,8 @@ public class UserController {
             @RequestBody
             @JsonView(UserEntryView.UpdateImage.class)
             @Validated(UserEntryView.UpdateImage.class)
-            UserDto userDto){
+            UserDto userDto) {
         return userService.updateImage(userId, userDto);
     }
-
 }
+

@@ -1,8 +1,6 @@
 package com.ead.authuser.services.impl;
 
 import com.ead.authuser.dto.UserDto;
-import com.ead.authuser.enums.UserStatus;
-import com.ead.authuser.enums.UserType;
 import com.ead.authuser.exceptions.UserConflictException;
 import com.ead.authuser.exceptions.UserNotFoundException;
 import com.ead.authuser.mapper.UserMapper;
@@ -12,6 +10,9 @@ import com.ead.authuser.repositories.UserRepository;
 import com.ead.authuser.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> findAll() {
-        return userMapper.toDto(userRepository.findAll());
+        return userMapper.toListDto(userRepository.findAll());
     }
 
     @Override
@@ -69,6 +70,13 @@ public class UserServiceImpl implements UserService {
         var userModel = findUserById(userId);
         userModel.setImageUrl(userDto.getImageUrl());
         return userMapper.toDto(userRepository.save(userModel));
+    }
+
+    @Override
+    public Page<UserDto> findAll(Pageable pageable) {
+        Page<UserModel> userModelPage = userRepository.findAll(pageable);
+        Page<UserDto> map = userModelPage.map(userMapper::toDto);
+        return map;
     }
 
     @Override

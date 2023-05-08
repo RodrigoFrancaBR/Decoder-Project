@@ -26,8 +26,9 @@ public class AuthenticationController {
             @RequestBody
             @Validated(UserEntryView.RegisterUser.class)
             @JsonView(UserEntryView.RegisterUser.class)
-            UserDto userDto){
+            UserDto userDto) {
         var savedDto = userService.save(userDto);
         return ResponseEntity.status(CREATED).body(savedDto);
     }
+
 }
