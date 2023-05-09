@@ -2,6 +2,9 @@ server:
   port: 8087
 
 spring:
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
   datasource:
     url:  jdbc:postgresql://localhost:5432/ead-authuser
     username: postgres

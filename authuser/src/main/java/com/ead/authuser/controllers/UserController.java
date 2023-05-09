@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -29,7 +28,8 @@ public class UserController {
 
     @JsonView(UserReturnView.Default.class)
     @GetMapping
-    public ResponseEntity<Page<UserDto>> getAllUsers(@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity<Page<UserDto>> getAllUsers(
+            @PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
         Page<UserDto> userDtoPage = userService.findAll(pageable);
 
         return ResponseEntity.status(200).body(userDtoPage);
