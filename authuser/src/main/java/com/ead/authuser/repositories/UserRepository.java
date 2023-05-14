@@ -1,19 +1,17 @@
 package com.ead.authuser.repositories;
 
-import com.ead.authuser.models.UserModel;
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
+import com.ead.authuser.models.UserModel;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserModel, UUID> {
-//    @Query(value = "SELECT 0 FROM TB_USERS u WHERE u.userName = :userName",
-//            nativeQuery = true)
-//    Integer findByUserName(@Param("userName") String username);
+public interface UserRepository extends JpaRepository<UserModel, UUID>, JpaSpecificationExecutor<UserModel> {
 
-    boolean existsByUserName(String userName);
+	boolean existsByUserName(String userName);
 
-    boolean existsByEmail(String email);
+	boolean existsByEmail(String email);
 }

@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 
@@ -19,5 +20,4 @@ public interface UserMapper {
 
     @Mapping(target = "nickName", source = "userModel.userName")
     UserDto toDto(UserModel userModel);
-
 }

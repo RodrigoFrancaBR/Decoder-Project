@@ -22,6 +22,7 @@
 	</properties>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
@@ -59,14 +60,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/net.kaczmarzyk/specification-arg-resolver -->
-		<dependency>
-			<groupId>net.kaczmarzyk</groupId>
-			<artifactId>specification-arg-resolver</artifactId>
-			<version>2.6.2</version>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

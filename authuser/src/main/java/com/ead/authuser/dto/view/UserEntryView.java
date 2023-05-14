@@ -5,4 +5,5 @@ public interface UserEntryView {
     interface UpdateUser {}
     interface UpdatePassword {}
     interface UpdateImage {}
+    interface FilterUser {}
 }

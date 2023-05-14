@@ -1,27 +1,29 @@
 package com.ead.authuser.services;
 
-import com.ead.authuser.dto.UserDto;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.ead.authuser.dto.UserDto;
+
 public interface UserService {
-    List<UserDto> findAll();
+	List<UserDto> findAll();
 
-    UserDto getOneUser(UUID userId);
+	UserDto getOneUser(UUID userId);
 
-    void deleteById(UUID userId);
+	void deleteById(UUID userId);
 
-    UserDto save(UserDto userDto);
+	UserDto save(UserDto userDto);
 
-    UserDto updateUser(UUID userId, UserDto userDto);
+	UserDto updateUser(UUID userId, UserDto userDto);
 
-    void updatePassword(UUID userId, UserDto userDto);
+	void updatePassword(UUID userId, UserDto userDto);
 
-    UserDto updateImage(UUID userId, UserDto userDto);
+	UserDto updateImage(UUID userId, UserDto userDto);
 
-    Page<UserDto> findAll(Pageable pageable);
+	Page<UserDto> findAllByEmailAndStatusAndType(Pageable pageable, UserDto userDto);
+
+	Page<UserDto> findAllByEmailOrStatusOrType(Pageable pageable, UserDto userDto);
 }
-// https://www.tabnine.com/code/java/methods/org.springframework.data.domain.Page/map
