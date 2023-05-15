@@ -11,7 +11,9 @@ import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
 import com.ead.authuser.enums.UserStatus;
 import com.ead.authuser.enums.UserType;
-import com.ead.authuser.validation.UserNameConstraint;
+import com.ead.authuser.validation.EmailAlreadyExistConstraint;
+import com.ead.authuser.validation.NickNameConstraint;
+import com.ead.authuser.validation.UserNameAlreadyExistConstraint;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -34,12 +36,14 @@ public class UserDto {
 	@Size(min = 4, max = 50, groups = UserEntryView.RegisterUser.class)
 	@NotBlank(groups = UserEntryView.RegisterUser.class)
 	@JsonView({ UserEntryView.RegisterUser.class, UserReturnView.Default.class })
-	@UserNameConstraint(groups = UserEntryView.RegisterUser.class)
+	@NickNameConstraint(groups = UserEntryView.RegisterUser.class)
+	@UserNameAlreadyExistConstraint(groups = UserEntryView.RegisterUser.class)
 	private String nickName;
 
 	@Size(min = 4, max = 50, groups = { UserEntryView.RegisterUser.class })
 	@Email(groups = { UserEntryView.RegisterUser.class })
 	@NotBlank(groups = UserEntryView.RegisterUser.class)
+	@EmailAlreadyExistConstraint(groups = UserEntryView.RegisterUser.class)
 	@JsonView({ UserEntryView.RegisterUser.class, UserReturnView.Default.class, UserEntryView.FilterUser.class })
 	private String email;
 

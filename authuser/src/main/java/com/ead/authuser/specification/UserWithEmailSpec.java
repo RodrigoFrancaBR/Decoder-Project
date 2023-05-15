@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class UserWithEmailSpec implements Specification<UserModel> {
-	// poderia ser uma indeterface com método default
+	// poderia ser uma interface com método default
 
 	private static final long serialVersionUID = 4735832117376585820L;
 	

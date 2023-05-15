@@ -1,6 +1,5 @@
 package com.ead.authuser.services;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
@@ -9,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import com.ead.authuser.dto.UserDto;
 
 public interface UserService {
-	List<UserDto> findAll();
+	Page<UserDto> findAll(Pageable pageable);
 
 	UserDto getOneUser(UUID userId);
 

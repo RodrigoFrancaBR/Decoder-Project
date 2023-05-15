@@ -1,9 +1,5 @@
 package com.ead.authuser.services.impl;
 
-import static java.lang.Boolean.TRUE;
-import static java.util.Optional.of;
-
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
@@ -28,14 +24,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 
 public class UserServiceImpl implements UserService {
+
 	private final UserMapper userMapper;
 	private final UserMapperRegister userMapperRegister;
 	private final UserRepository userRepository;
-
-	@Override
-	public List<UserDto> findAll() {
-		return userMapper.toListDto(userRepository.findAll());
-	}
 
 	@Override
 	public UserDto getOneUser(UUID userId) {
@@ -76,53 +68,37 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Page<UserDto> findAllByEmailAndStatusAndType(Pageable pageable, UserDto userDto) {
+	public Page<UserDto> findAll(Pageable pageable) {
+		var userModelPage = userRepository.findAll(pageable);
+		return userModelPage.map(userMapper::toDto);
+	}
 
+	@Override
+	public Page<UserDto> findAllByEmailAndStatusAndType(Pageable pageable, UserDto userDto) {
 		var userModelPage = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
 				.and(new UserWithStatusSpec(userDto.getUserStatus())).and(new UserWithTypeSpec(userDto.getUserType())),
 				pageable);
 
-		Page<UserDto> map = userModelPage.map(userMapper::toDto);
-		return map;
-
+		return userModelPage.map(userMapper::toDto);
 	}
 
 	@Override
 	public Page<UserDto> findAllByEmailOrStatusOrType(Pageable pageable, UserDto userDto) {
-
 		var userModelPage = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
 				.or(new UserWithStatusSpec(userDto.getUserStatus())).or(new UserWithTypeSpec(userDto.getUserType())),
 				pageable);
 
-		Page<UserDto> map = userModelPage.map(userMapper::toDto);
-		return map;
-
+		return userModelPage.map(userMapper::toDto);
 	}
 
 	@Override
 	public UserDto save(UserDto userDto) {
-		validUsername(userDto.getNickName());
-		validEmail(userDto.getEmail());
 		var userModel = userMapperRegister.toModel(userDto);
 		return userMapper.toDto(userRepository.save(userModel));
 	}
 
 	private UserModel findUserById(UUID userId) {
 		return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
-	}
-
-	private void validEmail(String email) {
-		of(userRepository.existsByEmail(email)).filter(TRUE::equals)
-				.map(exists -> throwUserConflictException("Error: email is Already Taken!"));
-	}
-
-	private void validUsername(String userName) {
-		of(userRepository.existsByUserName(userName)).filter(TRUE::equals)
-				.map(exists -> throwUserConflictException("Error: Username is Already Taken!"));
-	}
-
-	private UserConflictException throwUserConflictException(String msg) {
-		throw new UserConflictException(msg);
 	}
 
 }

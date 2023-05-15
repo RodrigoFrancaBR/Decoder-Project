@@ -32,9 +32,18 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
 	private final UserService userService;
+	
+	@JsonView(UserReturnView.Default.class)
+	@GetMapping(path = "/")
+	public ResponseEntity<Page<UserDto>> findAll(
+			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
+		Page<UserDto> userDtoPage = userService.findAll(pageable);
+
+		return ResponseEntity.status(200).body(userDtoPage);
+	}
 
 	@JsonView(UserReturnView.Default.class)
-	@GetMapping(path = "/and")
+	@GetMapping(path = "/byEmailAndStatusAndType")
 	public ResponseEntity<Page<UserDto>> findAllByEmailAndStatusAndType(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
 			@JsonView(UserEntryView.FilterUser.class) UserDto userDto) {
@@ -44,7 +53,7 @@ public class UserController {
 	}
 	
 	@JsonView(UserReturnView.Default.class)
-	@GetMapping(path = "/or")
+	@GetMapping(path = "/byEmailOrStatusOrType")
 	public ResponseEntity<Page<UserDto>> findAllByEmailOrStatusOrType(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
 			@JsonView(UserEntryView.FilterUser.class) UserDto userDto) {

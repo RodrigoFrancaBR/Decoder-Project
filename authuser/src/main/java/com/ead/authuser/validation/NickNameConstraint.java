@@ -9,8 +9,8 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = NickNameConstraintImpl.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UserNameConstraint {
-    String message() default "Invalid UserName";
+public @interface NickNameConstraint {	
+    String message() default "Invalid NickName";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
