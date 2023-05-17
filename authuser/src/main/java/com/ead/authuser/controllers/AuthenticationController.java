@@ -1,16 +1,25 @@
 package com.ead.authuser.controllers;
 
+import static org.springframework.http.HttpStatus.CREATED;
+
+import java.net.URI;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import com.ead.authuser.dto.UserDto;
 import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
 import com.ead.authuser.services.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.HttpStatus.CREATED;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -27,8 +36,18 @@ public class AuthenticationController {
             @Validated(UserEntryView.RegisterUser.class)
             @JsonView(UserEntryView.RegisterUser.class)
             UserDto userDto) {
-        var savedDto = userService.save(userDto);
-        return ResponseEntity.status(CREATED).body(savedDto);
+    	
+        var savedDto = userService.save(userDto);        
+        
+        URI location = ServletUriComponentsBuilder.fromCurrentRequestUri()
+        .path("/{id}")
+        .buildAndExpand(savedDto.getUserId())
+        .toUri();
+                
+        return ResponseEntity        		
+        		.status(CREATED)
+        		.header("location", location.toString())        		
+        		.body(savedDto);
     }
 
 }
