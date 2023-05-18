@@ -6,7 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,13 +35,26 @@ public class UserController {
 	
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "/")
-	public ResponseEntity<Page<UserDto>> findAll(
+	public Page<UserDto> findAll(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) 
 			Pageable pageable) {
+		return userService.findAll(pageable)
+				.map(dto->dto.buildSelfLink(ControllerUriHelper.buildUriLocation(dto.getUserId())));
+	}
+	
+	@JsonView(UserReturnView.Default.class)
+	@GetMapping(path = "/{userId}")
+	public UserDto getOneUser(@PathVariable UUID userId) {
+		String defaultUrl = "http://localhost:8087/users/";
+		 // userService.getOneUser(userId);
 		
-		Page<UserDto> userDtoPage = userService.findAll(pageable);	
-		Page<UserDto> userDtoWithLinks = userDtoPage.map(dto->dto.add(Link.of(ControllerUriHelper.buildUriLocation(dto.getUserId()).toString())));
-		return ResponseEntity.status(200).body(userDtoWithLinks);
+		UserDto oneUser = userService.getOneUser(userId);
+		
+		return oneUser.buildSelfAndCollectionLink(ControllerUriHelper.buildUriLocationFromCurrentRequest(),defaultUrl);
+		
+/*		return userService.getOneUser(userId)
+				.map(dto->dto.buildSelfAndCollectionLink(ControllerUriHelper.buildUriLocation(dto.getUserId())));*/
+		
 	}
 
 	@JsonView(UserReturnView.Default.class)
@@ -65,12 +77,6 @@ public class UserController {
 		Page<UserDto> userDtoPage = userService.findAllByEmailOrStatusOrType(pageable, userDto);
 
 		return ResponseEntity.status(200).body(userDtoPage);
-	}
-
-	@JsonView(UserReturnView.Default.class)
-	@GetMapping(path = "/{userId}")
-	public UserDto getOneUser(@PathVariable UUID userId) {
-		return userService.getOneUser(userId);
 	}
 
 	@DeleteMapping(path = "/{userId}")

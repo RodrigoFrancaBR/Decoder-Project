@@ -7,6 +7,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.hateoas.Link;
 import org.springframework.hateoas.RepresentationModel;
 
 import com.ead.authuser.dto.view.UserEntryView;
@@ -30,7 +32,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto extends RepresentationModel<UserDto>{
+public class UserDto extends RepresentationModel<UserDto> {
 
 	@JsonView({ UserReturnView.Default.class })
 	private UUID userId;
@@ -85,4 +87,22 @@ public class UserDto extends RepresentationModel<UserDto>{
 	@JsonView({ UserReturnView.Default.class })
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime lastUpdateDate;
+
+	public UserDto buildSelfLink(String uriLocation) {
+		return this.add(Link.of(uriLocation));
+	}
+
+	public UserDto buildCollectionLink(String uriLocation) {
+		return this.add(Link.of(uriLocation));
+	}
+
+	public UserDto buildSelfAndCollectionLink(String currentRequestUri, String defaultUrl) {		
+		return this.add(Link.of(currentRequestUri))
+		.add(Link.of(defaultUrl, IanaLinkRelations.COLLECTION));
+	}
+
+	public UserDto buildSelfAndCollectionLink(String buildUriLocation) {
+		return this.add(Link.of(buildUriLocation));
+	}
+
 }
