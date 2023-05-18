@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 import java.net.URI;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,16 +38,12 @@ public class AuthenticationController {
             @JsonView(UserEntryView.RegisterUser.class)
             UserDto userDto) {
     	
-        var savedDto = userService.save(userDto);        
-        
-        URI location = ServletUriComponentsBuilder.fromCurrentRequestUri()
-        .path("/{id}")
-        .buildAndExpand(savedDto.getUserId())
-        .toUri();
+        var savedDto = userService.save(userDto);
+        var location = ControllerUriHelper.buildUriLocation(savedDto.getUserId());
                 
         return ResponseEntity        		
         		.status(CREATED)
-        		.header("location", location.toString())        		
+        		.header(HttpHeaders.LOCATION, location.toString())        		
         		.body(savedDto);
     }
 
