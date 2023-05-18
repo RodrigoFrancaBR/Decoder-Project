@@ -7,6 +7,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
 import com.ead.authuser.enums.UserStatus;
@@ -28,7 +30,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto {
+public class UserDto extends RepresentationModel<UserDto>{
 
 	@JsonView({ UserReturnView.Default.class })
 	private UUID userId;

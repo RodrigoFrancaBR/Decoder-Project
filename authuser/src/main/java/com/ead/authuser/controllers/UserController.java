@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,17 +37,21 @@ public class UserController {
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "/")
 	public ResponseEntity<Page<UserDto>> findAll(
-			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
-		Page<UserDto> userDtoPage = userService.findAll(pageable);
-
-		return ResponseEntity.status(200).body(userDtoPage);
+			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) 
+			Pageable pageable) {
+		
+		Page<UserDto> userDtoPage = userService.findAll(pageable);	
+		Page<UserDto> userDtoWithLinks = userDtoPage.map(dto->dto.add(Link.of(ControllerUriHelper.buildUriLocation(dto.getUserId()).toString())));
+		return ResponseEntity.status(200).body(userDtoWithLinks);
 	}
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "/byEmailAndStatusAndType")
 	public ResponseEntity<Page<UserDto>> findAllByEmailAndStatusAndType(
-			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
-			@JsonView(UserEntryView.FilterUser.class) UserDto userDto) {
+			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC)
+			Pageable pageable,
+			@JsonView(UserEntryView.FilterUser.class)
+			UserDto userDto) {
 		Page<UserDto> userDtoPage = userService.findAllByEmailAndStatusAndType(pageable, userDto);
 
 		return ResponseEntity.status(200).body(userDtoPage);

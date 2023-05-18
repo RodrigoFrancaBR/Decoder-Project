@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.UUID;
 
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponents;
 
 import lombok.experimental.UtilityClass;
 
@@ -15,5 +16,13 @@ public class ControllerUriHelper {
 			        .path("/{id}")
 			        .buildAndExpand(userId)
 			        .toUri();
+	}
+	
+	public UriComponents buildUriLocation() {
+		 return ServletUriComponentsBuilder.fromCurrentRequestUri()
+			        .path("/{id}")
+			        .build();
+			        //.buildAndExpand(userId)
+			        // .toUri();
 	}
 }
