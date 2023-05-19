@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
 import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
@@ -32,7 +33,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto extends RepresentationModel<UserDto> {
+public class UserDto extends RepresentationModel<UserDto> implements UserLinkBuilder<UserDto>{
 
 	@JsonView({ UserReturnView.Default.class })
 	private UUID userId;
@@ -96,13 +97,40 @@ public class UserDto extends RepresentationModel<UserDto> {
 		return this.add(Link.of(uriLocation));
 	}
 
-	public UserDto buildSelfAndCollectionLink(String currentRequestUri, String defaultUrl) {		
-		return this.add(Link.of(currentRequestUri))
-		.add(Link.of(defaultUrl, IanaLinkRelations.COLLECTION));
+	public UserDto buildSelfAndCollectionLink(String currentRequestUri, String defaultUrl) {
+		return this.add(Link.of(currentRequestUri)).add(Link.of(defaultUrl, IanaLinkRelations.COLLECTION));
 	}
 
 	public UserDto buildSelfAndCollectionLink(String buildUriLocation) {
 		return this.add(Link.of(buildUriLocation));
+	}
+
+	public UserDto buildLinkWithSelfAndRelation(Class<?> controller, UUID userId) {
+		Link link = getLinkWithSelfRel(controller, userId);
+		return this.add(link)
+				.add(getLinkWithRel(controller));
+	}
+	
+	/*public UserDto buildLinkWithSelfAndRelation(Link linkWithRel, Link linkWithSelfRel) {
+		return null;
+	}*/
+
+	private Link getLinkWithRel(Class<?> controller) {
+		return WebMvcLinkBuilder
+				.linkTo(controller)				
+				.withRel(IanaLinkRelations.COLLECTION);				
+	}
+
+	private Link getLinkWithSelfRel(Class<?> controller, UUID userId) {
+		return WebMvcLinkBuilder
+				.linkTo(controller)
+				.slash(userId)
+				.withSelfRel();
+	}
+
+	@Override
+	public UserDto buildLinkWithSelfAndRelation(Link linkWithSelfRelation, Link linkWithRelation) {
+		return this.add(linkWithSelfRelation).add(linkWithRelation);
 	}
 
 }
