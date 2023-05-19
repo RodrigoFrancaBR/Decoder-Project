@@ -4,5 +4,5 @@ import org.springframework.hateoas.Link;
 
 public interface UserLinkBuilder<T> {
 	
-	T buildLinkWithSelfAndRelation(Link linkWithSelfRel, Link linkWithRel);
+	T setLinkWithSelfAndRelation(Link linkWithSelfRel, Link linkWithRel);
 }

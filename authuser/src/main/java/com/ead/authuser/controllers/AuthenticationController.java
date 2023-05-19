@@ -1,8 +1,10 @@
 package com.ead.authuser.controllers;
 
+import static com.ead.authuser.controllers.ControllerHelper.buildUriLocation;
+import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.ResponseEntity.status;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,23 +27,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-    private final UserService userService;
+	private final UserService userService;
 
-    @JsonView(UserReturnView.Default.class)
-    @PostMapping(path = "/signup")
-    public ResponseEntity<UserDto> registerUser(
-            @RequestBody
-            @Validated(UserEntryView.RegisterUser.class)
-            @JsonView(UserEntryView.RegisterUser.class)
-            UserDto userDto) {
-    	
-        var savedDto = userService.save(userDto);
-        var location = ControllerUriHelper.buildUriLocation(savedDto.getUserId());
-                
-        return ResponseEntity        		
-        		.status(CREATED)
-        		.header(HttpHeaders.LOCATION, location.toString())        		
-        		.body(savedDto);
-    }
+	@JsonView(UserReturnView.Default.class)
+	@PostMapping(path = "/signup")
+	public ResponseEntity<UserDto> registerUser(
+			@RequestBody
+			@Validated(UserEntryView.RegisterUser.class) 
+			@JsonView(UserEntryView.RegisterUser.class) 
+			UserDto userDto) {
+
+		var savedDto = userService.save(userDto);
+		var location = buildUriLocation(savedDto.getUserId());
+
+		return status(CREATED).header(LOCATION, location).body(savedDto);
+	}
 
 }
