@@ -1,6 +1,7 @@
 package com.ead.authuser.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.constraints.Email;
@@ -86,12 +87,11 @@ public class UserDto extends RepresentationModel<UserDto> implements UserLinkBui
 	@JsonView({ UserReturnView.Default.class })
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime lastUpdateDate;
-
-	@Override
-	public UserDto setLinkWithSelfAndRelation(Link linkWithSelfRelation, Link linkWithRelation) {
-		return this.add(linkWithSelfRelation).add(linkWithRelation);
-	}
 	
 
-
+	@Override
+	public UserDto setLinks(List<Link> links) {		
+		links.forEach(this::add);
+		return this;
+	}
 }

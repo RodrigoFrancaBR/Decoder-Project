@@ -1,8 +1,10 @@
 package com.ead.authuser.dto;
 
+import java.util.List;
+
 import org.springframework.hateoas.Link;
 
-public interface UserLinkBuilder<T> {
+public interface UserLinkBuilder<DTO> {	
 	
-	T setLinkWithSelfAndRelation(Link linkWithSelfRel, Link linkWithRel);
+	DTO setLinks(List<Link> linkList);
 }
