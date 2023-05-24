@@ -6,17 +6,18 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.data.domain.Page;
 
-import com.ead.authuser.dto.UserDto;
-import com.ead.authuser.models.UserModel;
+import com.ead.authuser.dto.UserModel;
+import com.ead.authuser.entity.UserEntity;
+
 
 @Mapper(componentModel = "spring", imports = Page.class)
 public interface UserMapper {
 
 	@Mapping(target = "userName", source = "userDto.nickName")
-	UserModel toModel(UserDto userDto);
+	UserEntity toModel(UserModel userDto);
 
-	List<UserDto> toListDto(List<UserModel> userModelList);
+	List<UserModel> toListDto(List<UserEntity> userModelList);
 
 	@Mapping(target = "nickName", source = "userModel.userName")
-	UserDto toDto(UserModel userModel);
+	UserModel toDto(UserEntity userModel);
 }

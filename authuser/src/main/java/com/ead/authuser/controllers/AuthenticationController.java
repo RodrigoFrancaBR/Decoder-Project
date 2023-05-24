@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ead.authuser.dto.UserDto;
+import com.ead.authuser.dto.UserModel;
 import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
 import com.ead.authuser.services.UserService;
@@ -31,11 +31,11 @@ public class AuthenticationController {
 
 	@JsonView(UserReturnView.Default.class)
 	@PostMapping(path = "/signup")
-	public ResponseEntity<UserDto> registerUser(
+	public ResponseEntity<UserModel> registerUser(
 			@RequestBody
 			@Validated(UserEntryView.RegisterUser.class) 
 			@JsonView(UserEntryView.RegisterUser.class) 
-			UserDto userDto) {
+			UserModel userDto) {
 
 		var savedDto = userService.save(userDto);
 		var location = buildUriLocation(savedDto.getUserId());

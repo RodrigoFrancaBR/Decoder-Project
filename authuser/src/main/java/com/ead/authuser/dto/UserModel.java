@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserDto extends RepresentationModel<UserDto> implements UserLinkBuilder<UserDto>{
+public class UserModel extends RepresentationModel<UserModel> implements UserLinkBuilder<UserModel>{
 
 	@JsonView({ UserReturnView.Default.class })
 	private UUID userId;
@@ -90,7 +90,7 @@ public class UserDto extends RepresentationModel<UserDto> implements UserLinkBui
 	
 
 	@Override
-	public UserDto setLinks(List<Link> links) {		
+	public UserModel setLinks(List<Link> links) {		
 		links.forEach(this::add);
 		return this;
 	}

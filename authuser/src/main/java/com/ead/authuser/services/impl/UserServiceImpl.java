@@ -1,17 +1,22 @@
 package com.ead.authuser.services.impl;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.stereotype.Service;
 
-import com.ead.authuser.dto.UserDto;
+import com.ead.authuser.assembler.UserModelAssembler;
+import com.ead.authuser.assembler.UserModelCollectionAssembler;
+import com.ead.authuser.dto.UserModel;
+import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.exceptions.UserConflictException;
 import com.ead.authuser.exceptions.UserNotFoundException;
 import com.ead.authuser.mapper.UserMapper;
 import com.ead.authuser.mapper.UserMapperRegister;
-import com.ead.authuser.models.UserModel;
 import com.ead.authuser.repositories.UserRepository;
 import com.ead.authuser.services.UserService;
 import com.ead.authuser.specification.UserWithEmailSpec;
@@ -28,10 +33,13 @@ public class UserServiceImpl implements UserService {
 	private final UserMapper userMapper;
 	private final UserMapperRegister userMapperRegister;
 	private final UserRepository userRepository;
+	private final UserModelAssembler userModelAssembler;
+	private final UserModelCollectionAssembler userModelCollectionAssembler;
+	
 
 	@Override
-	public UserDto getOneUser(UUID userId) {
-		return userMapper.toDto(findUserById(userId));
+	public UserModel getOneUser(UUID userId) {
+		return userModelAssembler.toModel(findUserById(userId));
 	}
 
 	@Override
@@ -40,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDto updateUser(UUID userId, UserDto userDto) {
+	public UserModel updateUser(UUID userId, UserModel userDto) {
 		var userModel = findUserById(userId);
 		userModel.setFullName(userDto.getFullName());
 		userModel.setPhoneNumber(userDto.getPhoneNumber());
@@ -49,7 +57,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void updatePassword(UUID userId, UserDto userDto) {
+	public void updatePassword(UUID userId, UserModel userDto) {
 		var userModel = findUserById(userId);
 
 		if (!userDto.getOldPassword().equals(userModel.getPassword())) {
@@ -61,20 +69,25 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDto updateImage(UUID userId, UserDto userDto) {
+	public UserModel updateImage(UUID userId, UserModel userDto) {
 		var userModel = findUserById(userId);
 		userModel.setImageUrl(userDto.getImageUrl());
 		return userMapper.toDto(userRepository.save(userModel));
 	}
 
 	@Override
-	public Page<UserDto> findAll(Pageable pageable) {
-		var userModelPage = userRepository.findAll(pageable);
-		return userModelPage.map(userMapper::toDto);
+	public Page<CollectionModel<UserModel>> findAll(Pageable pageable) {
+		// uma opção sem sucesso		
+		/*Page<CollectionModel<UserModel>> userModelCollectionPage = userRepository.findAll(pageable)
+				.map(userEntity -> userModelCollectionAssembler.toCollectionModel(List.of(userEntity)));
+		return userModelCollectionPage;*/
+		
+		return userRepository.findAll(pageable).map(userEntity -> userModelAssembler.toCollectionModel(List.of(userEntity)));
+		
 	}
 
 	@Override
-	public Page<UserDto> findAllByEmailAndStatusAndType(Pageable pageable, UserDto userDto) {
+	public Page<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto) {
 		var userModelPage = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
 				.and(new UserWithStatusSpec(userDto.getUserStatus())).and(new UserWithTypeSpec(userDto.getUserType())),
 				pageable);
@@ -83,7 +96,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Page<UserDto> findAllByEmailOrStatusOrType(Pageable pageable, UserDto userDto) {
+	public Page<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto) {
 		var userModelPage = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
 				.or(new UserWithStatusSpec(userDto.getUserStatus())).or(new UserWithTypeSpec(userDto.getUserType())),
 				pageable);
@@ -92,12 +105,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDto save(UserDto userDto) {
+	public UserModel save(UserModel userDto) {
 		var userModel = userMapperRegister.toModel(userDto);
 		return userMapper.toDto(userRepository.save(userModel));
 	}
 
-	private UserModel findUserById(UUID userId) {
+	private UserEntity findUserById(UUID userId) {
 		return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
 	}
 

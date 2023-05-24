@@ -1,7 +1,6 @@
 package com.ead.authuser.controllers;
 
 import static com.ead.authuser.controllers.ControllerHelper.getLinkWithSelfAndRelation;
-import static com.ead.authuser.controllers.ControllerHelper.getLinkwithSelfRelation;
 import static org.springframework.http.ResponseEntity.ok;
 import static org.springframework.http.ResponseEntity.status;
 
@@ -12,6 +11,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ead.authuser.dto.UserDto;
+import com.ead.authuser.dto.UserModel;
 import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
 import com.ead.authuser.services.UserService;
@@ -41,29 +42,22 @@ public class UserController {
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping
-	public Page<UserDto> findAll(
+	public Page<CollectionModel<UserModel>> findAll(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
-
-		return userService.findAll(pageable)
-				.map(dto -> dto.add(getLinkwithSelfRelation(dto.getUserId())));
+		return userService.findAll(pageable);
 	}
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "/{userId}")
-	public UserDto getOneUser(@PathVariable UUID userId) {
-
-		var oneUser = userService.getOneUser(userId);
-
-		var list = getLinkWithSelfAndRelation(userId, PageRequest.of(0, 10));
-
-		return oneUser.setLinks(list);
+	public UserModel getOneUser(@PathVariable UUID userId) {
+		return userService.getOneUser(userId);
 	}
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "byEmailAndStatusAndType")
-	public ResponseEntity<Page<UserDto>> findAllByEmailAndStatusAndType(
+	public ResponseEntity<Page<UserModel>> findAllByEmailAndStatusAndType(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
-			@JsonView(UserEntryView.FilterUser.class) UserDto userDto) {
+			@JsonView(UserEntryView.FilterUser.class) UserModel userDto) {
 
 		var userDtoPage = userService.findAllByEmailAndStatusAndType(pageable, userDto);
 		return status(200).body(userDtoPage);
@@ -71,9 +65,9 @@ public class UserController {
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "byEmailOrStatusOrType")
-	public ResponseEntity<Page<UserDto>> findAllByEmailOrStatusOrType(
+	public ResponseEntity<Page<UserModel>> findAllByEmailOrStatusOrType(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
-			@JsonView(UserEntryView.FilterUser.class) UserDto userDto) {
+			@JsonView(UserEntryView.FilterUser.class) UserModel userDto) {
 
 		var userDtoPage = userService.findAllByEmailOrStatusOrType(pageable, userDto);
 		return status(200).body(userDtoPage);
@@ -88,15 +82,15 @@ public class UserController {
 
 	@JsonView(UserReturnView.Default.class)
 	@PutMapping(path = "{userId}")
-	public UserDto updateUser(@PathVariable UUID userId,
-			@RequestBody @JsonView(UserEntryView.UpdateUser.class) UserDto userDto) {
+	public UserModel updateUser(@PathVariable UUID userId,
+			@RequestBody @JsonView(UserEntryView.UpdateUser.class) UserModel userDto) {
 
 		return userService.updateUser(userId, userDto);
 	}
 
 	@PutMapping(path = "{userId}/password")
 	public ResponseEntity<String> updatePassword(@PathVariable UUID userId,
-			@RequestBody @Validated(UserEntryView.UpdatePassword.class) @JsonView(UserEntryView.UpdatePassword.class) UserDto userDto) {
+			@RequestBody @Validated(UserEntryView.UpdatePassword.class) @JsonView(UserEntryView.UpdatePassword.class) UserModel userDto) {
 
 		userService.updatePassword(userId, userDto);
 		return ok().body("Password updated successfully.");
@@ -104,8 +98,8 @@ public class UserController {
 
 	@PutMapping(path = "{userId}/image")
 	@JsonView(UserReturnView.Default.class)
-	public UserDto updateImage(@PathVariable UUID userId,
-			@RequestBody @JsonView(UserEntryView.UpdateImage.class) @Validated(UserEntryView.UpdateImage.class) UserDto userDto) {
+	public UserModel updateImage(@PathVariable UUID userId,
+			@RequestBody @JsonView(UserEntryView.UpdateImage.class) @Validated(UserEntryView.UpdateImage.class) UserModel userDto) {
 
 		return userService.updateImage(userId, userDto);
 	}

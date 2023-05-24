@@ -4,25 +4,26 @@ import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.hateoas.CollectionModel;
 
-import com.ead.authuser.dto.UserDto;
+import com.ead.authuser.dto.UserModel;
 
 public interface UserService {
-	Page<UserDto> findAll(Pageable pageable);
+	Page<CollectionModel<UserModel>> findAll(Pageable pageable);
 
-	UserDto getOneUser(UUID userId);
+	UserModel getOneUser(UUID userId);
 
 	void deleteById(UUID userId);
 
-	UserDto save(UserDto userDto);
+	UserModel save(UserModel userDto);
 
-	UserDto updateUser(UUID userId, UserDto userDto);
+	UserModel updateUser(UUID userId, UserModel userDto);
 
-	void updatePassword(UUID userId, UserDto userDto);
+	void updatePassword(UUID userId, UserModel userDto);
 
-	UserDto updateImage(UUID userId, UserDto userDto);
+	UserModel updateImage(UUID userId, UserModel userDto);
 
-	Page<UserDto> findAllByEmailAndStatusAndType(Pageable pageable, UserDto userDto);
+	Page<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto);
 
-	Page<UserDto> findAllByEmailOrStatusOrType(Pageable pageable, UserDto userDto);
+	Page<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto);
 }
