@@ -4,12 +4,12 @@ import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.PagedModel;
 
 import com.ead.authuser.dto.UserModel;
 
 public interface UserService {
-	Page<CollectionModel<UserModel>> findAll(Pageable pageable);
+	PagedModel<UserModel> findAll(Pageable pageable);
 
 	UserModel getOneUser(UUID userId);
 

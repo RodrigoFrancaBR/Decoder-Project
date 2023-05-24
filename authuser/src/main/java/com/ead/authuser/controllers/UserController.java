@@ -1,18 +1,15 @@
 package com.ead.authuser.controllers;
 
-import static com.ead.authuser.controllers.ControllerHelper.getLinkWithSelfAndRelation;
 import static org.springframework.http.ResponseEntity.ok;
 import static org.springframework.http.ResponseEntity.status;
 
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,7 +39,7 @@ public class UserController {
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping
-	public Page<CollectionModel<UserModel>> findAll(
+	public  PagedModel<UserModel> findAll(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
 		return userService.findAll(pageable);
 	}

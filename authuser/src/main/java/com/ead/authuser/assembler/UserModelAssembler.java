@@ -12,7 +12,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 
@@ -28,28 +27,19 @@ public abstract class UserModelAssembler extends RepresentationModelAssemblerSup
 	}
 
 	@Override
-	@Mapping(target = "nickName", source = "user.userName")	
+	@Mapping(target = "nickName", source = "user.userName")
 	public abstract UserModel toModel(UserEntity user);
-	
-	
-	@Override
-	public CollectionModel<UserModel> toCollectionModel(Iterable<? extends UserEntity> entities) {		
-		return super.toCollectionModel(entities)
-				.add(linkTo(UserController.class).withSelfRel());
+
+	@AfterMapping
+	protected void addLinks(@MappingTarget UserModel userModel, UserEntity user) {
+		userModel.add(getLinkwithSelfRelation(userModel.getUserId())).add(getLinkWithRelation());
 	}
 
-	  @AfterMapping	
-	protected void addLinks(@MappingTarget UserModel userModel, UserEntity user) {		
-		userModel.add(getLinkwithSelfRelation(userModel.getUserId()))
-		.add(getLinkWithRelation());
-	}
-	
 	public Link getLinkwithSelfRelation(UUID userId) {
 		return linkTo(methodOn(UserController.class).getOneUser(userId)).withSelfRel();
 	}
-	
+
 	public Link getLinkWithRelation() {
-		return linkTo(methodOn(UserController.class).findAll( PageRequest.of(0, 10)))
-				.withRel(COLLECTION);
+		return linkTo(methodOn(UserController.class).findAll(PageRequest.of(0, 10))).withRel(COLLECTION);
 	}
 }

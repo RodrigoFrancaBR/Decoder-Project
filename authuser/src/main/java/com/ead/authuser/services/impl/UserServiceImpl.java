@@ -1,16 +1,14 @@
 package com.ead.authuser.services.impl;
 
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.hateoas.CollectionModel;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.stereotype.Service;
 
 import com.ead.authuser.assembler.UserModelAssembler;
-import com.ead.authuser.assembler.UserModelCollectionAssembler;
 import com.ead.authuser.dto.UserModel;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.exceptions.UserConflictException;
@@ -34,8 +32,7 @@ public class UserServiceImpl implements UserService {
 	private final UserMapperRegister userMapperRegister;
 	private final UserRepository userRepository;
 	private final UserModelAssembler userModelAssembler;
-	private final UserModelCollectionAssembler userModelCollectionAssembler;
-	
+	private final PagedResourcesAssembler<UserEntity> pagedResourcesAssembler;
 
 	@Override
 	public UserModel getOneUser(UUID userId) {
@@ -76,14 +73,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Page<CollectionModel<UserModel>> findAll(Pageable pageable) {
-		// uma opção sem sucesso		
-		/*Page<CollectionModel<UserModel>> userModelCollectionPage = userRepository.findAll(pageable)
-				.map(userEntity -> userModelCollectionAssembler.toCollectionModel(List.of(userEntity)));
-		return userModelCollectionPage;*/
-		
-		return userRepository.findAll(pageable).map(userEntity -> userModelAssembler.toCollectionModel(List.of(userEntity)));
-		
+	public PagedModel<UserModel> findAll(Pageable pageable) {
+		Page<UserEntity> pageUserEntity = userRepository.findAll(pageable);
+		return pagedResourcesAssembler.toModel(pageUserEntity, userModelAssembler);
 	}
 
 	@Override

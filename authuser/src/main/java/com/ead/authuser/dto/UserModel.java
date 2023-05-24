@@ -1,14 +1,12 @@
 package com.ead.authuser.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.springframework.hateoas.Link;
 import org.springframework.hateoas.RepresentationModel;
 
 import com.ead.authuser.dto.view.UserEntryView;
@@ -32,7 +30,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserModel extends RepresentationModel<UserModel> implements UserLinkBuilder<UserModel>{
+public class UserModel extends RepresentationModel<UserModel> {
 
 	@JsonView({ UserReturnView.Default.class })
 	private UUID userId;
@@ -87,11 +85,5 @@ public class UserModel extends RepresentationModel<UserModel> implements UserLin
 	@JsonView({ UserReturnView.Default.class })
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime lastUpdateDate;
-	
 
-	@Override
-	public UserModel setLinks(List<Link> links) {		
-		links.forEach(this::add);
-		return this;
-	}
 }
