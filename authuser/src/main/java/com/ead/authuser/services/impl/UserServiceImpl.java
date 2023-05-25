@@ -33,6 +33,12 @@ public class UserServiceImpl implements UserService {
 	private final UserRepository userRepository;
 	private final UserModelAssembler userModelAssembler;
 	private final PagedResourcesAssembler<UserEntity> pagedResourcesAssembler;
+	
+	@Override
+	public PagedModel<UserModel> findAll(Pageable pageable) {
+		Page<UserEntity> pageUserEntity = userRepository.findAll(pageable);
+		return pagedResourcesAssembler.toModel(pageUserEntity, userModelAssembler);
+	}
 
 	@Override
 	public UserModel getOneUser(UUID userId) {
@@ -72,11 +78,7 @@ public class UserServiceImpl implements UserService {
 		return userMapper.toDto(userRepository.save(userModel));
 	}
 
-	@Override
-	public PagedModel<UserModel> findAll(Pageable pageable) {
-		Page<UserEntity> pageUserEntity = userRepository.findAll(pageable);
-		return pagedResourcesAssembler.toModel(pageUserEntity, userModelAssembler);
-	}
+
 
 	@Override
 	public Page<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto) {

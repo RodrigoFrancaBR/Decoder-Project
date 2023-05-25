@@ -4,8 +4,6 @@ import static org.springframework.hateoas.IanaLinkRelations.COLLECTION;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-import java.util.UUID;
-
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
@@ -32,11 +30,8 @@ public abstract class UserModelAssembler extends RepresentationModelAssemblerSup
 
 	@AfterMapping
 	protected void addLinks(@MappingTarget UserModel userModel, UserEntity user) {
-		userModel.add(getLinkwithSelfRelation(userModel.getUserId())).add(getLinkWithRelation());
-	}
-
-	public Link getLinkwithSelfRelation(UUID userId) {
-		return linkTo(methodOn(UserController.class).getOneUser(userId)).withSelfRel();
+		var userWithLinks = createModelWithId(user.getUserId(), user).add(getLinkWithRelation());
+		userModel.add(userWithLinks.getLinks());
 	}
 
 	public Link getLinkWithRelation() {

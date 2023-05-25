@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
 
 import com.ead.authuser.dto.view.UserEntryView;
 import com.ead.authuser.dto.view.UserReturnView;
@@ -25,6 +26,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Relation(collectionRelation = "Users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
