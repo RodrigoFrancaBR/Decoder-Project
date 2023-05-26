@@ -2,7 +2,7 @@ package com.ead.authuser.controllers;
 
 import static org.springframework.hateoas.IanaLinkRelations.COLLECTION;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequestUri;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.UUID;
 
@@ -22,28 +22,26 @@ public class LinksFactory {
 			new TemplateVariable("sort", VariableType.REQUEST_PARAM),
 			new TemplateVariable("direction", VariableType.REQUEST_PARAM));
 
-	public Link getLinkWithRelation() {		
-		var templateVariables = TEMPLATE_VARIABLES
-				.concat(buildFilterTemplateVariables());
+	public Link getLinkWithRelation() {
+		var templateVariables = TEMPLATE_VARIABLES.concat(buildFilterTemplateVariables());
 		var uriTemplate = UriTemplate.of(getUrl(), templateVariables);
-		
 		return Link.of(uriTemplate, COLLECTION);
 	}
 
-	public String getUrl() {
+	private String getUrl() {
 		return linkTo(UserController.class).toUri().toString();
 	}
 
-	public static TemplateVariables buildFilterTemplateVariables() {
+	private TemplateVariables buildFilterTemplateVariables() {
 		return new TemplateVariables(new TemplateVariable("userType", VariableType.REQUEST_PARAM),
 				new TemplateVariable("email", VariableType.REQUEST_PARAM),
 				new TemplateVariable("courseId", VariableType.REQUEST_PARAM),
 				new TemplateVariable("userStatus", VariableType.REQUEST_PARAM));
 	}
-	
-	public static String buildUriLocation(UUID userId) {
-		return fromCurrentRequestUri().path("/{id}")
-				.buildAndExpand(userId).toUri().toString();
+
+	public String buildUriLocation(UUID userId) {
+		return linkTo(methodOn(UserController.class)
+				.getOneUser(userId)).toUri().toString();
 	}
 
 }

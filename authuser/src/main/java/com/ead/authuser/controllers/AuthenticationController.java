@@ -1,6 +1,5 @@
 package com.ead.authuser.controllers;
 
-import static com.ead.authuser.controllers.LinksFactory.buildUriLocation;
 import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.ResponseEntity.status;
@@ -28,19 +27,18 @@ import lombok.RequiredArgsConstructor;
 public class AuthenticationController {
 
 	private final UserService userService;
+	private final LinksFactory factory;
 
 	@JsonView(UserReturnView.Default.class)
 	@PostMapping(path = "/signup")
 	public ResponseEntity<UserModel> registerUser(
-			@RequestBody
-			@Validated(UserEntryView.RegisterUser.class) 
+			@RequestBody @Validated(UserEntryView.RegisterUser.class) 
 			@JsonView(UserEntryView.RegisterUser.class) 
 			UserModel userDto) {
 
 		var savedDto = userService.save(userDto);
-		var location = buildUriLocation(savedDto.getUserId());
-
-		return status(CREATED).header(LOCATION, location).body(savedDto);
+		var location = factory.buildUriLocation(savedDto.getUserId());
+		return status(CREATED).header(LOCATION, location).body(savedDto); 
 	}
 
 }
