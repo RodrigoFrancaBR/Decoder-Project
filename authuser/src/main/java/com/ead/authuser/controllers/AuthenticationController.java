@@ -1,6 +1,6 @@
 package com.ead.authuser.controllers;
 
-import static com.ead.authuser.controllers.ControllerHelper.buildUriLocation;
+import static com.ead.authuser.controllers.LinksFactory.buildUriLocation;
 import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.ResponseEntity.status;
