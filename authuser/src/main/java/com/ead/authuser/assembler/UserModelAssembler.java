@@ -2,15 +2,17 @@ package com.ead.authuser.assembler;
 
 import static org.springframework.hateoas.IanaLinkRelations.COLLECTION;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.TemplateVariable;
+import org.springframework.hateoas.TemplateVariable.VariableType;
+import org.springframework.hateoas.TemplateVariables;
+import org.springframework.hateoas.UriTemplate;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 
 import com.ead.authuser.controllers.UserController;
@@ -35,6 +37,18 @@ public abstract class UserModelAssembler extends RepresentationModelAssemblerSup
 	}
 
 	public Link getLinkWithRelation() {
-		return linkTo(methodOn(UserController.class).findAll(PageRequest.of(0, 10))).withRel(COLLECTION);
+		var uriTemplate = UriTemplate.of(getUrl(), buildTemplateVariables());
+		return Link.of(uriTemplate, COLLECTION);
+	}
+	
+	public String getUrl() {
+		return linkTo(UserController.class).toUri().toString();
+	}
+
+	public TemplateVariables buildTemplateVariables() {
+		return new TemplateVariables(new TemplateVariable("page", VariableType.REQUEST_PARAM),
+				new TemplateVariable("size", VariableType.REQUEST_PARAM),
+				new TemplateVariable("sort", VariableType.REQUEST_PARAM),
+				new TemplateVariable("direction", VariableType.REQUEST_PARAM));
 	}
 }
