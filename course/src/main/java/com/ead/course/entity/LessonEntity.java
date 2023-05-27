@@ -20,16 +20,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "TB_MODULES")
-public class ModuleEntity {
-
+@Table(name = "TB_LESSONS")
+public class LessonEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID moduleId;
+	private UUID lessonId;
 	@Column(nullable = false, length = 150)
 	private String title;
 	@Column(nullable = false, length = 250)
-	private String description;	
+	private String description;
+	@Column(nullable = false)
+	private String videoUrl;
 	@Column(nullable = false)
 	private LocalDateTime creationDate;
 
