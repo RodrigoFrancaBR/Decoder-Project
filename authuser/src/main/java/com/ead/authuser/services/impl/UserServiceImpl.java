@@ -9,12 +9,12 @@ import org.springframework.hateoas.PagedModel;
 import org.springframework.stereotype.Service;
 
 import com.ead.authuser.assembler.UserModelAssembler;
-import com.ead.authuser.dto.UserModel;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.exceptions.UserConflictException;
 import com.ead.authuser.exceptions.UserNotFoundException;
 import com.ead.authuser.mapper.UserMapper;
 import com.ead.authuser.mapper.UserMapperRegister;
+import com.ead.authuser.model.UserModel;
 import com.ead.authuser.repositories.UserRepository;
 import com.ead.authuser.services.UserService;
 import com.ead.authuser.specification.UserWithEmailSpec;

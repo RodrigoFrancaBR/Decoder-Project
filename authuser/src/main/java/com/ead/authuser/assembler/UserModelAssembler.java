@@ -8,10 +8,10 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 
-import com.ead.authuser.controllers.LinksFactory;
-import com.ead.authuser.controllers.UserController;
-import com.ead.authuser.dto.UserModel;
+import com.ead.authuser.controllers.api.UserController;
+import com.ead.authuser.controllers.util.LinksFactory;
 import com.ead.authuser.entity.UserEntity;
+import com.ead.authuser.model.UserModel;
 
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
 public abstract class UserModelAssembler extends RepresentationModelAssemblerSupport<UserEntity, UserModel> {

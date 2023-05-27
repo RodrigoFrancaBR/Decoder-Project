@@ -1,4 +1,4 @@
-package com.ead.authuser.dto;
+package com.ead.authuser.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -10,8 +10,8 @@ import javax.validation.constraints.Size;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
 
-import com.ead.authuser.dto.view.UserEntryView;
-import com.ead.authuser.dto.view.UserReturnView;
+import com.ead.authuser.controllers.views.UserEntryView;
+import com.ead.authuser.controllers.views.UserReturnView;
 import com.ead.authuser.enums.UserStatus;
 import com.ead.authuser.enums.UserType;
 import com.ead.authuser.validation.EmailAlreadyExistConstraint;
@@ -22,15 +22,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Relation(collectionRelation = "Users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@EqualsAndHashCode(callSuper = true)
+@Relation(collectionRelation = "Users")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserModel extends RepresentationModel<UserModel> {
 

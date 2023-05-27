@@ -1,4 +1,4 @@
-package com.ead.authuser.dto.errors;
+package com.ead.authuser.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class FieldErrorOutputDto {
+public class FieldError {
 
     private String field;
     private String message;

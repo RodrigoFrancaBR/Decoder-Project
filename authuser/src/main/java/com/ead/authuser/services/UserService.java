@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.PagedModel;
 
-import com.ead.authuser.dto.UserModel;
+import com.ead.authuser.model.UserModel;
 
 public interface UserService {
 	PagedModel<UserModel> findAll(Pageable pageable);

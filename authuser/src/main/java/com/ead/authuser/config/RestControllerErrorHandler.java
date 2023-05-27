@@ -1,9 +1,9 @@
 package com.ead.authuser.config;
 
 
-import com.ead.authuser.dto.errors.ValidationErrorsOutputDto;
 import com.ead.authuser.exceptions.UserConflictException;
 import com.ead.authuser.exceptions.UserNotFoundException;
+import com.ead.authuser.model.ValidationErrors;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,14 +42,14 @@ public class RestControllerErrorHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({MethodArgumentNotValidException.class})
-    public ValidationErrorsOutputDto handleValidationError(MethodArgumentNotValidException exception) {
+    public ValidationErrors handleValidationError(MethodArgumentNotValidException exception) {
         log.info("MethodArgumentNotValidException: {}", exception);
         return getValidationErrorsOutputDto(exception);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({BindException.class})
-    public ValidationErrorsOutputDto handleValidationErrorFormUrl(BindException exception) {
+    public ValidationErrors handleValidationErrorFormUrl(BindException exception) {
         log.info("BindException: {}", exception);
         return getValidationErrorsOutputDto(exception);
     }
@@ -62,17 +62,17 @@ public class RestControllerErrorHandler {
      */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({InvalidFormatException.class})
-    public ValidationErrorsOutputDto handlerInvalidFormatException(InvalidFormatException exception) {
+    public ValidationErrors handlerInvalidFormatException(InvalidFormatException exception) {
         log.info("InvalidFormatException: {}", exception);
-        ValidationErrorsOutputDto validationErrorsOutputDto = new ValidationErrorsOutputDto();
+        ValidationErrors validationErrorsOutputDto = new ValidationErrors();
         validationErrorsOutputDto.addError("Data inválida: " + exception.getValue().toString());
         return validationErrorsOutputDto;
     }
 
-    private ValidationErrorsOutputDto getValidationErrorsOutputDto(BindException bindException) {
+    private ValidationErrors getValidationErrorsOutputDto(BindException bindException) {
         List<ObjectError> globalErrors = bindException.getBindingResult().getGlobalErrors();
         List<FieldError> fieldErrors = bindException.getBindingResult().getFieldErrors();
-        ValidationErrorsOutputDto validationErrorsOutputDto = new ValidationErrorsOutputDto();
+        ValidationErrors validationErrorsOutputDto = new ValidationErrors();
         globalErrors.forEach(error -> validationErrorsOutputDto.addError(getErrorMessage(error)));
         fieldErrors.forEach(error -> {
             String errorMessage = getErrorMessage(error);

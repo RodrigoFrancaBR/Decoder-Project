@@ -6,8 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.data.domain.Page;
 
-import com.ead.authuser.dto.UserModel;
 import com.ead.authuser.entity.UserEntity;
+import com.ead.authuser.model.UserModel;
 
 
 @Mapper(componentModel = "spring", imports = Page.class)

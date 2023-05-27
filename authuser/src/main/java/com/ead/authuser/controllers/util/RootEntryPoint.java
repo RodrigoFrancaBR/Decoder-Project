@@ -1,4 +1,4 @@
-package com.ead.authuser.controllers;
+package com.ead.authuser.controllers.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.RepresentationModel;

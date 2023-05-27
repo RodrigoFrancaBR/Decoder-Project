@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+spring:
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/ead-course
+    username: postgres
+    password: changeme
+  jpa:
+    hibernate:
+      ddl-auto: create
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc:
+        lob.non-contextual-creation: true
+    properties:
+      hibernate:
+        show_sql: true
+

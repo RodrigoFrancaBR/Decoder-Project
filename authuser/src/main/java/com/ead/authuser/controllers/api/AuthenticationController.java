@@ -1,4 +1,4 @@
-package com.ead.authuser.controllers;
+package com.ead.authuser.controllers.api;
 
 import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ead.authuser.dto.UserModel;
-import com.ead.authuser.dto.view.UserEntryView;
-import com.ead.authuser.dto.view.UserReturnView;
+import com.ead.authuser.controllers.util.LinksFactory;
+import com.ead.authuser.controllers.views.UserEntryView;
+import com.ead.authuser.controllers.views.UserReturnView;
+import com.ead.authuser.model.UserModel;
 import com.ead.authuser.services.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 

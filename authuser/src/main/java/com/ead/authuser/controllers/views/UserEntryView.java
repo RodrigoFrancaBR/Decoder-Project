@@ -1,4 +1,4 @@
-package com.ead.authuser.dto.view;
+package com.ead.authuser.controllers.views;
 
 public interface UserEntryView {
     interface RegisterUser {}
