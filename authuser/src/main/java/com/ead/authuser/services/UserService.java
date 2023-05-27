@@ -9,6 +9,7 @@ import org.springframework.hateoas.PagedModel;
 import com.ead.authuser.model.UserModel;
 
 public interface UserService {
+	
 	PagedModel<UserModel> findAll(Pageable pageable);
 
 	UserModel getOneUser(UUID userId);

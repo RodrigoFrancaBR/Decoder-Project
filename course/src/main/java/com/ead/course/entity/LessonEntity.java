@@ -5,9 +5,11 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "TB_LESSONS")
 public class LessonEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID lessonId;
@@ -34,5 +36,8 @@ public class LessonEntity {
 	private String videoUrl;
 	@Column(nullable = false)
 	private LocalDateTime creationDate;
+
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	private ModuleEntity module;
 
 }
