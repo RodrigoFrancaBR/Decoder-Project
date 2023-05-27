@@ -1,6 +1,5 @@
 package com.ead.authuser.controllers;
 
-import static org.springframework.hateoas.IanaLinkRelations.COLLECTION;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -22,10 +21,12 @@ public class LinksFactory {
 			new TemplateVariable("sort", VariableType.REQUEST_PARAM),
 			new TemplateVariable("direction", VariableType.REQUEST_PARAM));
 
-	public Link getLinkWithRelation() {
+	public Link linkToUsers() {
 		var templateVariables = TEMPLATE_VARIABLES.concat(buildFilterTemplateVariables());
+		
 		var uriTemplate = UriTemplate.of(getUrl(), templateVariables);
-		return Link.of(uriTemplate, COLLECTION);
+		
+		return Link.of(uriTemplate, "Users");
 	}
 
 	private String getUrl() {

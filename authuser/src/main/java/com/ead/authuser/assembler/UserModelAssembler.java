@@ -30,7 +30,7 @@ public abstract class UserModelAssembler extends RepresentationModelAssemblerSup
 	@AfterMapping
 	protected void addLinks(@MappingTarget UserModel userModel, UserEntity user) {
 		var userWithSelfAndRelationLinks = createModelWithId(user.getUserId(), user)
-				.add(factory.getLinkWithRelation());
+				.add(factory.linkToUsers());
 
 		userModel.add(userWithSelfAndRelationLinks.getLinks());
 
