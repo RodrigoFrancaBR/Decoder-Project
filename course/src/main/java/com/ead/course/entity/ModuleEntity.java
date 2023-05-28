@@ -33,10 +33,13 @@ public class ModuleEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID moduleId;
+	
 	@Column(nullable = false, length = 150)
 	private String title;
+	
 	@Column(nullable = false, length = 250)
 	private String description;
+	
 	@Column(nullable = false)
 	private LocalDateTime creationDate;
 
