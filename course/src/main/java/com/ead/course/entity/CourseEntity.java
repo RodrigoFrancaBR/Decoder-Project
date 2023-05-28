@@ -9,12 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
@@ -55,6 +57,6 @@ public class CourseEntity {
 	private UUID userInstructor;
 	
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY )
-    // @Fetch(FetchMode.SUBSELECT)
+    @Fetch(FetchMode.SUBSELECT)
     private Set<ModuleEntity> modules;
 }

@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,7 +44,7 @@ public class ModuleEntity {
 	private CourseEntity course;
 
 	@OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
-	// @Fetch(FetchMode.SUBSELECT)
+	@Fetch(FetchMode.SUBSELECT)
 	private Set<LessonEntity> lessons;
 
 }
