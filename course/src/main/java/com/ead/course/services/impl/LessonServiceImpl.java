@@ -19,9 +19,15 @@ public class LessonServiceImpl implements LessonService {
 
 	@Override
 	public void deleteAllLessonsByModuleId(UUID moduleId) {
-		List<LessonEntity> lessons = lessonRepository.findAllLessonsByModule(moduleId);
+		List<LessonEntity> lessons = lessonRepository.findAllLessonsByModuleId(moduleId);
 		if (!lessons.isEmpty()) {
 			lessonRepository.deleteAll(lessons);
 		}
+	}
+
+	@Override
+	public List<LessonEntity> findAllLessonsByModuleId(UUID moduleId) {
+		List<LessonEntity> lessons = lessonRepository.findAllLessonsByModuleId(moduleId);
+		return lessons;
 	}
 }

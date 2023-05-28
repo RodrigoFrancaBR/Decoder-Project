@@ -14,5 +14,5 @@ import com.ead.course.entity.ModuleEntity;
 public interface ModuleRepository extends JpaRepository<ModuleEntity, UUID> {
 	
 	@Query(value = "SELECT m FROM ModuleEntity m WHERE m.course.courseId = :courseId")
-	List<ModuleEntity> findAllModulesByCourse(@Param("courseId") UUID courseId);
+	List<ModuleEntity> findAllModulesByCourseId(@Param("courseId") UUID courseId);
 }

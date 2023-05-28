@@ -14,5 +14,5 @@ import com.ead.course.entity.LessonEntity;
 public interface LessonRepository extends JpaRepository<LessonEntity, UUID> {
 
 	@Query(value = "SELECT l FROM LessonEntity l WHERE l.module.moduleId = :courseId")
-	List<LessonEntity> findAllLessonsByModule(@Param("courseId") UUID moduleId);
+	List<LessonEntity> findAllLessonsByModuleId(@Param("courseId") UUID moduleId);
 }
