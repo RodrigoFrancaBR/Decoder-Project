@@ -12,7 +12,7 @@ import org.springframework.hateoas.TemplateVariables;
 import org.springframework.hateoas.UriTemplate;
 import org.springframework.stereotype.Component;
 
-import com.ead.authuser.controllers.api.UserController;
+import com.ead.authuser.controllers.UserController;
 
 @Component
 public class LinksFactory {

@@ -8,8 +8,8 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface UserMapperRegister {
-    @Mapping(target = "userName", source = "userDto.nickName")
+    @Mapping(target = "userName", source = "model.nickName")
     @Mapping(defaultValue = "ACTIVE", target = "userStatus")
     @Mapping(defaultValue = "STUDENT", target = "userType")
-    UserEntity toModel(UserModel userDto);
+    UserEntity toEntity(UserModel model);
 }

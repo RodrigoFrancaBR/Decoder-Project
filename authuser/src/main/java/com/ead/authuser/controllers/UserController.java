@@ -1,4 +1,4 @@
-package com.ead.authuser.controllers.api;
+package com.ead.authuser.controllers;
 
 import static org.springframework.http.ResponseEntity.ok;
 import static org.springframework.http.ResponseEntity.status;

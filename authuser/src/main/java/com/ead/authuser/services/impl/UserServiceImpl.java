@@ -98,9 +98,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserModel save(UserModel userDto) {
-		var userModel = userMapperRegister.toModel(userDto);
-		return userMapper.toDto(userRepository.save(userModel));
+	public UserModel save(UserModel userModel) {
+		UserEntity userEntity = userMapperRegister.toEntity(userModel);
+		return userMapper.toDto(userRepository.save(userEntity));
 	}
 
 	private UserEntity findUserById(UUID userId) {

@@ -8,7 +8,7 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 
-import com.ead.authuser.controllers.api.UserController;
+import com.ead.authuser.controllers.UserController;
 import com.ead.authuser.controllers.util.LinksFactory;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.model.UserModel;
