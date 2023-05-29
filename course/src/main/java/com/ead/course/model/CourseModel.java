@@ -10,9 +10,14 @@ import javax.validation.constraints.NotNull;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
 
+import com.ead.authuser.controllers.views.UserEntryView;
+import com.ead.course.controllers.views.CourseEntryView;
+import com.ead.course.controllers.views.CourseReturnView;
 import com.ead.course.entity.ModuleEntity;
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,15 +29,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Relation(collectionRelation = "Courses")
-// @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CourseModel extends RepresentationModel<CourseModel> {
 
+	@JsonView({ CourseReturnView.Default.class })
 	private UUID courseId;
 
-	@NotBlank
+	@NotBlank(groups = CourseEntryView.RegisterCourse.class)
 	private String name;
 
-	@NotBlank
+	@NotBlank(groups = CourseEntryView.RegisterCourse.class)
 	private String description;
 
 	private String imageUrl;
