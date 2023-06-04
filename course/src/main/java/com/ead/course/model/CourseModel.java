@@ -10,12 +10,12 @@ import javax.validation.constraints.NotNull;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
 
-import com.ead.authuser.controllers.views.UserEntryView;
 import com.ead.course.controllers.views.CourseEntryView;
 import com.ead.course.controllers.views.CourseReturnView;
 import com.ead.course.entity.ModuleEntity;
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -34,28 +34,45 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 
 	@JsonView({ CourseReturnView.Default.class })
 	private UUID courseId;
-
+	
+	@JsonView({ CourseEntryView.RegisterCourse.class, 
+				CourseReturnView.Default.class } )
 	@NotBlank(groups = CourseEntryView.RegisterCourse.class)
 	private String name;
-
+	
+	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseReturnView.Default.class } )
 	@NotBlank(groups = CourseEntryView.RegisterCourse.class)
 	private String description;
 
+	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseReturnView.Default.class } )
 	private String imageUrl;
-
+	
+	@JsonView({ CourseReturnView.Default.class } )
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime creationDate;
-
+		
+	@JsonView({ CourseReturnView.Default.class } )
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
 	private LocalDateTime lastUpdateDate;
-
-	@NotNull
+	
+	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseReturnView.Default.class})
+	@NotNull(groups = CourseEntryView.RegisterCourse.class )
 	private CourseStatus courseStatus;
-
-	@NotNull
-	private CourseLevel courseLevel;
-
-	@NotNull
+		
+	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseReturnView.Default.class})
+	@NotNull(groups =  CourseEntryView.RegisterCourse.class )
 	private UUID userInstructor;
-
+	
+	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseReturnView.Default.class } )
+	@NotNull(groups =  CourseEntryView.RegisterCourse.class )
+	private CourseLevel courseLevel;
+	
+	@JsonView({ CourseEntryView.RegisterCourse.class })
 	private Set<ModuleEntity> modules;
 
 }

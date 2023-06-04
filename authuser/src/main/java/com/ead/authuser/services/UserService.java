@@ -12,7 +12,7 @@ public interface UserService {
 	
 	PagedModel<UserModel> findAll(Pageable pageable);
 
-	UserModel getOneUser(UUID userId);
+	UserModel findUser(UUID userId);
 
 	void deleteById(UUID userId);
 

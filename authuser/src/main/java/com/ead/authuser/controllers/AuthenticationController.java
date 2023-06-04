@@ -21,10 +21,11 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController
+
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping(path = "/auth")
 @RequiredArgsConstructor
+@RequestMapping(path = "/auth")
+@RestController
 public class AuthenticationController {
 
 	private final UserService service;
@@ -33,7 +34,8 @@ public class AuthenticationController {
 	@JsonView(UserReturnView.Default.class)
 	@PostMapping(path = "/signup")
 	public ResponseEntity<UserModel> registerUser(
-			@RequestBody @Validated(UserEntryView.RegisterUser.class)
+			@RequestBody
+			@Validated(UserEntryView.RegisterUser.class)
 			@JsonView(UserEntryView.RegisterUser.class)
 			UserModel userModel) {
 		// devolver um link na resposta

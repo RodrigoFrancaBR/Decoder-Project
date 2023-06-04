@@ -38,29 +38,29 @@ public class UserServiceImpl implements UserService {
 		Page<UserEntity> pageUserEntity = userRepository.findAll(pageable);
 		return pagedResourcesAssembler.toModel(pageUserEntity, userModelAssembler);
 	}
-
+	
 	@Override
-	public UserModel getOneUser(UUID userId) {
-		return userModelAssembler.toModel(findUserById(userId));
+	public UserModel findUser(UUID userId) {
+		return userModelAssembler.toModel(findUserIfExist(userId));		
 	}
 
 	@Override
 	public void deleteById(UUID userId) {
-		userRepository.deleteById(findUserById(userId).getUserId());
+		userRepository.deleteById(findUserIfExist(userId).getUserId());
 	}
 
 	@Override
-	public UserModel updateUser(UUID userId, UserModel userDto) {
-		var userModel = findUserById(userId);
-		userModel.setFullName(userDto.getFullName());
-		userModel.setPhoneNumber(userDto.getPhoneNumber());
-		userModel.setCpf(userDto.getCpf());
-		return userMapper.toDto(userRepository.save(userModel));
+	public UserModel updateUser(UUID userId, UserModel userModel) {
+		var user = findUserIfExist(userId);
+		user.setFullName(userModel.getFullName());
+		user.setPhoneNumber(userModel.getPhoneNumber());
+		user.setCpf(userModel.getCpf());
+		return userMapper.toDto(userRepository.save(user));
 	}
 
 	@Override
 	public void updatePassword(UUID userId, UserModel userDto) {
-		var userModel = findUserById(userId);
+		var userModel = findUserIfExist(userId);
 
 		if (!userDto.getOldPassword().equals(userModel.getPassword())) {
 			throw new UserConflictException("Error: Mismatched old password");
@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserModel updateImage(UUID userId, UserModel userDto) {
-		var userModel = findUserById(userId);
+		var userModel = findUserIfExist(userId);
 		userModel.setImageUrl(userDto.getImageUrl());
 		return userMapper.toDto(userRepository.save(userModel));
 	}
@@ -103,8 +103,10 @@ public class UserServiceImpl implements UserService {
 		return userMapper.toDto(userRepository.save(userEntity));
 	}
 
-	private UserEntity findUserById(UUID userId) {
+	private UserEntity findUserIfExist(UUID userId) {
 		return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
 	}
+
+	
 
 }

@@ -1,9 +1,9 @@
 package com.ead.authuser.model;
 
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.Getter;
 @Getter
 public class ValidationErrors {
     private List<String> globalErrorMessages = new ArrayList<>();

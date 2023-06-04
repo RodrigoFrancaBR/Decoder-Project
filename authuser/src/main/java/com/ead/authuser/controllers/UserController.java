@@ -40,21 +40,26 @@ public class UserController {
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping
 	public  PagedModel<UserModel> findAll(
-			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable) {
+			@PageableDefault(page = 0, size = 10, 
+			sort = "userId", direction = Sort.Direction.ASC)
+			Pageable pageable) {
 		return userService.findAll(pageable);
 	}
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "/{userId}")
 	public UserModel getOneUser(@PathVariable UUID userId) {
-		return userService.getOneUser(userId);
+		return userService.findUser(userId);
 	}
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "byEmailAndStatusAndType")
 	public ResponseEntity<Page<UserModel>> findAllByEmailAndStatusAndType(
-			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
-			@JsonView(UserEntryView.FilterUser.class) UserModel userDto) {
+			@PageableDefault(page = 0, size = 10, sort = "userId",
+			direction = Sort.Direction.ASC) 
+			Pageable pageable,
+			@JsonView(UserEntryView.FilterUser.class)
+			UserModel userDto) {
 
 		var userDtoPage = userService.findAllByEmailAndStatusAndType(pageable, userDto);
 		return status(200).body(userDtoPage);
