@@ -57,8 +57,10 @@ public class CourseController {
 	@PutMapping(path = "{courseId}")
 	public CourseModel updateCourse(
 			@PathVariable UUID courseId,
-			@RequestBody 
-			@JsonView(CourseEntryView.UpdateCourse.class) CourseModel courseModel) {
+			@RequestBody
+			@Validated(CourseEntryView.UpdateCourse.class)
+			@JsonView(CourseEntryView.UpdateCourse.class) 
+			CourseModel courseModel) {
 
 		return service.updateCourse(courseId, courseModel);
 	}

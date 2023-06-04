@@ -1,11 +1,9 @@
 package com.ead.course.services.impl;
 
-import java.beans.Beans;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.assembler.CourseModelAssembler;
@@ -26,7 +24,7 @@ public class CourseServiceImpl implements CourseService {
 	private final CourseRepository repository;
 	private final CourseModelAssembler mapper;
 
-	@Transactional	
+	@Transactional
 	private void delete(CourseEntity course) {
 		moduleService.deleteAllModulesByCourseId(course.getCourseId());
 		repository.delete(course);
@@ -42,23 +40,24 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public void deleteById(UUID courseId) {
 		var course = findCourseIfExist(courseId);
-		delete(course);		
+		delete(course);
 	}
-
 
 	@Override
 	public CourseModel updateCourse(UUID courseId, CourseModel courseModel) {
-		var entity = findCourseIfExist(courseId);
-		BeanUtils.copyProperties(courseModel, entity);
-		var saveEntity = repository.save(entity);
+		var courseEntity = findCourseIfExist(courseId);
+		CourseEntity entityMapped = mapper.toEntity(courseModel);
+		mapper.copyPropertiesCannotBeModified(courseEntity, entityMapped);		
+		
+		var saveEntity = repository.save(entityMapped);
+		
 		var saveModel = mapper.toModel(saveEntity);
 		
 		return saveModel;
 	}
-		
+
 	public CourseEntity findCourseIfExist(UUID courseId) {
-		return repository.findById(courseId)
-				.orElseThrow(() -> new CourseNotFoundException("Course not found"));
+		return repository.findById(courseId).orElseThrow(() -> new CourseNotFoundException("Course not found"));
 	}
 
 }

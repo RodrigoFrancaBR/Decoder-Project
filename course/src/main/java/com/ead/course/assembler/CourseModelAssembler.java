@@ -17,4 +17,11 @@ public abstract class CourseModelAssembler extends RepresentationModelAssemblerS
 
 	public abstract CourseEntity toEntity(CourseModel courseModel);
 
+	public void copyPropertiesCannotBeModified(CourseEntity courseEntity, CourseEntity entityMapped) {
+		entityMapped.setCourseId(courseEntity.getCourseId());
+		entityMapped.setLastUpdateDate(courseEntity.getLastUpdateDate());
+		entityMapped.setCreationDate(courseEntity.getCreationDate());
+		entityMapped.setModules(courseEntity.getModules());		;
+	}
+
 }

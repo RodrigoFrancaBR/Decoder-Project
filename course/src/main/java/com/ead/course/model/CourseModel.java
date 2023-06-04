@@ -35,17 +35,22 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 	@JsonView({ CourseReturnView.Default.class })
 	private UUID courseId;
 	
-	@JsonView({ CourseEntryView.RegisterCourse.class, 
+	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseEntryView.UpdateCourse.class,
 				CourseReturnView.Default.class } )
-	@NotBlank(groups = CourseEntryView.RegisterCourse.class)
+	@NotBlank(groups = {CourseEntryView.RegisterCourse.class,
+						CourseEntryView.UpdateCourse.class})
 	private String name;
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseEntryView.UpdateCourse.class,
 				CourseReturnView.Default.class } )
-	@NotBlank(groups = CourseEntryView.RegisterCourse.class)
+	@NotBlank(groups = {CourseEntryView.RegisterCourse.class,
+			  			CourseEntryView.UpdateCourse.class})
 	private String description;
 
 	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseEntryView.UpdateCourse.class,
 				CourseReturnView.Default.class } )
 	private String imageUrl;
 	
@@ -58,18 +63,24 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 	private LocalDateTime lastUpdateDate;
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseEntryView.UpdateCourse.class,
 				CourseReturnView.Default.class})
-	@NotNull(groups = CourseEntryView.RegisterCourse.class )
+	@NotNull(groups = { CourseEntryView.RegisterCourse.class,
+					    CourseEntryView.UpdateCourse.class} )
 	private CourseStatus courseStatus;
 		
 	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseEntryView.UpdateCourse.class,
 				CourseReturnView.Default.class})
-	@NotNull(groups =  CourseEntryView.RegisterCourse.class )
+	@NotNull(groups = { CourseEntryView.RegisterCourse.class,
+						CourseEntryView.UpdateCourse.class})
 	private UUID userInstructor;
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class,
+				CourseEntryView.UpdateCourse.class,
 				CourseReturnView.Default.class } )
-	@NotNull(groups =  CourseEntryView.RegisterCourse.class )
+	@NotNull(groups = {CourseEntryView.RegisterCourse.class,
+					   CourseEntryView.UpdateCourse.class} )
 	private CourseLevel courseLevel;
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class })
