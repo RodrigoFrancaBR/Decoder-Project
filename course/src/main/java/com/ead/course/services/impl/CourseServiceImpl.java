@@ -4,6 +4,10 @@ import java.util.UUID;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.assembler.CourseModelAssembler;
@@ -23,6 +27,7 @@ public class CourseServiceImpl implements CourseService {
 	private final ModuleService moduleService;
 	private final CourseRepository repository;
 	private final CourseModelAssembler mapper;
+	private final PagedResourcesAssembler<CourseEntity> pagedResourcesAssembler;
 
 	@Transactional
 	private void delete(CourseEntity course) {
@@ -58,6 +63,17 @@ public class CourseServiceImpl implements CourseService {
 
 	public CourseEntity findCourseIfExist(UUID courseId) {
 		return repository.findById(courseId).orElseThrow(() -> new CourseNotFoundException("Course not found"));
+	}
+
+	@Override
+	public PagedModel<CourseModel> findAll(Pageable pageable) {
+		Page<CourseEntity> pageCourseEntity = repository.findAll(pageable);
+		return pagedResourcesAssembler.toModel(pageCourseEntity, mapper);
+	}
+
+	@Override
+	public CourseModel findCourse(UUID courseId) {
+		return mapper.toModel(findCourseIfExist(courseId));		
 	}
 
 }
