@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ead.course.controllers.views.ModuleEntryView;
+import com.ead.course.controllers.views.ModuleReturnView;
 import com.ead.course.model.ModuleModel;
 import com.ead.course.usecase.ModuleUseCase;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -27,7 +28,7 @@ public class ModuleController {
 
 	private final ModuleUseCase useCase;
 
-	// @JsonView(ModuleReturnView.Default.class)
+	@JsonView(ModuleReturnView.Default.class)
 	@PostMapping("/courses/{courseId}/modules")
 	public ResponseEntity<ModuleModel> saveModule(
 			@PathVariable(value = "courseId")UUID courseId,

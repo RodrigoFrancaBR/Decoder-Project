@@ -20,11 +20,12 @@ public class ModuleUseCase {
 	private final ModuleModelAssembler assembler;
 
 	public ModuleModel saveModule(UUID courseId, ModuleModel moduleModelRequest) {
+
 		var findCourseEntity = courseService.findCourseEntity(courseId);
 		ModuleEntity moduleEntity = assembler.toEntity(moduleModelRequest);
-		
+
 		moduleEntity.setCourse(findCourseEntity);
-		
+
 		ModuleEntity saveEntity = moduleService.save(moduleEntity);
 		ModuleModel moduleModelResponse = assembler.toModel(saveEntity);
 
