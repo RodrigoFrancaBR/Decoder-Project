@@ -12,7 +12,6 @@ import org.springframework.hateoas.TemplateVariables;
 import org.springframework.hateoas.UriTemplate;
 import org.springframework.stereotype.Component;
 
-import com.ead.authuser.controllers.UserController;
 import com.ead.course.controllers.CourseController;
 
 @Component

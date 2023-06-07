@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.PagedModel;
 
+import com.ead.course.entity.CourseEntity;
 import com.ead.course.model.CourseModel;
 
 public interface CourseService {
@@ -18,4 +19,7 @@ public interface CourseService {
 	public PagedModel<CourseModel> findAll(Pageable pageable);
 
 	public CourseModel findCourse(UUID courseId);
+	
+	public CourseEntity findCourseEntity(UUID courseId);
+
 }

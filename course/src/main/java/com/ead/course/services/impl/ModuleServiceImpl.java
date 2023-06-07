@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.entity.ModuleEntity;
+import com.ead.course.model.ModuleModel;
 import com.ead.course.repository.ModuleRepository;
 import com.ead.course.services.LessonService;
 import com.ead.course.services.ModuleService;
@@ -18,12 +19,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ModuleServiceImpl implements ModuleService {
 
-	private final ModuleRepository moduleRepository;
+	private final ModuleRepository repository;
 	private final LessonService lessonService;
 
 	@Override
 	public void deleteAllModulesByCourseId(UUID courseId) {
-		List<ModuleEntity> modules = moduleRepository.findAllModulesByCourseId(courseId);
+		List<ModuleEntity> modules = repository.findAllModulesByCourseId(courseId);
 		deleteAllModulesIfExist(modules);
 	}
 
@@ -32,7 +33,7 @@ public class ModuleServiceImpl implements ModuleService {
 			for (ModuleEntity module : modules) {
 				lessonService.deleteAllLessonsByModuleId(module.getModuleId());
 			}
-			moduleRepository.deleteAll(modules);
+			repository.deleteAll(modules);
 		}
 	}
 
@@ -40,7 +41,17 @@ public class ModuleServiceImpl implements ModuleService {
 	@Override
 	public void delete(ModuleEntity module) {
 		lessonService.deleteAllLessonsByModuleId(module.getModuleId());
-		moduleRepository.delete(module);
+		repository.delete(module);
+	}
+
+	@Override
+	public ModuleModel save(ModuleModel moduleModel) {
+		return null;
+	}
+
+	@Override
+	public ModuleEntity save(ModuleEntity moduleEntity) {
+		return repository.save(moduleEntity);
 	}
 
 }

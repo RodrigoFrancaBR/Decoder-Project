@@ -76,4 +76,8 @@ public class CourseServiceImpl implements CourseService {
 		return mapper.toModel(findCourseIfExist(courseId));		
 	}
 
+	@Override
+	public CourseEntity findCourseEntity(UUID courseId) {
+		return findCourseIfExist(courseId);		
+	}
 }
