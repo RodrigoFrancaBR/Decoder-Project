@@ -67,7 +67,7 @@ public class CourseEntity {
 	
 	@Column(nullable = false)
 	private UUID userInstructor;
-	
+    
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY )
     @Fetch(FetchMode.SUBSELECT)
     private Set<ModuleEntity> modules;

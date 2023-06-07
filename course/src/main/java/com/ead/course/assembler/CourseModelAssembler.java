@@ -14,6 +14,7 @@ import com.ead.course.model.CourseModel;
 
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
 public abstract class CourseModelAssembler extends RepresentationModelAssemblerSupport<CourseEntity, CourseModel> {
+	
 	@Autowired
 	private LinksFactory factory;
 	

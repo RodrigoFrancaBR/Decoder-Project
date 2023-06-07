@@ -12,14 +12,14 @@ public interface CourseService {
 
 	public CourseModel save(CourseModel courseModel);
 
+	public PagedModel<CourseModel> findAll(Pageable pageable);
+
 	public void deleteById(UUID courseId);
 
 	public CourseModel updateCourse(UUID courseId, CourseModel courseModel);
 
-	public PagedModel<CourseModel> findAll(Pageable pageable);
-
 	public CourseModel findCourse(UUID courseId);
-	
+
 	public CourseEntity findCourseEntity(UUID courseId);
 
 }

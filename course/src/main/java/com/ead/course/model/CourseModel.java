@@ -1,7 +1,6 @@
 package com.ead.course.model;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
@@ -12,7 +11,6 @@ import org.springframework.hateoas.server.core.Relation;
 
 import com.ead.course.controllers.views.CourseEntryView;
 import com.ead.course.controllers.views.CourseReturnView;
-import com.ead.course.entity.ModuleEntity;
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -83,7 +81,8 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 					   CourseEntryView.UpdateCourse.class} )
 	private CourseLevel courseLevel;
 	
+	/* 
 	@JsonView({ CourseEntryView.RegisterCourse.class })
-	private Set<ModuleEntity> modules;
+	private Set<ModuleModel> modules;*/
 
 }

@@ -26,20 +26,27 @@ public class CourseServiceImpl implements CourseService {
 
 	private final ModuleService moduleService;
 	private final CourseRepository repository;
-	private final CourseModelAssembler mapper;
+	private final CourseModelAssembler assembler;
 	private final PagedResourcesAssembler<CourseEntity> pagedResourcesAssembler;
+
+	@Override
+	public CourseModel save(CourseModel courseModel) {
+		CourseEntity courseEntity = assembler.toEntity(courseModel);
+		CourseEntity save = repository.save(courseEntity);
+		return assembler.toModel(courseEntity);
+	}
+
+	@Override
+	public PagedModel<CourseModel> findAll(Pageable pageable) {
+		Page<CourseEntity> pageCourseEntity = repository.findAll(pageable);
+		PagedModel<CourseModel> model = pagedResourcesAssembler.toModel(pageCourseEntity, assembler);
+		return model;
+	}
 
 	@Transactional
 	private void delete(CourseEntity course) {
 		moduleService.deleteAllModulesByCourseId(course.getCourseId());
 		repository.delete(course);
-	}
-
-	@Override
-	public CourseModel save(CourseModel courseModel) {
-		CourseEntity courseEntity = mapper.toEntity(courseModel);
-		CourseEntity save = repository.save(courseEntity);
-		return mapper.toModel(courseEntity);
 	}
 
 	@Override
@@ -51,13 +58,13 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public CourseModel updateCourse(UUID courseId, CourseModel courseModel) {
 		var courseEntity = findCourseIfExist(courseId);
-		CourseEntity entityMapped = mapper.toEntity(courseModel);
-		mapper.copyPropertiesCannotBeModified(courseEntity, entityMapped);		
-		
+		CourseEntity entityMapped = assembler.toEntity(courseModel);
+		assembler.copyPropertiesCannotBeModified(courseEntity, entityMapped);
+
 		var saveEntity = repository.save(entityMapped);
-		
-		var saveModel = mapper.toModel(saveEntity);
-		
+
+		var saveModel = assembler.toModel(saveEntity);
+
 		return saveModel;
 	}
 
@@ -66,18 +73,12 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public PagedModel<CourseModel> findAll(Pageable pageable) {
-		Page<CourseEntity> pageCourseEntity = repository.findAll(pageable);
-		return pagedResourcesAssembler.toModel(pageCourseEntity, mapper);
-	}
-
-	@Override
 	public CourseModel findCourse(UUID courseId) {
-		return mapper.toModel(findCourseIfExist(courseId));		
+		return assembler.toModel(findCourseIfExist(courseId));
 	}
 
 	@Override
 	public CourseEntity findCourseEntity(UUID courseId) {
-		return findCourseIfExist(courseId);		
+		return findCourseIfExist(courseId);
 	}
 }
