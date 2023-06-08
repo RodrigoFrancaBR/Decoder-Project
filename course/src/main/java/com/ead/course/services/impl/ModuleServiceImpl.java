@@ -1,6 +1,7 @@
 package com.ead.course.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
@@ -52,6 +53,11 @@ public class ModuleServiceImpl implements ModuleService {
 	@Override
 	public ModuleEntity save(ModuleEntity moduleEntity) {
 		return repository.save(moduleEntity);
+	}
+
+	@Override
+	public void findModuleByCourse(UUID courseId, UUID moduleId) {
+		repository.findModuleByCourse(courseId, moduleId);
 	}
 
 }

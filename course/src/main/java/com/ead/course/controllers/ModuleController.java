@@ -1,11 +1,14 @@
 package com.ead.course.controllers;
 
+import static org.springframework.http.ResponseEntity.ok;
+
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +32,7 @@ public class ModuleController {
 	private final ModuleUseCase useCase;
 
 	@JsonView(ModuleReturnView.Default.class)
-	@PostMapping("/courses/{courseId}/modules")
+	@PostMapping(path = "/courses/{courseId}/modules")
 	public ResponseEntity<ModuleModel> saveModule(
 			@PathVariable(value = "courseId")UUID courseId,
 			@RequestBody
@@ -41,6 +44,15 @@ public class ModuleController {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(saveModule);
 
+	}
+	
+	@DeleteMapping(path = "/courses/{courseId}/modules/{moduleId}")
+	public ResponseEntity<String> deleteModule(
+			@PathVariable UUID courseId,
+			@PathVariable UUID moduleId) {
+
+		useCase.deleteModule(courseId, moduleId);
+		return ok().body("Module deleted successfully");
 	}
 
 }

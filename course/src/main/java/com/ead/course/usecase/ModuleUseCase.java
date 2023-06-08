@@ -32,4 +32,8 @@ public class ModuleUseCase {
 		return moduleModelResponse;
 	}
 
+	public void deleteModule(UUID courseId, UUID moduleId) {
+		moduleService.findModuleByCourse(courseId, moduleId);
+	}
+
 }
