@@ -57,6 +57,10 @@ public class ModuleServiceImpl implements ModuleService {
 
 	@Override
 	public ModuleEntity findModuleByCourse(UUID courseId, UUID moduleId) {
+		return findModuleByCourseIFExist(courseId, moduleId);
+	}
+
+	private ModuleEntity findModuleByCourseIFExist(UUID courseId, UUID moduleId) {
 		return repository.findModuleByCourse(courseId, moduleId)
 				.orElseThrow(() -> new ModuleNotFoundException("Module not found"));
 	}

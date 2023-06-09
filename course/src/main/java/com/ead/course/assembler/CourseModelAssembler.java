@@ -23,12 +23,19 @@ public abstract class CourseModelAssembler extends RepresentationModelAssemblerS
 	}
 
 	public abstract CourseEntity toEntity(CourseModel courseModel);
-
-	public void copyPropertiesCannotBeModified(CourseEntity courseEntity, CourseEntity entityMapped) {
-		entityMapped.setCourseId(courseEntity.getCourseId());
-		entityMapped.setLastUpdateDate(courseEntity.getLastUpdateDate());
-		entityMapped.setCreationDate(courseEntity.getCreationDate());
-		entityMapped.setModules(courseEntity.getModules());		;
+	/**
+	 * 
+	 * @param modificationsNotAllowed
+	 * Objeto que veio do banco de dados e que possui valores que não podem ser modificados. 
+	 * @param courseModifications
+	 * Objeto que possui as modificações desejadas, esse objeto não pode ter modificações nos seguintes atributos:
+	 * courseId, lastUpdateDate, creationDate, modules
+	 */
+	public void copyPropertiesCannotBeModified(CourseEntity modificationsNotAllowed, CourseEntity courseModifications) {
+		courseModifications.setCourseId(modificationsNotAllowed.getCourseId());
+		courseModifications.setLastUpdateDate(modificationsNotAllowed.getLastUpdateDate());
+		courseModifications.setCreationDate(modificationsNotAllowed.getCreationDate());
+		courseModifications.setModules(modificationsNotAllowed.getModules());		;
 	}
 	
 	@Override	

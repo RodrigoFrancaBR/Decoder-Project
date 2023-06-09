@@ -84,8 +84,11 @@ public class UserController {
 
 	@JsonView(UserReturnView.Default.class)
 	@PutMapping(path = "{userId}")
-	public UserModel updateUser(@PathVariable UUID userId,
-			@RequestBody @JsonView(UserEntryView.UpdateUser.class) UserModel userDto) {
+	public UserModel updateUser(
+			@PathVariable UUID userId,
+			@RequestBody
+			@JsonView(UserEntryView.UpdateUser.class) 
+			UserModel userDto) {
 
 		return userService.updateUser(userId, userDto);
 	}

@@ -29,12 +29,14 @@ public class ModuleModel extends RepresentationModel<ModuleModel> {
 	@JsonView({ ModuleReturnView.Default.class})	
 	private UUID moduleId;
 	
-	@JsonView({ModuleEntryView.RegisterModule.class,		
+	@JsonView({ModuleEntryView.RegisterModule.class,
+				ModuleEntryView.UpdateModule.class,
 			   ModuleReturnView.Default.class } )
 	@NotBlank(groups = {ModuleEntryView.RegisterModule.class})
 	private String title;
 	
-	@JsonView({ModuleEntryView.RegisterModule.class,		
+	@JsonView({ModuleEntryView.RegisterModule.class,
+				ModuleEntryView.UpdateModule.class,		
 			  ModuleReturnView.Default.class } )
 	@NotBlank(groups = {ModuleEntryView.RegisterModule.class})
     private String description;

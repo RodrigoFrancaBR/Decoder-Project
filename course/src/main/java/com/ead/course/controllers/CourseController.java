@@ -41,8 +41,8 @@ public class CourseController {
 	@PostMapping
 	public ResponseEntity<CourseModel> saveCourse(
 			@RequestBody
-			@Validated(CourseEntryView.RegisterCourse.class)
-			@JsonView(CourseEntryView.RegisterCourse.class)			
+			@JsonView(CourseEntryView.RegisterCourse.class)
+			@Validated(CourseEntryView.RegisterCourse.class)						
 			CourseModel courseModel) {
 
 		var course = service.save(courseModel);

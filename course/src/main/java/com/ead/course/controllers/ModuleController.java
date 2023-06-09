@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ead.authuser.controllers.views.UserEntryView;
+import com.ead.authuser.controllers.views.UserReturnView;
+import com.ead.authuser.model.UserModel;
 import com.ead.course.controllers.views.ModuleEntryView;
 import com.ead.course.controllers.views.ModuleReturnView;
 import com.ead.course.model.ModuleModel;
@@ -40,7 +44,6 @@ public class ModuleController {
 			@JsonView(ModuleEntryView.RegisterModule.class)
 			ModuleModel moduleModel) {
 			ModuleModel saveModule = useCase.saveModule(courseId, moduleModel);
-		// var module = service.save(moduleModel);
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(saveModule);
 
@@ -53,6 +56,24 @@ public class ModuleController {
 
 		useCase.deleteModule(courseId, moduleId);
 		return ok().body("Module deleted successfully");
+	}
+	
+	// @JsonView(ModuleReturnView.Default.class)
+	@PutMapping(path = "/courses/{courseId}/modules/{moduleId}")
+	public ResponseEntity<String> updateModule(
+			@PathVariable UUID courseId,
+			@PathVariable UUID moduleId,
+			@RequestBody
+			@JsonView(ModuleEntryView.UpdateModule.class) 
+			ModuleModel moduleModel) {
+
+		useCase.updateModule(courseId, moduleId,moduleModel);
+		return ok().body("Module updated successfully");
+	}
+
+	public Class<?> getOneModule(UUID moduleId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -56,12 +56,14 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public CourseModel updateCourse(UUID courseId, CourseModel courseModel) {
-		var courseEntity = findCourseIfExist(courseId);
-		CourseEntity entityMapped = assembler.toEntity(courseModel);
-		assembler.copyPropertiesCannotBeModified(courseEntity, entityMapped);
+	public CourseModel updateCourse(UUID courseId, CourseModel requestedCourseModifications) {
+		var modificationsNotAllowed = findCourseIfExist(courseId);
+		
+		var courseModifications = assembler.toEntity(requestedCourseModifications);
+		
+		assembler.copyPropertiesCannotBeModified(modificationsNotAllowed, courseModifications);
 
-		var saveEntity = repository.save(entityMapped);
+		var saveEntity = repository.save(courseModifications);
 
 		var saveModel = assembler.toModel(saveEntity);
 
