@@ -1,7 +1,6 @@
 package com.ead.course.services.impl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
@@ -9,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.entity.ModuleEntity;
+import com.ead.course.exceptions.ModuleNotFoundException;
 import com.ead.course.model.ModuleModel;
 import com.ead.course.repository.ModuleRepository;
 import com.ead.course.services.LessonService;
@@ -40,9 +40,9 @@ public class ModuleServiceImpl implements ModuleService {
 
 	@Transactional
 	@Override
-	public void delete(ModuleEntity module) {
-		lessonService.deleteAllLessonsByModuleId(module.getModuleId());
-		repository.delete(module);
+	public void delete(ModuleEntity moduleEntity) {
+		lessonService.deleteAllLessonsByModuleId(moduleEntity.getModuleId());
+		repository.delete(moduleEntity);
 	}
 
 	@Override
@@ -56,8 +56,9 @@ public class ModuleServiceImpl implements ModuleService {
 	}
 
 	@Override
-	public void findModuleByCourse(UUID courseId, UUID moduleId) {
-		repository.findModuleByCourse(courseId, moduleId);
+	public ModuleEntity findModuleByCourse(UUID courseId, UUID moduleId) {
+		return repository.findModuleByCourse(courseId, moduleId)
+				.orElseThrow(() -> new ModuleNotFoundException("Module not found"));
 	}
 
 }

@@ -15,6 +15,6 @@ public interface ModuleService {
 
 	ModuleEntity save(ModuleEntity moduleEntity);
 
-	void findModuleByCourse(UUID courseId, UUID moduleId);
+	ModuleEntity findModuleByCourse(UUID courseId, UUID moduleId);
 
 }

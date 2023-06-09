@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.ead.authuser.exceptions.UserNotFoundException;
 import com.ead.course.assembler.ModuleModelAssembler;
 import com.ead.course.entity.ModuleEntity;
 import com.ead.course.model.ModuleModel;
@@ -33,7 +34,8 @@ public class ModuleUseCase {
 	}
 
 	public void deleteModule(UUID courseId, UUID moduleId) {
-		moduleService.findModuleByCourse(courseId, moduleId);
+		var moduleEntity = moduleService.findModuleByCourse(courseId, moduleId);
+		moduleService.delete(moduleEntity);		
 	}
 
 }
