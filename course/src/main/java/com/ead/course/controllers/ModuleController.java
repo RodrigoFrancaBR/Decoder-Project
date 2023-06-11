@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ead.authuser.controllers.views.UserEntryView;
-import com.ead.authuser.controllers.views.UserReturnView;
-import com.ead.authuser.model.UserModel;
 import com.ead.course.controllers.views.ModuleEntryView;
 import com.ead.course.controllers.views.ModuleReturnView;
 import com.ead.course.model.ModuleModel;
@@ -58,7 +55,7 @@ public class ModuleController {
 		return ok().body("Module deleted successfully");
 	}
 	
-	// @JsonView(ModuleReturnView.Default.class)
+	@JsonView(ModuleReturnView.Default.class)
 	@PutMapping(path = "/courses/{courseId}/modules/{moduleId}")
 	public ResponseEntity<String> updateModule(
 			@PathVariable UUID courseId,
@@ -67,7 +64,7 @@ public class ModuleController {
 			@JsonView(ModuleEntryView.UpdateModule.class) 
 			ModuleModel moduleModel) {
 
-		useCase.updateModule(courseId, moduleId,moduleModel);
+		var updateModule = useCase.updateModule(courseId, moduleId,moduleModel);
 		return ok().body("Module updated successfully");
 	}
 

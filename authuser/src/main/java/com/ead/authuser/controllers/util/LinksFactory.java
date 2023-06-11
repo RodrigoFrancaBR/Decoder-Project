@@ -25,9 +25,9 @@ public class LinksFactory {
 
 	public Link linkToUsers() {
 		var templateVariables = TEMPLATE_VARIABLES.concat(buildFilterTemplateVariables());
-		
+
 		var uriTemplate = UriTemplate.of(getUrl(), templateVariables);
-		
+
 		return Link.of(uriTemplate, "Users");
 	}
 
@@ -43,8 +43,7 @@ public class LinksFactory {
 	}
 
 	public String buildUriLocation(UUID userId) {
-		return linkTo(methodOn(UserController.class)
-				.getOneUser(userId)).toUri().toString();
+		return linkTo(methodOn(UserController.class).getOneUser(userId)).toUri().toString();
 	}
 
 }

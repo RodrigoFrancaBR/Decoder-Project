@@ -5,7 +5,6 @@ import static org.springframework.http.ResponseEntity.status;
 
 import java.util.UUID;
 
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -54,25 +53,25 @@ public class UserController {
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "byEmailAndStatusAndType")
-	public ResponseEntity<Page<UserModel>> findAllByEmailAndStatusAndType(
+	public ResponseEntity<PagedModel<UserModel>> findAllByEmailAndStatusAndType(
 			@PageableDefault(page = 0, size = 10, sort = "userId",
 			direction = Sort.Direction.ASC) 
 			Pageable pageable,
 			@JsonView(UserEntryView.FilterUser.class)
 			UserModel userDto) {
 
-		var userDtoPage = userService.findAllByEmailAndStatusAndType(pageable, userDto);
-		return status(200).body(userDtoPage);
+		var pagedModel = userService.findAllByEmailAndStatusAndType(pageable, userDto);
+		return status(200).body(pagedModel);
 	}
 
 	@JsonView(UserReturnView.Default.class)
 	@GetMapping(path = "byEmailOrStatusOrType")
-	public ResponseEntity<Page<UserModel>> findAllByEmailOrStatusOrType(
+	public ResponseEntity<PagedModel<UserModel>> findAllByEmailOrStatusOrType(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
 			@JsonView(UserEntryView.FilterUser.class) UserModel userDto) {
 
-		var userDtoPage = userService.findAllByEmailOrStatusOrType(pageable, userDto);
-		return status(200).body(userDtoPage);
+		var pagedModel = userService.findAllByEmailOrStatusOrType(pageable, userDto);
+		return status(200).body(pagedModel);
 	}
 
 	@DeleteMapping(path = "{userId}")

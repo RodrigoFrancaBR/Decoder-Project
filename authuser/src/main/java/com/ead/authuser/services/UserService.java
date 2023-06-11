@@ -2,19 +2,22 @@ package com.ead.authuser.services;
 
 import java.util.UUID;
 
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.PagedModel;
 
 import com.ead.authuser.model.UserModel;
 
 public interface UserService {
-	
+
 	PagedModel<UserModel> findAll(Pageable pageable);
+
+	PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto);
+
+	PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto);
 
 	UserModel findUser(UUID userId);
 
-	void deleteById(UUID userId);
+	UserModel updateImage(UUID userId, UserModel userDto);
 
 	UserModel save(UserModel userDto);
 
@@ -22,9 +25,6 @@ public interface UserService {
 
 	void updatePassword(UUID userId, UserModel userDto);
 
-	UserModel updateImage(UUID userId, UserModel userDto);
+	void deleteById(UUID userId);
 
-	Page<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto);
-
-	Page<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto);
 }

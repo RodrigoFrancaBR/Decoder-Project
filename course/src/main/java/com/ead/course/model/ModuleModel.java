@@ -10,6 +10,7 @@ import org.springframework.hateoas.server.core.Relation;
 
 import com.ead.course.controllers.views.ModuleEntryView;
 import com.ead.course.controllers.views.ModuleReturnView;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -42,6 +43,7 @@ public class ModuleModel extends RepresentationModel<ModuleModel> {
     private String description;
 	
 	@JsonView({ ModuleReturnView.Default.class })
+	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
 	private LocalDateTime creationDate;
 	
 /*

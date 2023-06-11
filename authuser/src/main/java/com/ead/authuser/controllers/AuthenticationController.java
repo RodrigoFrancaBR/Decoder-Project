@@ -38,7 +38,6 @@ public class AuthenticationController {
 			@Validated(UserEntryView.RegisterUser.class)
 			@JsonView(UserEntryView.RegisterUser.class)
 			UserModel userModel) {
-		// devolver um link na resposta
 		var savedModel = service.save(userModel);
 		var location = factory.buildUriLocation(savedModel.getUserId());
 		return status(CREATED).header(LOCATION, location).body(savedModel);

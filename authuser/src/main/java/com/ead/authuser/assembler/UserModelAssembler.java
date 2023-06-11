@@ -26,13 +26,12 @@ public abstract class UserModelAssembler extends RepresentationModelAssemblerSup
 	@Override
 	@Mapping(target = "nickName", source = "user.userName")
 	public abstract UserModel toModel(UserEntity user);
-
+	
 	@AfterMapping
-	protected void addLinks(@MappingTarget UserModel userModel, UserEntity user) {
-		var userWithSelfAndRelationLinks = createModelWithId(user.getUserId(), user)
+	protected void addLinks(@MappingTarget UserModel userModel, UserEntity userEntity) {
+		var userWithSelfAndRelationLinks = createModelWithId(userEntity.getUserId(), userEntity)
 				.add(factory.linkToUsers());
 
 		userModel.add(userWithSelfAndRelationLinks.getLinks());
-
-	}
+	}	
 }

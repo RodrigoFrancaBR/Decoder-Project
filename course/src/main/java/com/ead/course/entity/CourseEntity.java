@@ -22,6 +22,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -67,7 +68,8 @@ public class CourseEntity {
 	
 	@Column(nullable = false)
 	private UUID userInstructor;
-    
+	
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY )
     @Fetch(FetchMode.SUBSELECT)
     private Set<ModuleEntity> modules;

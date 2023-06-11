@@ -58,8 +58,7 @@ public class CourseController {
 			Pageable pageable) {
 		PagedModel<CourseModel> findAll = service.findAll(pageable);
 		return findAll;
-	}
-	
+	}	
 
 	@DeleteMapping(path = "/{courseId}")	
 	public ResponseEntity<String> deleteCourse(
@@ -86,5 +85,4 @@ public class CourseController {
 	public CourseModel getOneCourse(@PathVariable UUID courseId) {
 		return service.findCourse(courseId);
 	}
-
 }
