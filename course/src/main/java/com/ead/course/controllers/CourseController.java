@@ -25,6 +25,7 @@ import com.ead.course.controllers.views.CourseEntryView;
 import com.ead.course.controllers.views.CourseReturnView;
 import com.ead.course.model.CourseModel;
 import com.ead.course.services.CourseService;
+import com.ead.course.usecase.CourseFacade;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import lombok.RequiredArgsConstructor;
@@ -34,7 +35,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping(path = "/courses")
 @RestController
 public class CourseController {
-
+	private final CourseFacade facade;
 	private final CourseService service;
 
 	@JsonView(CourseReturnView.Default.class)
@@ -44,8 +45,10 @@ public class CourseController {
 			@JsonView(CourseEntryView.RegisterCourse.class)
 			@Validated(CourseEntryView.RegisterCourse.class)						
 			CourseModel courseModel) {
-
-		var course = service.save(courseModel);
+		
+		var course = facade.saveCourse(courseModel);	
+		
+		// var course = service.save(courseModel);
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(course);
 	}	

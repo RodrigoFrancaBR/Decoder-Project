@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.entity.ModuleEntity;
@@ -24,8 +25,8 @@ public class ModuleServiceImpl implements ModuleService {
 	private final LessonService lessonService;
 
 	@Override
-	public void deleteAllModulesByCourseId(UUID courseId) {
-		List<ModuleEntity> modules = repository.findAllModulesByCourseId(courseId);
+	public void deleteAllByCourse(UUID courseId) {
+		List<ModuleEntity> modules = repository.findAllByCourse(courseId);
 		deleteAllModulesIfExist(modules);
 	}
 
@@ -56,13 +57,18 @@ public class ModuleServiceImpl implements ModuleService {
 	}
 
 	@Override
-	public ModuleEntity findModuleByCourse(UUID courseId, UUID moduleId) {
+	public ModuleEntity findByCourse(UUID courseId, UUID moduleId) {
 		return findModuleByCourseIFExist(courseId, moduleId);
 	}
 
 	private ModuleEntity findModuleByCourseIFExist(UUID courseId, UUID moduleId) {
 		return repository.findModuleByCourse(courseId, moduleId)
 				.orElseThrow(() -> new ModuleNotFoundException("Module not found"));
+	}
+
+	@Override
+	public List<ModuleEntity> findAllByCourse(UUID courseId) {
+		return repository.findAllByCourse(courseId);		
 	}
 
 }

@@ -80,8 +80,7 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 	@NotNull(groups = {CourseEntryView.RegisterCourse.class,
 					   CourseEntryView.UpdateCourse.class} )
 	private CourseLevel courseLevel;
-	
-	/* 
+/*		
 	@JsonView({ CourseEntryView.RegisterCourse.class })
 	private Set<ModuleModel> modules;*/
 

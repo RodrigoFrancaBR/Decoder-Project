@@ -1,6 +1,5 @@
 package com.ead.course.config;
 
-import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -13,8 +12,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestControllerAdvice
 public class RestControllerErrorHandler {
-
-	private final MessageSource messageSource;
 
 	@ExceptionHandler(value = { ModuleNotFoundException.class })
 	@ResponseStatus(value = HttpStatus.NOT_FOUND)

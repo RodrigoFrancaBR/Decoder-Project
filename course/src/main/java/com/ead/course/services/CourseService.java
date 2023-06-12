@@ -10,6 +10,8 @@ import com.ead.course.model.CourseModel;
 
 public interface CourseService {
 
+	public CourseEntity save(CourseEntity courseEntity);
+
 	public CourseModel save(CourseModel courseModel);
 
 	public PagedModel<CourseModel> findAll(Pageable pageable);

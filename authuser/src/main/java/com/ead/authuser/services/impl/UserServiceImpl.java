@@ -34,34 +34,30 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserModel save(UserModel userModel) {
 		var userEntity = entityAssembler.toEntity(userModel);
-		var entitySave = userRepository.save(userEntity);
-		var modelSave = modelAssembler.toModel(entitySave);
-		return modelSave;
-
+		return modelAssembler.toModel(userRepository.save(userEntity));
 	}
 
 	@Override
 	public PagedModel<UserModel> findAll(Pageable pageable) {
-		var pageEntity = userRepository.findAll(pageable);
-		return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
+		return pagedResourcesAssembler.toModel(userRepository.findAll(pageable), modelAssembler);
 	}
 
 	@Override
 	public PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto) {
 		var pageEntity = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
-				.and(new UserWithStatusSpec(userDto.getUserStatus())).and(new UserWithTypeSpec(userDto.getUserType())),
+				.and(new UserWithStatusSpec(userDto.getUserStatus()))
+				.and(new UserWithTypeSpec(userDto.getUserType())),
 				pageable);
-		var pagedModel = pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
-		return pagedModel;
+		return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
 	}
 
 	@Override
 	public PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto) {
 		var pageEntity = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
-				.or(new UserWithStatusSpec(userDto.getUserStatus())).or(new UserWithTypeSpec(userDto.getUserType())),
+				.or(new UserWithStatusSpec(userDto.getUserStatus()))
+				.or(new UserWithTypeSpec(userDto.getUserType())),
 				pageable);
-		var pagedModel = pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
-		return pagedModel;
+		return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
 	}
 
 	@Override
@@ -72,19 +68,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserModel updateUser(UUID userId, UserModel userModel) {
 		var userEntity = findUserIfExist(userId);
-		entityAssembler.copyNonNullProperties(userModel, userEntity);
-		var entitySave = userRepository.save(userEntity);
-		var modelSave = modelAssembler.toModel(entitySave);
-		return modelSave;
+		entityAssembler.copyNonNullProperties(userModel, userEntity);		
+		return modelAssembler.toModel(userRepository.save(userEntity));		
 	}
 
 	@Override
 	public UserModel updateImage(UUID userId, UserModel userModel) {
 		var userEntity = findUserIfExist(userId);
-		entityAssembler.copyNonNullProperties(userModel, userEntity);
-		var entitySave = userRepository.save(userEntity);
-		var modelSave = modelAssembler.toModel(entitySave);
-		return modelSave;
+		entityAssembler.copyNonNullProperties(userModel, userEntity);		
+		return modelAssembler.toModel(userRepository.save(userEntity));		
 	}
 
 	@Override

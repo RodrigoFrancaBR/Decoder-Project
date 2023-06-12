@@ -4,32 +4,24 @@ import java.beans.PropertyDescriptor;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 
-import com.ead.course.controllers.ModuleController;
-import com.ead.course.entity.ModuleEntity;
-import com.ead.course.model.ModuleModel;
+import com.ead.course.entity.CourseEntity;
+import com.ead.course.model.CourseModel;
 
-@Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
-public abstract class ModuleModelAssembler extends RepresentationModelAssemblerSupport<ModuleEntity, ModuleModel> {
-
-	public ModuleModelAssembler() {
-		super(ModuleController.class, ModuleModel.class);
-	}
-
-	@Override
-	public abstract ModuleModel toModel(ModuleEntity moduleEntity);
-
-	public static void copyNonNullProperties(ModuleModel source, ModuleEntity target) {
+@Mapper(componentModel = "spring")
+public interface CourseEntityAssembler {
+	
+	CourseEntity toEntity(CourseModel model);
+	
+	public default void copyNonNullProperties(CourseModel source, CourseEntity target) {
 		BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
 	}
 
-	public static String[] getNullPropertyNames(ModuleModel source) {
+	public default String[] getNullPropertyNames(CourseModel source) {
 		final BeanWrapper bean = new BeanWrapperImpl(source);
 		PropertyDescriptor[] propertyDescriptors = bean.getPropertyDescriptors();
 

@@ -22,7 +22,7 @@ public abstract class CourseModelAssembler extends RepresentationModelAssemblerS
 		super(CourseController.class, CourseModel.class);
 	}
 
-	public abstract CourseEntity toEntity(CourseModel courseModel);
+	// public abstract CourseEntity toEntity(CourseModel courseModel);
 	/**
 	 * 
 	 * @param modificationsNotAllowed
