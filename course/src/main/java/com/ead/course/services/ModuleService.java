@@ -3,23 +3,27 @@ package com.ead.course.services;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.data.domain.Pageable;
-
 import com.ead.course.entity.ModuleEntity;
 import com.ead.course.model.ModuleModel;
 
 public interface ModuleService {
 
+	List<ModuleEntity> findAllByCourseId(UUID courseId);	
+
+	void deleteAll(List<ModuleEntity> modules);
+
+	ModuleEntity findByCourseId(UUID courseId);
+
 	void deleteAllByCourse(UUID courseId);
 
-	void delete(ModuleEntity moduleEntity);
+	void delete(ModuleEntity module);
 
-	ModuleModel save(ModuleModel moduleModel);
+	ModuleModel save(ModuleModel module);
 
-	ModuleEntity save(ModuleEntity moduleEntity);
+	ModuleEntity save(ModuleEntity module);
 
 	ModuleEntity findByCourse(UUID courseId, UUID moduleId);
 
-	List<ModuleEntity> findAllByCourse(UUID courseId);
+	void deleteAllByCourseId(UUID courseId);
 
 }

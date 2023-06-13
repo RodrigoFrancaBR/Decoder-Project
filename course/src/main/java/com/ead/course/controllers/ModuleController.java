@@ -43,6 +43,7 @@ public class ModuleController {
 			@Validated(ModuleEntryView.RegisterModule.class) 
 			@JsonView(ModuleEntryView.RegisterModule.class) 
 			ModuleModel moduleModel) {
+		
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(facade.saveModule(courseId, moduleModel));
 

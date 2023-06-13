@@ -38,7 +38,7 @@ public class ModuleFacade {
 	}
 
 	public CollectionModel<ModuleModel> findAllModulesByCourse(UUID courseId) {
-		return modelAssembler.toCollectionModel(moduleService.findAllByCourse(courseId));
+		return modelAssembler.toCollectionModel(moduleService.findAllByCourseId(courseId));
 	}
 
 	public ModuleModel findOneModuleByCourseId(UUID courseId, UUID moduleId) {

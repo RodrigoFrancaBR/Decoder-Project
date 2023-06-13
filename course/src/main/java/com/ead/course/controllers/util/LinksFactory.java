@@ -44,7 +44,7 @@ public class LinksFactory {
 
 	public String buildUriLocation(UUID courseId) {
 		return linkTo(methodOn(CourseController.class)
-				.getOneCourse(courseId)).toUri().toString();
+				.find(courseId)).toUri().toString();
 	}
 
 }

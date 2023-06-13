@@ -4,9 +4,9 @@ import java.util.UUID;
 
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.hateoas.PagedModel;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.assembler.CourseEntityAssembler;
@@ -31,30 +31,37 @@ public class CourseServiceImpl implements CourseService {
 	private final CourseRepository repository;
 
 	@Override
+	public Page<CourseEntity> findAll(Pageable pageable) {
+		return repository.findAll(pageable);
+	}
+
+	@Override
+	public CourseEntity findByCourseId(UUID courseId) {
+		return findByCourseIdIfExist(courseId);
+	}
+
+	private CourseEntity findByCourseIdIfExist(UUID courseId) {
+		return repository.findById(courseId).orElseThrow(() -> new CourseNotFoundException("Course not found"));
+	}
+
+	@Override
 	public CourseEntity save(CourseEntity courseEntity) {
 		return repository.save(courseEntity);
-
 	}
 
 	@Override
-	public CourseModel save(CourseModel courseModel) {
-		var courseEntity = entityAssembler.toEntity(courseModel);
-		return modelAssembler.toModel(courseEntity);
-	}
-
-	@Override
-	public PagedModel<CourseModel> findAll(Pageable pageable) {
-		return pagedResourcesAssembler.toModel(repository.findAll(pageable), modelAssembler);
+	public void deleteById(UUID courseId) {
+		delete(findByCourseIdIfExist(courseId));
 	}
 
 	@Override
 	public CourseModel findCourse(UUID courseId) {
-		return modelAssembler.toModel(findCourseIfExist(courseId));
+		return modelAssembler.toModel(findByCourseIdIfExist(courseId));
 	}
 
 	@Override
 	public CourseModel updateCourse(UUID courseId, CourseModel courseModel) {
-		var courseEntity = findCourseIfExist(courseId);
+		var courseEntity = findByCourseIdIfExist(courseId);
 		entityAssembler.copyNonNullProperties(courseModel, courseEntity);
 		return modelAssembler.toModel(repository.save(courseEntity));
 	}
@@ -66,17 +73,19 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public void deleteById(UUID courseId) {
-		delete(findCourseIfExist(courseId));
-	}
-
-	public CourseEntity findCourseIfExist(UUID courseId) {
-		return repository.findById(courseId).orElseThrow(() -> new CourseNotFoundException("Course not found"));
+	public CourseEntity findCourseEntity(UUID courseId) {
+		return findByCourseIdIfExist(courseId);
 	}
 
 	@Override
-	public CourseEntity findCourseEntity(UUID courseId) {
-		return findCourseIfExist(courseId);
+	public CourseEntity findByCourse(CourseEntity course) {
+		return findByCourseIdIfExist(course.getCourseId());
+	}
+
+	@Override
+	public CourseModel save(CourseModel courseModel) {
+		var courseEntity = entityAssembler.toEntity(courseModel);
+		return modelAssembler.toModel(courseEntity);
 	}
 
 }

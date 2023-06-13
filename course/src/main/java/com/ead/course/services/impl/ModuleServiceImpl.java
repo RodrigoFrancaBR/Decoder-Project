@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import javax.transaction.Transactional;
 
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.entity.ModuleEntity;
@@ -25,9 +24,19 @@ public class ModuleServiceImpl implements ModuleService {
 	private final LessonService lessonService;
 
 	@Override
-	public void deleteAllByCourse(UUID courseId) {
-		List<ModuleEntity> modules = repository.findAllByCourse(courseId);
-		deleteAllModulesIfExist(modules);
+	public List<ModuleEntity> findAllByCourseId(UUID courseId) {
+		return repository.findAllByCourseId(courseId);
+	}
+
+	@Override
+	public void deleteAll(List<ModuleEntity> modules) {
+		repository.deleteAll(modules);
+	}
+
+	@Override
+	public void deleteAllByCourseId(UUID courseId) {
+		var moduleEntityList = repository.findAllByCourseId(courseId);
+		deleteAllModulesIfExist(moduleEntityList);
 	}
 
 	private void deleteAllModulesIfExist(List<ModuleEntity> modules) {
@@ -37,6 +46,12 @@ public class ModuleServiceImpl implements ModuleService {
 			}
 			repository.deleteAll(modules);
 		}
+	}
+
+	@Override
+	public void deleteAllByCourse(UUID courseId) {
+		List<ModuleEntity> modules = repository.findAllByCourseId(courseId);
+		deleteAllModulesIfExist(modules);
 	}
 
 	@Transactional
@@ -67,8 +82,9 @@ public class ModuleServiceImpl implements ModuleService {
 	}
 
 	@Override
-	public List<ModuleEntity> findAllByCourse(UUID courseId) {
-		return repository.findAllByCourse(courseId);		
+	public ModuleEntity findByCourseId(UUID courseId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
