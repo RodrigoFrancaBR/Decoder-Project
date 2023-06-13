@@ -26,4 +26,6 @@ public interface ModuleService {
 
 	void deleteAllByCourseId(UUID courseId);
 
+	ModuleEntity findByModuleId(UUID moduleId);
+
 }

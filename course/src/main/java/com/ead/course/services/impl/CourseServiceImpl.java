@@ -6,7 +6,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.assembler.CourseEntityAssembler;
@@ -27,7 +26,6 @@ public class CourseServiceImpl implements CourseService {
 	private final ModuleService moduleService;
 	private final CourseEntityAssembler entityAssembler;
 	private final CourseModelAssembler modelAssembler;
-	private final PagedResourcesAssembler<CourseEntity> pagedResourcesAssembler;
 	private final CourseRepository repository;
 
 	@Override

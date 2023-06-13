@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-import org.springframework.data.repository.Repository;
-import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
 
 import com.ead.course.entity.LessonEntity;
@@ -43,6 +41,11 @@ public class LessonServiceImpl implements LessonService {
 	public List<LessonEntity> findAllLessonsByModuleId(UUID moduleId) {
 		List<LessonEntity> lessons = repository.findAllLessonsByModuleId(moduleId);
 		return lessons;
+	}
+
+	@Override
+	public LessonEntity save(LessonEntity lessonEntity) {
+		return repository.save(lessonEntity);
 	}
 
 }

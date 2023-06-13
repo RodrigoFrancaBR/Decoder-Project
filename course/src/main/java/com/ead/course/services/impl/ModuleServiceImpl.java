@@ -73,10 +73,10 @@ public class ModuleServiceImpl implements ModuleService {
 
 	@Override
 	public ModuleEntity findByCourse(UUID courseId, UUID moduleId) {
-		return findModuleByCourseIFExist(courseId, moduleId);
+		return findByCourseAndModuleIdIfExist(courseId, moduleId);
 	}
 
-	private ModuleEntity findModuleByCourseIFExist(UUID courseId, UUID moduleId) {
+	private ModuleEntity findByCourseAndModuleIdIfExist(UUID courseId, UUID moduleId) {
 		return repository.findModuleByCourse(courseId, moduleId)
 				.orElseThrow(() -> new ModuleNotFoundException("Module not found"));
 	}
@@ -85,6 +85,16 @@ public class ModuleServiceImpl implements ModuleService {
 	public ModuleEntity findByCourseId(UUID courseId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public ModuleEntity findByModuleId(UUID moduleId) {
+		findByModuleIdIfExist(moduleId);
+		return null;
+	}
+
+	private ModuleEntity findByModuleIdIfExist(UUID moduleId) {
+		return repository.findById(moduleId).orElseThrow(() -> new ModuleNotFoundException("Module not found"));
 	}
 
 }

@@ -13,7 +13,6 @@ import com.ead.course.assembler.CourseEntityAssembler;
 import com.ead.course.assembler.CourseModelAssembler;
 import com.ead.course.entity.CourseEntity;
 import com.ead.course.model.CourseModel;
-import com.ead.course.repository.CourseRepository;
 import com.ead.course.services.CourseService;
 import com.ead.course.services.LessonService;
 import com.ead.course.services.ModuleService;

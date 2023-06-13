@@ -8,7 +8,7 @@ import com.ead.course.entity.LessonEntity;
 import com.ead.course.entity.ModuleEntity;
 
 public interface LessonService {
-	
+
 	void deleteAll(Set<LessonEntity> lessons);
 
 	void deleteAllByModule(ModuleEntity module);
@@ -17,6 +17,6 @@ public interface LessonService {
 
 	List<LessonEntity> findAllLessonsByModuleId(UUID moduleId);
 
-	
+	LessonEntity save(LessonEntity lessonEntity);
 
 }
