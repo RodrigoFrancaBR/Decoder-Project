@@ -37,8 +37,7 @@ public class ModuleController {
 	@JsonView(ModuleReturnView.Default.class)
 	@PostMapping(path = "/courses/{courseId}/modules")
 	public ResponseEntity<ModuleModel> save(
-			@PathVariable(value = "courseId") 
-			UUID courseId,
+			@PathVariable UUID courseId,
 			@RequestBody
 			@Validated(ModuleEntryView.RegisterModule.class) 
 			@JsonView(ModuleEntryView.RegisterModule.class) 
@@ -46,7 +45,6 @@ public class ModuleController {
 		
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(facade.saveModule(courseId, moduleModel));
-
 	}
 
 	@DeleteMapping(path = "/courses/{courseId}/modules/{moduleId}")
@@ -72,16 +70,16 @@ public class ModuleController {
 	}
 		
     @GetMapping("/courses/{courseId}/modules")
-    public ResponseEntity<CollectionModel<ModuleModel>> findAllByCourse(
-    		@PathVariable(value="courseId") UUID courseId){
-    	var modulesModelList = facade.findAllModulesByCourse(courseId); 
+    public ResponseEntity<CollectionModel<ModuleModel>> findAll(
+    		@PathVariable UUID courseId){
+    	var modulesModelList = facade.findAllModulesByCourseId(courseId); 
     	return ResponseEntity.status(HttpStatus.OK).body(modulesModelList);         
     }
     
     @GetMapping("/courses/{courseId}/modules/{moduleId}")
-    public ModuleModel findOne(
-    		@PathVariable(value="courseId") UUID courseId,
-    		@PathVariable(value="moduleId") UUID moduleId){
+    public ModuleModel find(
+    		@PathVariable UUID courseId,
+    		@PathVariable UUID moduleId){
 		var moduleModel = facade.findOneModuleByCourseId(courseId, moduleId);		
     	return moduleModel;
     }

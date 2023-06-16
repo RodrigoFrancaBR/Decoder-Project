@@ -33,5 +33,6 @@ public interface CourseService {
 	public CourseEntity findByCourse(CourseEntity course);
 
 	public CourseModel save(CourseModel courseModel);
+	
 
 }

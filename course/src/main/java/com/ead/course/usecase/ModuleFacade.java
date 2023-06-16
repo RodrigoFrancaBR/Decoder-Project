@@ -28,21 +28,21 @@ public class ModuleFacade {
 	}
 
 	public ModuleModel updateModule(UUID courseId, UUID moduleId, ModuleModel moduleModel) {
-		var moduleEntity = moduleService.findByCourse(courseId, moduleId);
+		var moduleEntity = moduleService.findByCourseAndModuleId(courseId, moduleId);
 		entityAssembler.copyNonNullProperties(moduleModel, moduleEntity);
 		return modelAssembler.toModel(moduleService.save(moduleEntity));
 	}
 
 	public void deleteModule(UUID courseId, UUID moduleId) {
-		moduleService.delete(moduleService.findByCourse(courseId, moduleId));
+		moduleService.delete(moduleService.findByCourseAndModuleId(courseId, moduleId));
 	}
 
-	public CollectionModel<ModuleModel> findAllModulesByCourse(UUID courseId) {
+	public CollectionModel<ModuleModel> findAllModulesByCourseId(UUID courseId) {
 		return modelAssembler.toCollectionModel(moduleService.findAllByCourseId(courseId));
 	}
 
 	public ModuleModel findOneModuleByCourseId(UUID courseId, UUID moduleId) {
-		return modelAssembler.toModel(moduleService.findByCourse(courseId, moduleId));
+		return modelAssembler.toModel(moduleService.findByCourseAndModuleId(courseId, moduleId));
 	}
 
 }

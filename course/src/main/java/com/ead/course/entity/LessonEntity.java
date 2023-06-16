@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,7 +39,8 @@ public class LessonEntity {
 
 	@Column(nullable = false)
 	private String videoUrl;
-
+	
+	@CreationTimestamp
 	@Column(nullable = false)
 	private LocalDateTime creationDate;
 

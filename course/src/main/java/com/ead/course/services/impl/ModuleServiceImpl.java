@@ -27,7 +27,8 @@ public class ModuleServiceImpl implements ModuleService {
 	public List<ModuleEntity> findAllByCourseId(UUID courseId) {
 		return repository.findAllByCourseId(courseId);
 	}
-
+	
+	@Transactional
 	@Override
 	public void deleteAll(List<ModuleEntity> modules) {
 		repository.deleteAll(modules);
@@ -42,7 +43,7 @@ public class ModuleServiceImpl implements ModuleService {
 	private void deleteAllModulesIfExist(List<ModuleEntity> modules) {
 		if (!modules.isEmpty()) {
 			for (ModuleEntity module : modules) {
-				lessonService.deleteAllLessonsByModuleId(module.getModuleId());
+				lessonService.deleteAllByModuleId(module.getModuleId());
 			}
 			repository.deleteAll(modules);
 		}
@@ -57,7 +58,7 @@ public class ModuleServiceImpl implements ModuleService {
 	@Transactional
 	@Override
 	public void delete(ModuleEntity moduleEntity) {
-		lessonService.deleteAllLessonsByModuleId(moduleEntity.getModuleId());
+		lessonService.deleteAllByModuleId(moduleEntity.getModuleId());
 		repository.delete(moduleEntity);
 	}
 
@@ -72,7 +73,7 @@ public class ModuleServiceImpl implements ModuleService {
 	}
 
 	@Override
-	public ModuleEntity findByCourse(UUID courseId, UUID moduleId) {
+	public ModuleEntity findByCourseAndModuleId(UUID courseId, UUID moduleId) {
 		return findByCourseAndModuleIdIfExist(courseId, moduleId);
 	}
 
@@ -89,12 +90,18 @@ public class ModuleServiceImpl implements ModuleService {
 
 	@Override
 	public ModuleEntity findByModuleId(UUID moduleId) {
-		findByModuleIdIfExist(moduleId);
-		return null;
+		return findByModuleIdIfExist(moduleId);		
 	}
 
 	private ModuleEntity findByModuleIdIfExist(UUID moduleId) {
 		return repository.findById(moduleId).orElseThrow(() -> new ModuleNotFoundException("Module not found"));
+	}
+
+	@Override
+	public void deleteAllModulesByCourseId(UUID courseId) {
+		List<ModuleEntity> modules = repository.findAllByCourseId(courseId);
+		deleteAllModulesIfExist(modules);
+		
 	}
 
 }

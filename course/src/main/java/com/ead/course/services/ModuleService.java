@@ -22,10 +22,12 @@ public interface ModuleService {
 
 	ModuleEntity save(ModuleEntity module);
 
-	ModuleEntity findByCourse(UUID courseId, UUID moduleId);
+	ModuleEntity findByCourseAndModuleId(UUID courseId, UUID moduleId);
 
 	void deleteAllByCourseId(UUID courseId);
 
 	ModuleEntity findByModuleId(UUID moduleId);
+
+	void deleteAllModulesByCourseId(UUID courseId);
 
 }

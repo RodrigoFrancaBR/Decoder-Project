@@ -30,10 +30,10 @@ public class CourseFacade {
 	private final CourseModelAssembler modelAssembler;
 	private final CourseEntityAssembler entityAssembler;
 
-	private final PagedResourcesAssembler<CourseEntity> pagedResourcesAssembler;
+	private final PagedResourcesAssembler<CourseEntity> assembler;
 
 	public PagedModel<CourseModel> findAllCourse(Pageable pageable) {
-		return pagedResourcesAssembler.toModel(courseService.findAll(pageable), modelAssembler);
+		return assembler.toModel(courseService.findAll(pageable), modelAssembler);
 	}
 
 	public CourseModel findCourse(UUID courseId) {
@@ -52,12 +52,12 @@ public class CourseFacade {
 	}
 
 	@Transactional
-	public void deleteCourse(UUID courseId) {
-		var courseEntity = courseService.findByCourseId(courseId);
-		var moduleEntityList = moduleService.findAllByCourseId(courseEntity.getCourseId());
-		moduleEntityList.parallelStream().forEach(module -> lessonService.deleteAll(module.getLessons()));
-		moduleService.deleteAll(moduleEntityList);
-		courseService.deleteById(courseEntity.getCourseId());
+	public void deleteCourse(UUID courseId) {		
+		var course = courseService.findByCourseId(courseId);
+		var modules = moduleService.findAllByCourseId(course.getCourseId());
+		modules.stream().forEach(module->lessonService.deleteAllByModuleId(module.getModuleId()));
+		moduleService.deleteAllByCourseId(course.getCourseId());
+		courseService.deleteById(course.getCourseId());		
 	}
 
 }

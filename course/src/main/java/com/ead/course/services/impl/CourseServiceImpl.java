@@ -46,7 +46,8 @@ public class CourseServiceImpl implements CourseService {
 	public CourseEntity save(CourseEntity courseEntity) {
 		return repository.save(courseEntity);
 	}
-
+	
+	@Transactional
 	@Override
 	public void deleteById(UUID courseId) {
 		delete(findByCourseIdIfExist(courseId));
