@@ -1,4 +1,4 @@
-package com.ead.authuser.specification;
+package com.ead.authuser.specifications;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

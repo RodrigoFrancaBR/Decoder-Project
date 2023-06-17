@@ -1,4 +1,4 @@
-package com.ead.authuser.specification;
+package com.ead.authuser.specifications;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -21,8 +21,12 @@ public class UserWithEmailSpec implements Specification<UserEntity> {
 
 	@Override
 	public Predicate toPredicate(Root<UserEntity> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-		var emailParameter = new StringBuilder().append("%").append(email).append("%").toString();
-		return builder.like(root.get("email"), emailParameter);
+		var pattern = new StringBuilder()
+				.append("%")
+				.append(email)
+				.append("%")
+				.toString();
+		return builder.like(root.get("email"), pattern);
 	}
 
 }
