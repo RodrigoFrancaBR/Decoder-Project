@@ -1,19 +1,16 @@
 package com.ead.authuser.specifications;
 
+import com.ead.authuser.entity.UserEntity;
+import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.springframework.data.jpa.domain.Specification;
-
-import com.ead.authuser.entity.UserEntity;
-
-import lombok.AllArgsConstructor;
-
 @AllArgsConstructor
-public class UserWithEmailSpec implements Specification<UserEntity> {
-	// poderia ser uma interface com método default
+public class UserWithEmailSpec implements Specification<UserEntity> {	// 
 
 	private static final long serialVersionUID = 4735832117376585820L;
 	

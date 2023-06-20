@@ -1,23 +1,19 @@
 package com.ead.course.model;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
-
-import javax.validation.constraints.NotBlank;
-
-import org.springframework.hateoas.RepresentationModel;
-import org.springframework.hateoas.server.core.Relation;
-
 import com.ead.course.controllers.views.LessonEntryView;
 import com.ead.course.controllers.views.LessonReturnView;
-import com.ead.course.entity.LessonEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
+
+import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor

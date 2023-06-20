@@ -1,14 +1,5 @@
 package com.ead.course.usecase;
 
-import java.util.UUID;
-
-import javax.transaction.Transactional;
-
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.hateoas.PagedModel;
-import org.springframework.stereotype.Service;
-
 import com.ead.course.assembler.CourseEntityAssembler;
 import com.ead.course.assembler.CourseModelAssembler;
 import com.ead.course.entity.CourseEntity;
@@ -16,8 +7,14 @@ import com.ead.course.model.CourseModel;
 import com.ead.course.services.CourseService;
 import com.ead.course.services.LessonService;
 import com.ead.course.services.ModuleService;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.PagedModel;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -55,9 +52,12 @@ public class CourseFacade {
 	public void deleteCourse(UUID courseId) {		
 		var course = courseService.findByCourseId(courseId);
 		var modules = moduleService.findAllByCourseId(course.getCourseId());
-		modules.stream().forEach(module->lessonService.deleteAllByModuleId(module.getModuleId()));
+		modules.forEach(module->lessonService.deleteAllByModuleId(module.getModuleId()));
 		moduleService.deleteAllByCourseId(course.getCourseId());
 		courseService.deleteById(course.getCourseId());		
 	}
 
+	public PagedModel<CourseModel> findAllByLevelAndStatusAndName(Pageable pageable, CourseModel courseModel) {
+		return courseService.findAllByLevelAndStatusAndName(pageable, courseModel);
+	}
 }

@@ -1,13 +1,5 @@
 package com.ead.authuser.services.impl;
 
-import java.util.Objects;
-import java.util.UUID;
-
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.hateoas.PagedModel;
-import org.springframework.stereotype.Service;
-
 import com.ead.authuser.assembler.UserEntityAssembler;
 import com.ead.authuser.assembler.UserModelAssembler;
 import com.ead.authuser.entity.UserEntity;
@@ -16,16 +8,21 @@ import com.ead.authuser.exceptions.UserNotFoundException;
 import com.ead.authuser.model.UserModel;
 import com.ead.authuser.repositories.UserRepository;
 import com.ead.authuser.services.UserService;
-import com.ead.authuser.specification.UserWithEmailSpec;
-import com.ead.authuser.specification.UserWithStatusSpec;
-import com.ead.authuser.specification.UserWithTypeSpec;
-
+import com.ead.authuser.specifications.UserWithEmailSpec;
+import com.ead.authuser.specifications.UserWithStatusSpec;
+import com.ead.authuser.specifications.UserWithTypeSpec;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.PagedModel;
+import org.springframework.stereotype.Service;
+
+import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
 	private final UserModelAssembler modelAssembler;
 	private final UserEntityAssembler entityAssembler;
 	private final PagedResourcesAssembler<UserEntity> pagedResourcesAssembler;
@@ -43,10 +40,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto) {
-		var pageEntity = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
-				.and(new UserWithStatusSpec(userDto.getUserStatus()))
-				.and(new UserWithTypeSpec(userDto.getUserType())),
+	public PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userModel) {
+		var pageEntity = userRepository.findAll(new UserWithEmailSpec(userModel.getEmail())
+				.and(new UserWithStatusSpec(userModel.getUserStatus()))
+				.and(new UserWithTypeSpec(userModel.getUserType())),
 				pageable);
 		return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
 	}

@@ -1,11 +1,10 @@
 package com.ead.authuser.validation;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-
+import com.ead.authuser.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ead.authuser.repositories.UserRepository;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class EmailAlreadyExistConstraintImpl implements ConstraintValidator<EmailAlreadyExistConstraint, String> {
 

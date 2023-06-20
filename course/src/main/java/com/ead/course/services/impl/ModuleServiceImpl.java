@@ -1,20 +1,17 @@
 package com.ead.course.services.impl;
 
-import java.util.List;
-import java.util.UUID;
-
-import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Service;
-
 import com.ead.course.entity.ModuleEntity;
 import com.ead.course.exceptions.ModuleNotFoundException;
 import com.ead.course.model.ModuleModel;
 import com.ead.course.repository.ModuleRepository;
 import com.ead.course.services.LessonService;
 import com.ead.course.services.ModuleService;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

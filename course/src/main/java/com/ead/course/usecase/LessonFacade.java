@@ -1,19 +1,17 @@
 package com.ead.course.usecase;
 
-import java.util.UUID;
-
-import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.stereotype.Service;
-
 import com.ead.course.assembler.LessonEntityAssembler;
 import com.ead.course.assembler.LessonModelAssembler;
 import com.ead.course.entity.LessonEntity;
 import com.ead.course.model.LessonModel;
 import com.ead.course.services.LessonService;
 import com.ead.course.services.ModuleService;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service

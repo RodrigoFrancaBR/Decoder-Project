@@ -1,16 +1,15 @@
 package com.ead.course.assembler;
 
+import com.ead.course.controllers.LessonController;
+import com.ead.course.controllers.util.LinksFactory;
+import com.ead.course.entity.LessonEntity;
+import com.ead.course.model.LessonModel;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
-
-import com.ead.course.controllers.LessonController;
-import com.ead.course.controllers.util.LinksFactory;
-import com.ead.course.entity.LessonEntity;
-import com.ead.course.model.LessonModel;
 
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
 public abstract class LessonModelAssembler extends RepresentationModelAssemblerSupport<LessonEntity, LessonModel> {

@@ -1,17 +1,16 @@
 package com.ead.authuser.assembler;
 
-import java.beans.PropertyDescriptor;
-import java.util.HashSet;
-import java.util.Set;
-
+import com.ead.authuser.entity.UserEntity;
+import com.ead.authuser.model.UserModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
-import com.ead.authuser.entity.UserEntity;
-import com.ead.authuser.model.UserModel;
+import java.beans.PropertyDescriptor;
+import java.util.HashSet;
+import java.util.Set;
 
 @Mapper(componentModel = "spring")
 public interface UserEntityAssembler {

@@ -1,17 +1,12 @@
 package com.ead.authuser.assembler;
 
-import org.mapstruct.AfterMapping;
-import org.mapstruct.Builder;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
-
 import com.ead.authuser.controllers.UserController;
 import com.ead.authuser.controllers.util.LinksFactory;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.model.UserModel;
+import org.mapstruct.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
 public abstract class UserModelAssembler extends RepresentationModelAssemblerSupport<UserEntity, UserModel> {

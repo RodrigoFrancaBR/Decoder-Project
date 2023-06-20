@@ -1,32 +1,23 @@
 package com.ead.authuser.controllers;
 
-import static org.springframework.http.ResponseEntity.ok;
-import static org.springframework.http.ResponseEntity.status;
-
-import java.util.UUID;
-
+import com.ead.authuser.controllers.views.UserEntryView;
+import com.ead.authuser.controllers.views.UserReturnView;
+import com.ead.authuser.model.UserModel;
+import com.ead.authuser.services.UserService;
+import com.fasterxml.jackson.annotation.JsonView;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.ead.authuser.controllers.views.UserEntryView;
-import com.ead.authuser.controllers.views.UserReturnView;
-import com.ead.authuser.model.UserModel;
-import com.ead.authuser.services.UserService;
-import com.fasterxml.jackson.annotation.JsonView;
+import java.util.UUID;
 
-import lombok.RequiredArgsConstructor;
+import static org.springframework.http.ResponseEntity.ok;
+import static org.springframework.http.ResponseEntity.status;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -58,9 +49,9 @@ public class UserController {
 			direction = Sort.Direction.ASC) 
 			Pageable pageable,
 			@JsonView(UserEntryView.FilterUser.class)
-			UserModel userDto) {
+			UserModel userModel) {
 
-		var pagedModel = userService.findAllByEmailAndStatusAndType(pageable, userDto);
+		var pagedModel = userService.findAllByEmailAndStatusAndType(pageable, userModel);
 		return status(200).body(pagedModel);
 	}
 
@@ -68,9 +59,9 @@ public class UserController {
 	@GetMapping(path = "byEmailOrStatusOrType")
 	public ResponseEntity<PagedModel<UserModel>> findAllByEmailOrStatusOrType(
 			@PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
-			@JsonView(UserEntryView.FilterUser.class) UserModel userDto) {
+			@JsonView(UserEntryView.FilterUser.class) UserModel userModel) {
 
-		var pagedModel = userService.findAllByEmailOrStatusOrType(pageable, userDto);
+		var pagedModel = userService.findAllByEmailOrStatusOrType(pageable, userModel);
 		return status(200).body(pagedModel);
 	}
 

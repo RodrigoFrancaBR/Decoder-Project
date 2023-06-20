@@ -1,10 +1,10 @@
 package com.ead.course.services;
 
-import java.util.List;
-import java.util.UUID;
-
 import com.ead.course.entity.ModuleEntity;
 import com.ead.course.model.ModuleModel;
+
+import java.util.List;
+import java.util.UUID;
 
 public interface ModuleService {
 

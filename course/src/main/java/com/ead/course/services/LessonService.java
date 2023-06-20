@@ -1,14 +1,13 @@
 package com.ead.course.services;
 
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-
+import com.ead.course.entity.LessonEntity;
+import com.ead.course.entity.ModuleEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.ead.course.entity.LessonEntity;
-import com.ead.course.entity.ModuleEntity;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 public interface LessonService {
 

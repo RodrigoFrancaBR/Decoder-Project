@@ -1,11 +1,10 @@
 package com.ead.authuser.services;
 
-import java.util.UUID;
-
+import com.ead.authuser.model.UserModel;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.PagedModel;
 
-import com.ead.authuser.model.UserModel;
+import java.util.UUID;
 
 public interface UserService {
 
