@@ -1,7 +1,7 @@
 package com.ead.authuser.assembler;
 
 import com.ead.authuser.controllers.UserController;
-import com.ead.authuser.controllers.util.LinksFactory;
+import com.ead.authuser.controllers.links.LinksFactory;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.model.UserModel;
 import org.mapstruct.*;

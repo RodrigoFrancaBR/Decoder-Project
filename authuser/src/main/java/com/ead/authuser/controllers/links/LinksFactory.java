@@ -1,4 +1,4 @@
-package com.ead.authuser.controllers.util;
+package com.ead.authuser.controllers.links;
 
 import com.ead.authuser.controllers.UserController;
 import org.springframework.hateoas.Link;

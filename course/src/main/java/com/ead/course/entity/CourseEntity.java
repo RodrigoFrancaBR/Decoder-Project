@@ -25,40 +25,40 @@ import java.util.UUID;
 @Table(name = "TB_COURSES")
 public class CourseEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID courseId;
-	
-	@Column(nullable = false, length = 150)
-	private String name;
-	
-	@Column(nullable = false, length = 250)
-	private String description;
-	
-	@Column
-	private String imageUrl;
-	
-	@Column(nullable = false)
-	@CreationTimestamp
-	private LocalDateTime creationDate;
-	
-	@Column(nullable = false)
-	@UpdateTimestamp
-	private LocalDateTime lastUpdateDate;
-	
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private CourseStatus courseStatus;
-	
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private CourseLevel courseLevel;
-	
-	@Column(nullable = false)
-	private UUID userInstructor;
-	
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY )
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID courseId;
+
+    @Column(nullable = false, length = 150)
+    private String name;
+
+    @Column(nullable = false, length = 250)
+    private String description;
+
+    @Column
+    private String imageUrl;
+
+    @Column(nullable = false)
+    @CreationTimestamp
+    private LocalDateTime creationDate;
+
+    @Column(nullable = false)
+    @UpdateTimestamp
+    private LocalDateTime lastUpdateDate;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CourseStatus courseStatus;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CourseLevel courseLevel;
+
+    @Column(nullable = false)
+    private UUID userInstructor;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     private Set<ModuleEntity> modules;
 }

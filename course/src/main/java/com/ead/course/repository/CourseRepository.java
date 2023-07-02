@@ -13,6 +13,7 @@ import java.util.UUID;
 @Repository
 public interface CourseRepository extends JpaRepository<CourseEntity, UUID>, JpaSpecificationExecutor<CourseEntity> {
     interface CourseSpecification {
+        // posso por um único predicado aqui igual o buildEqualCourseIdPredicate do moduleRepository
         static Specification<CourseEntity> byCourseLevel(CourseLevel courseLevel) {
             return (root, query, builder) ->
                     builder.equal(root.get("courseLevel"), courseLevel);

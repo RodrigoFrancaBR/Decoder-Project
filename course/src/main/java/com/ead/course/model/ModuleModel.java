@@ -24,8 +24,8 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ModuleModel extends RepresentationModel<ModuleModel> {
 	
-	@JsonView({ ModuleReturnView.Default.class})	
-	private UUID moduleId;
+	 @JsonView({ ModuleReturnView.Default.class})
+	 private UUID moduleId;
 	
 	@JsonView({ModuleEntryView.RegisterModule.class,
 				ModuleEntryView.UpdateModule.class,

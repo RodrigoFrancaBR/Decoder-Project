@@ -33,6 +33,7 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class,
 				CourseEntryView.UpdateCourse.class,
+				CourseEntryView.FilterByLevelAndStatusAndName.class,
 				CourseReturnView.Default.class } )
 	@NotBlank(groups = {CourseEntryView.RegisterCourse.class,
 						CourseEntryView.UpdateCourse.class})
@@ -60,6 +61,7 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class,
 				CourseEntryView.UpdateCourse.class,
+				CourseEntryView.FilterByLevelAndStatusAndName.class,
 				CourseReturnView.Default.class})
 	@NotNull(groups = { CourseEntryView.RegisterCourse.class,
 					    CourseEntryView.UpdateCourse.class} )
@@ -74,6 +76,7 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class,
 				CourseEntryView.UpdateCourse.class,
+				CourseEntryView.FilterByLevelAndStatusAndName.class,
 				CourseReturnView.Default.class } )
 	@NotNull(groups = {CourseEntryView.RegisterCourse.class,
 					   CourseEntryView.UpdateCourse.class} )
@@ -81,5 +84,4 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 /*		
 	@JsonView({ CourseEntryView.RegisterCourse.class })
 	private Set<ModuleModel> modules;*/
-
 }

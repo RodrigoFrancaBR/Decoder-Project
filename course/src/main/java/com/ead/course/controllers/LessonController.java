@@ -1,5 +1,6 @@
 package com.ead.course.controllers;
 
+import com.ead.course.controllers.links.LinksLessons;
 import com.ead.course.controllers.views.LessonEntryView;
 import com.ead.course.controllers.views.LessonReturnView;
 import com.ead.course.model.LessonModel;
@@ -7,15 +8,21 @@ import com.ead.course.usecase.LessonFacade;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.RequiredArgsConstructor;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.http.HttpStatus;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+import static org.springframework.http.HttpHeaders.LOCATION;
+import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.ResponseEntity.ok;
+import static org.springframework.http.ResponseEntity.status;
+
 @RequiredArgsConstructor
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -23,18 +30,22 @@ import static org.springframework.http.ResponseEntity.ok;
 public class LessonController {
 
 	private final LessonFacade facade;
+	private final LinksLessons links;
 	
 	@JsonView(LessonReturnView.Default.class)
 	@GetMapping(path = "/modules/{moduleId}/lessons")
-	public  ResponseEntity<CollectionModel<LessonModel>> findAll(
-			@PathVariable UUID moduleId) {
-		var lessonModelList = facade.findAllByModuleId(moduleId);
-		return ResponseEntity.status(HttpStatus.OK).body(lessonModelList); 
+	public PagedModel<LessonModel> findAllByTitleAndModuleId(
+			@PageableDefault(page = 0, size = 10, sort = "lessonId", direction = Sort.Direction.DESC)
+			Pageable pageable,
+			@PathVariable UUID moduleId,
+			@RequestParam(required = false) String title) {
+
+		return facade.findAllByTitleAndModuleId(title, moduleId, pageable);
 	}
 
 	@JsonView(LessonReturnView.Default.class)
 	@GetMapping(path = "/modules/{moduleId}/lessons/{lessonId}")
-	public LessonModel find(
+	public LessonModel findByModuleAndLessonId(
 			@PathVariable UUID moduleId,
 			@PathVariable UUID lessonId) {
 		return facade.findLesson(moduleId, lessonId);		
@@ -48,8 +59,9 @@ public class LessonController {
 			@Validated(LessonEntryView.RegisterLesson.class) 
 			@JsonView(LessonEntryView.RegisterLesson.class) 
 			LessonModel lessonModel) {
-
-		return ResponseEntity.status(HttpStatus.CREATED).body(facade.saveLesson(moduleId, lessonModel));
+		var savedModel = facade.saveLesson(moduleId, lessonModel);
+		var location = links.buildUriLocation(moduleId, savedModel.getLessonId());
+		return status(CREATED).header(LOCATION, location).body(savedModel);
 
 	}
 	

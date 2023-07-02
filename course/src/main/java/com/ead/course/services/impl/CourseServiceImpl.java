@@ -1,6 +1,5 @@
 package com.ead.course.services.impl;
 
-import com.ead.course.assembler.CourseEntityAssembler;
 import com.ead.course.assembler.CourseModelAssembler;
 import com.ead.course.entity.CourseEntity;
 import com.ead.course.exceptions.CourseNotFoundException;
@@ -23,10 +22,9 @@ import static com.ead.course.repository.CourseRepository.CourseSpecification.*;
 @Service
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
+
     private final ModuleService moduleService;
     private final CourseRepository repository;
-
-    private final CourseEntityAssembler entityAssembler;
     private final CourseModelAssembler modelAssembler;
     private final PagedResourcesAssembler<CourseEntity> pagedResourcesAssembler;
 
@@ -42,7 +40,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseEntity save(CourseEntity courseEntity) {
-        return null;
+        return repository.save(courseEntity);
     }
 
     private CourseEntity findByCourseIdIfExist(UUID courseId) {
@@ -67,20 +65,14 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseModel save(CourseModel courseModel) {
-        var courseEntity = entityAssembler.toEntity(courseModel);
-        return modelAssembler.toModel(courseEntity);
-    }
-
-    @Override
     public PagedModel<CourseModel> findAllByLevelAndStatusAndName(Pageable pageable, CourseModel courseModel) {
-
-        var pageEntity = repository.findAll(byCourseLevel(courseModel.getCourseLevel())
+        // verificar se não é melhor fazer findAll(byFindAllByLevelAndStatusAndName) ou seja um unico predicado.
+        var pageEntity = repository.findAll(
+                byCourseLevel(courseModel.getCourseLevel())
                 .and(byCourseStatus(courseModel.getCourseStatus()))
                 .and(containCourseName(courseModel.getName())), pageable);
 
-        PagedModel<CourseModel> pagedModel = pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
-        return pagedModel;
+        return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
     }
 
 }

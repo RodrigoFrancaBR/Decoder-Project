@@ -6,7 +6,8 @@ import com.ead.course.model.ModuleModel;
 import com.ead.course.services.CourseService;
 import com.ead.course.services.ModuleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.hateoas.CollectionModel;
+import org.springframework.data.domain.Pageable;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -14,33 +15,32 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 public class ModuleFacade {
-	private final CourseService courseService;
-	private final ModuleService moduleService;
-	private final ModuleModelAssembler modelAssembler;
-	private final ModuleEntityAssembler entityAssembler;
+    private final CourseService courseService;
+    private final ModuleService moduleService;
+    private final ModuleModelAssembler modelAssembler;
+    private final ModuleEntityAssembler entityAssembler;
 
-	public ModuleModel saveModule(UUID courseId, ModuleModel moduleModel) {
-		var moduleEntity = entityAssembler.toEntity(moduleModel);
-		moduleEntity.setCourse(courseService.findCourseEntity(courseId));
-		return modelAssembler.toModel(moduleService.save(moduleEntity));
-	}
+    public ModuleModel saveModule(UUID courseId, ModuleModel moduleModel) {
+        var moduleEntity = entityAssembler.toEntity(moduleModel);
+        moduleEntity.setCourse(courseService.findCourseEntity(courseId));
+        return modelAssembler.toModel(moduleService.save(moduleEntity));
+    }
 
-	public ModuleModel updateModule(UUID courseId, UUID moduleId, ModuleModel moduleModel) {
-		var moduleEntity = moduleService.findByCourseAndModuleId(courseId, moduleId);
-		entityAssembler.copyNonNullProperties(moduleModel, moduleEntity);
-		return modelAssembler.toModel(moduleService.save(moduleEntity));
-	}
+    public ModuleModel updateByCourseId(UUID courseId, UUID moduleId, ModuleModel moduleModel) {
+        var moduleEntity = moduleService.findByCourseAndModuleId(courseId, moduleId);
+        entityAssembler.copyNonNullProperties(moduleModel, moduleEntity);
+        return modelAssembler.toModel(moduleService.save(moduleEntity));
+    }
 
-	public void deleteModule(UUID courseId, UUID moduleId) {
-		moduleService.delete(moduleService.findByCourseAndModuleId(courseId, moduleId));
-	}
+    public void deleteByCourseId(UUID courseId, UUID moduleId) {
+        moduleService.delete(moduleService.findByCourseAndModuleId(courseId, moduleId));
+    }
 
-	public CollectionModel<ModuleModel> findAllModulesByCourseId(UUID courseId) {
-		return modelAssembler.toCollectionModel(moduleService.findAllByCourseId(courseId));
-	}
+    public PagedModel<ModuleModel> findAllByTitleAndCourseId(String title, UUID courseId, Pageable pageable) {
+        return moduleService.findAllByTitleAndCourseId(title, courseId, pageable);
+    }
 
-	public ModuleModel findOneModuleByCourseId(UUID courseId, UUID moduleId) {
-		return modelAssembler.toModel(moduleService.findByCourseAndModuleId(courseId, moduleId));
-	}
-
+    public ModuleModel findByCourseAndModuleId(UUID courseId, UUID moduleId) {
+        return modelAssembler.toModel(moduleService.findByCourseAndModuleId(courseId, moduleId));
+    }
 }

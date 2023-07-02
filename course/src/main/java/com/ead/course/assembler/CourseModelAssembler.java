@@ -1,7 +1,7 @@
 package com.ead.course.assembler;
 
 import com.ead.course.controllers.CourseController;
-import com.ead.course.controllers.util.LinksFactory;
+import com.ead.course.controllers.links.LinksCourse;
 import com.ead.course.entity.CourseEntity;
 import com.ead.course.model.CourseModel;
 import org.mapstruct.AfterMapping;
@@ -14,23 +14,21 @@ import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSuppor
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
 public abstract class CourseModelAssembler extends RepresentationModelAssemblerSupport<CourseEntity, CourseModel> {
 
-	@Autowired
-	private LinksFactory factory;
+    @Autowired
+    private LinksCourse factory;
 
-	public CourseModelAssembler() {
-		super(CourseController.class, CourseModel.class);
-	}
+    public CourseModelAssembler() {
+        super(CourseController.class, CourseModel.class);
+    }
 
-	@Override
-	public abstract CourseModel toModel(CourseEntity courseEntity);
+    @Override
+    public abstract CourseModel toModel(CourseEntity courseEntity);
 
-	@AfterMapping
-	protected void addLinks(@MappingTarget CourseModel courseModel, CourseEntity courseEntity) {
-		var userWithSelfAndRelationLinks = createModelWithId(courseEntity.getCourseId(), courseEntity)
-				.add(factory.linkToCourses());
-
-		courseModel.add(userWithSelfAndRelationLinks.getLinks());
-
-	}
+    @AfterMapping
+    protected void addLinks(@MappingTarget CourseModel courseModel, CourseEntity courseEntity) {
+        var userWithSelfAndRelationLinks = createModelWithId(courseEntity.getCourseId(), courseEntity)
+                .add(factory.linkToCourses());
+        courseModel.add(userWithSelfAndRelationLinks.getLinks());
+    }
 
 }

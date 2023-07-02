@@ -1,6 +1,6 @@
 package com.ead.authuser.controllers;
 
-import com.ead.authuser.controllers.util.LinksFactory;
+import com.ead.authuser.controllers.links.LinksFactory;
 import com.ead.authuser.controllers.views.UserEntryView;
 import com.ead.authuser.controllers.views.UserReturnView;
 import com.ead.authuser.model.UserModel;

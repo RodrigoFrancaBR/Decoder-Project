@@ -6,6 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface LessonEntityAssembler extends EntityAssembler<LessonModel, LessonEntity> {
-
-	LessonEntity toEntity(LessonModel model);
+    LessonEntity toEntity(LessonModel model);
 }

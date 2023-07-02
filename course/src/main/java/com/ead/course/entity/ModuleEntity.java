@@ -43,5 +43,4 @@ public class ModuleEntity {
 	@OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	private Set<LessonEntity> lessons;
-
 }

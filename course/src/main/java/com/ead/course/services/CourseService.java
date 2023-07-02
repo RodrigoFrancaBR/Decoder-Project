@@ -20,7 +20,5 @@ public interface CourseService {
 
     public CourseEntity findCourseEntity(UUID courseId);
 
-    public CourseModel save(CourseModel courseModel);
-
     PagedModel<CourseModel> findAllByLevelAndStatusAndName(Pageable pageable, CourseModel courseModel);
 }
