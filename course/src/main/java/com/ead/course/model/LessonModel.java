@@ -2,6 +2,7 @@ package com.ead.course.model;
 
 import com.ead.course.controllers.views.LessonEntryView;
 import com.ead.course.controllers.views.LessonReturnView;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
@@ -44,6 +45,7 @@ public class LessonModel extends RepresentationModel<LessonModel> {
 	private String videoUrl;
 	
 	@JsonView({ LessonReturnView.Default.class })
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
 	private LocalDateTime creationDate;
 
 	/*	

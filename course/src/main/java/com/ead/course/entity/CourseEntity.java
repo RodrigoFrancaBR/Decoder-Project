@@ -2,6 +2,7 @@ package com.ead.course.entity;
 
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,10 +41,12 @@ public class CourseEntity {
 
     @Column(nullable = false)
     @CreationTimestamp
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private LocalDateTime creationDate;
 
     @Column(nullable = false)
     @UpdateTimestamp
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private LocalDateTime lastUpdateDate;
 
     @Column(nullable = false)

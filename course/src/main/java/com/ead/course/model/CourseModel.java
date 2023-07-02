@@ -52,11 +52,11 @@ public class CourseModel extends RepresentationModel<CourseModel> {
 	private String imageUrl;
 	
 	@JsonView({ CourseReturnView.Default.class } )
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
 	private LocalDateTime creationDate;
 		
 	@JsonView({ CourseReturnView.Default.class } )
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
 	private LocalDateTime lastUpdateDate;
 	
 	@JsonView({ CourseEntryView.RegisterCourse.class,
