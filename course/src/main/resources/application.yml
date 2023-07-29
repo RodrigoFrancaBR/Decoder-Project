@@ -18,11 +18,14 @@ spring:
     properties:
       hibernate:
         show_sql: true
+  output:
+    ansi:
+      enabled: always
 
-logging:
-#  level:
-#    org.springframework.web: DEBUG
-  file:
-    name: 'D:\github\Decoder-Project\course\myLog.log'
+#logging:
+##  level:
+##    org.springframework.web: DEBUG
+#  file:
+#    name: 'D:\github\Decoder-Project\course\myLog.log'
 
 

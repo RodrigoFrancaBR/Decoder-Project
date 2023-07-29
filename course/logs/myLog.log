@@ -1,0 +1,27 @@
+2023-07-29 19:52:41.363  INFO rfranca-note --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-07-29 19:52:42.406  INFO rfranca-note --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-07-29 19:52:42.471  INFO rfranca-note --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.7 on rfranca-note with PID 13316 (D:\github\Decoder-Project\course\target\classes started by rfranca in D:\github\Decoder-Project\authuser)
+2023-07-29 19:52:42.477  INFO rfranca-note --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-07-29 19:52:43.733  INFO rfranca-note --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-29 19:52:43.840  INFO rfranca-note --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 3 JPA repository interfaces.
+2023-07-29 19:52:44.531  INFO rfranca-note --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-07-29 19:52:44.544  INFO rfranca-note --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-07-29 19:52:44.545  INFO rfranca-note --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-07-29 19:52:44.545  INFO rfranca-note --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-07-29 19:52:44.665  INFO rfranca-note --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-07-29 19:52:44.666  INFO rfranca-note --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2103 ms
+2023-07-29 19:52:44.853  INFO rfranca-note --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-29 19:52:44.921  INFO rfranca-note --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-07-29 19:52:45.217  INFO rfranca-note --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-29 19:52:45.450  INFO rfranca-note --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-07-29 19:52:45.734  INFO rfranca-note --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-07-29 19:52:45.806  INFO rfranca-note --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-07-29 19:52:47.282  INFO rfranca-note --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-29 19:52:47.302  INFO rfranca-note --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 19:52:48.193  WARN rfranca-note --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-29 19:52:48.681  INFO rfranca-note --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-07-29 19:52:48.721  INFO rfranca-note --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-07-29 19:52:48.731  INFO rfranca-note --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.21 seconds (JVM running for 9.285)
+2023-07-29 19:52:59.474  INFO rfranca-note --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-29 19:52:59.483  INFO rfranca-note --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-07-29 19:52:59.494  INFO rfranca-note --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
