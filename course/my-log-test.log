@@ -1,0 +1,24 @@
+17:36:49.389 OLA LOGGER 
+17:36:50.301 HV000001: Hibernate Validator 6.2.0.Final 
+17:36:50.315 Starting CourseApplication using Java 17.0.7 on rfranca-note with PID 5176 (D:\github\Decoder-Project\course\target\classes started by rfranca in D:\github\Decoder-Project\authuser) 
+17:36:50.316 No active profile set, falling back to default profiles: default 
+17:36:51.565 Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+17:36:51.705 Finished Spring Data repository scanning in 125 ms. Found 3 JPA repository interfaces. 
+17:36:52.445 Tomcat initialized with port(s): 8082 (http) 
+17:36:52.457 Initializing ProtocolHandler ["http-nio-8082"] 
+17:36:52.457 Starting service [Tomcat] 
+17:36:52.458 Starting Servlet engine: [Apache Tomcat/9.0.52] 
+17:36:52.572 Initializing Spring embedded WebApplicationContext 
+17:36:52.572 Root WebApplicationContext: initialization completed in 2181 ms 
+17:36:52.791 HHH000204: Processing PersistenceUnitInfo [name: default] 
+17:36:52.904 HHH000412: Hibernate ORM core version 5.4.32.Final 
+17:36:53.078 HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+17:36:53.223 HikariPool-1 - Starting... 
+17:36:53.428 HikariPool-1 - Start completed. 
+17:36:53.467 HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect 
+17:36:54.855 HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+17:36:54.866 Initialized JPA EntityManagerFactory for persistence unit 'default' 
+17:36:55.600 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+17:36:56.060 Starting ProtocolHandler ["http-nio-8082"] 
+17:36:56.086 Tomcat started on port(s): 8082 (http) with context path '' 
+17:36:56.099 Started CourseApplication in 6.513 seconds (JVM running for 7.88) 
