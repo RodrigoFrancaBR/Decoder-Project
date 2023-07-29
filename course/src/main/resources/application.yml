@@ -19,10 +19,10 @@ spring:
       hibernate:
         show_sql: true
 
-#logging:
+logging:
 #  level:
 #    org.springframework.web: DEBUG
-#  file:
-#    name: mylog
+  file:
+    name: 'D:\github\Decoder-Project\course\myLog.log'
 
 
