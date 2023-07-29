@@ -32,7 +32,7 @@ public class CourseController {
     private final LinksCourse links;
 
     // receber requestParam ao invés do objeto CourseModel
-    // specification funcionou.
+    // ver como funciona o uso do JPA Search using Spring Data Example
     @JsonView(CourseReturnView.Default.class)
     @GetMapping(path = "byLevelAndStatusAndName")
     public PagedModel<CourseModel> findAllByLevelAndStatusAndName(
