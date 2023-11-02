@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nickName\": \"chaman\",\r\n    \"email\": \"chaman@22com\",\r\n    \"password\": \"123456\",\r\n    \"fullName\": \"chaman\",\r\n    \"phoneNumber\": \"11999558844\",\r\n    \"cpf\": \"105984569892\",\r\n    \"creationDate\":\"06/09/1983\"\r\n}"
+							"raw": "{\r\n    \"nickName\": \"bpaula\",\r\n    \"email\": \"bpaula@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"fullName\": \"Bruna Lima\",\r\n    \"phoneNumber\": \"639852471\",\r\n    \"cpf\": \"45698736982\"\r\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8087/auth/signup",
@@ -143,7 +143,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8087/users/e66111b9-993c-4818-b862-6cbfbda46de9",
+							"raw": "http://localhost:8087/users/68bd8ca8-d78b-4ed9-8724-71610d16f77c",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -151,7 +151,7 @@
 							"port": "8087",
 							"path": [
 								"users",
-								"e66111b9-993c-4818-b862-6cbfbda46de9"
+								"68bd8ca8-d78b-4ed9-8724-71610d16f77c"
 							]
 						}
 					},
@@ -196,10 +196,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": " {\r\n    \"fullName\": \"Michelli Brito Updated\",\r\n    \"phoneNumber\": \"+5511987542587\",\r\n    \"cpf\": \"12598456985\",\r\n    \"userStatus\": \"ACTIVE\"\r\n}"
+							"raw": " {\r\n    \"fullName\": \"Rodrigo de França Costa\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/users/aab910c7-9039-430d-aed5-666c1876aad5",
+							"raw": "http://localhost:8087/users/68bd8ca8-d78b-4ed9-8724-71610d16f77c",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -207,7 +207,7 @@
 							"port": "8087",
 							"path": [
 								"users",
-								"aab910c7-9039-430d-aed5-666c1876aad5"
+								"68bd8ca8-d78b-4ed9-8724-71610d16f77c"
 							]
 						}
 					},
@@ -229,10 +229,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n       \"password\": \"1234567\",\r\n       \"oldPassword\": \"123456\"\r\n}"
+							"raw": "{\r\n       \"password\": \"321654987\",\r\n       \"oldPassword\": \"123456\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/users/e66111b9-993c-4818-b862-6cbfbda46de9/password",
+							"raw": "http://localhost:8087/users/68bd8ca8-d78b-4ed9-8724-71610d16f77c/password",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -240,7 +240,7 @@
 							"port": "8087",
 							"path": [
 								"users",
-								"e66111b9-993c-4818-b862-6cbfbda46de9",
+								"68bd8ca8-d78b-4ed9-8724-71610d16f77c",
 								"password"
 							]
 						}
@@ -263,10 +263,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"imageUrl\": \"\"\r\n}"
+							"raw": "{\r\n    \"imageUrl\": \"http://\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8087/users/e66111b9-993c-4818-b862-6cbfbda46de9/image",
+							"raw": "http://localhost:8087/users/68bd8ca8-d78b-4ed9-8724-71610d16f77c/image",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -274,7 +274,7 @@
 							"port": "8087",
 							"path": [
 								"users",
-								"e66111b9-993c-4818-b862-6cbfbda46de9",
+								"68bd8ca8-d78b-4ed9-8724-71610d16f77c",
 								"image"
 							]
 						}
@@ -283,11 +283,18 @@
 				},
 				{
 					"name": "findAllbyEmailAndStatusAndType",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "http://localhost:8087/users/byEmailAndStatusAndType?userType=STUDENT&size=2&email=chaman&userStatus=ACTIVE",
+							"raw": "http://localhost:8087/users/byEmailAndStatusAndType?userStatus=ACTIVE&userType=STUDENT&email=8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -299,21 +306,14 @@
 							],
 							"query": [
 								{
-									"key": "userType",
-									"value": "STUDENT"
-								},
-								{
 									"key": "size",
-									"value": "2"
+									"value": "2",
+									"disabled": true
 								},
 								{
 									"key": "sort",
 									"value": "creationDate,asc",
 									"disabled": true
-								},
-								{
-									"key": "email",
-									"value": "chaman"
 								},
 								{
 									"key": "courseId",
@@ -328,6 +328,14 @@
 								{
 									"key": "userStatus",
 									"value": "ACTIVE"
+								},
+								{
+									"key": "userType",
+									"value": "STUDENT"
+								},
+								{
+									"key": "email",
+									"value": "8"
 								}
 							]
 						}
@@ -340,7 +348,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8087/users/byEmailOrStatusOrType?size=2&email=chaman",
+							"raw": "http://localhost:8087/users/byEmailOrStatusOrType?size=2&email=rfranca",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -367,7 +375,7 @@
 								},
 								{
 									"key": "email",
-									"value": "chaman"
+									"value": "rfranca"
 								},
 								{
 									"key": "courseId",
@@ -390,6 +398,22 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "GO TO ROOT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8087",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8087"
+				}
+			},
+			"response": []
 		}
 	]
 }

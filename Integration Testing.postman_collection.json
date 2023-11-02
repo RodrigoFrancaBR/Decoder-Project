@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "c4c26cb2-a032-4e9d-a58a-9b96bd940afd",
+		"name": "Integration Testing",
+		"description": "Postman allows you to test out our APIs [using simple Javascript code](https://postman.postman.co/workspace/API-Visualizer-Template-~6311738d-2e70-441f-ae12-78caf078c5b7/collection/22517504-c60852f9-f785-46f6-8917-11ccbc3fa316?ctx=documentation). You can evaluate your responses including their bodies, headers, cookies using the [ChaiJS BDD](https://www.chaijs.com/api/bdd/) syntax.\n\nThis collection showcases how you can do Integration testing on your APIs using Postman.\n\nTo get started, head over to the first request in the collection, click on `Send`. Once you receive the response, you can see the results in the `Test Results` tab in the response section. Feel free to edit the test scripts to test your APIs.\n\nYou can find the full Postman Sandbox API reference [here](https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#writing-assertions).\n\n<img src=\"https://content.pstmn.io/52b47981-dc82-4cfc-a9ac-e50a48d7f101/aW1hZ2UucG5n\" alt=\"pm.test%20syntax\" width=\"689\" height=\"99\">\n\n<img src=\"https://content.pstmn.io/d7c1a57a-aa8f-49d0-8752-276cc25f40d8/aW1hZ2UucG5n\" alt=\"chai%20expect%20for%20assertion\" width=\"533\" height=\"67\">",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26834018"
+	},
+	"item": [
+		{
+			"name": "Check for Valid Query Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validate that the response code should be 200\r",
+							"pm.test(\"Response Code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Run validations on response headers like Content-Type\r",
+							"pm.test(\"Content-Type should be JSON\", function () {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"const json = pm.response.json();\r",
+							"\r",
+							"// The response body, including individual attributes can be evaluated for correctness\r",
+							"pm.test(\"`args` should contain the correct query params\", function () {\r",
+							"    pm.expect(json.args).to.be.an('object');\r",
+							"    pm.expect(json.args.foo).to.eql('bar');\r",
+							"    pm.expect(json.args.baz).to.eql('value');\r",
+							"});\r",
+							"\r",
+							"// Non-trivial data types like Dates can also be tested against\r",
+							"pm.test(\"Date in the header should be valid\", function () {\r",
+							"    const parsedDate = new Date(pm.response.headers.get('Date'));\r",
+							"    pm.expect(parsedDate).to.be.a('date');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/get?foo=bar&baz=value",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "foo",
+							"value": "bar"
+						},
+						{
+							"key": "baz",
+							"value": "value"
+						}
+					]
+				},
+				"description": "This request validates the response code as well as the data returned in the response is the same as the one being sent in the request."
+			},
+			"response": []
+		},
+		{
+			"name": "Check for Valid Form Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"// Validate raw body sent in the request, be it form-data or JSON\r",
+							"pm.test(\"`form` should contain the correct form data\", function () {\r",
+							"    pm.expect(json.form).to.be.an('object');\r",
+							"    pm.expect(json.form.foo1).to.eql('bar1');\r",
+							"    pm.expect(json.form.foo2).to.eql('bar2');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foo1",
+							"value": "bar1",
+							"type": "text"
+						},
+						{
+							"key": "foo2",
+							"value": "bar2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/post",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"post"
+					]
+				},
+				"description": "This request validates that the request body sent as form-data is valid."
+			},
+			"response": []
+		},
+		{
+			"name": "Check for Valid IP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 Response Code\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Transform the response data and run validations against it\r",
+							"pm.test(\"IP should be in the correct format\", function () {\r",
+							"    const json = pm.response.json();\r",
+							"\r",
+							"    // Validate that the IP in the response is a string\r",
+							"    pm.expect(json.ip).to.be.a(\"string\");\r",
+							"\r",
+							"    // Use JavaScript to split the IP to evaluate each part\r",
+							"    const splitIp = json.ip.split(\".\");\r",
+							"    pm.expect(splitIp.length).to.eql(4);\r",
+							"    \r",
+							"    for (let i = 0; i < splitIp.length; i++) {\r",
+							"        pm.expect(parseInt(splitIp[i], 10)).to.be.a(\"number\");\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ip",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ip"
+					]
+				},
+				"description": "This request validates that the returned IP is valid."
+			},
+			"response": []
+		},
+		{
+			"name": "Check Invalid Basic Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validate a non-success case to ensure API sanity\r",
+							"pm.test(\"401 Response Code\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "notapassword",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "postman",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/basic-auth",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"basic-auth"
+					]
+				},
+				"description": "This request validates the case where an incorrect basic auth is provided and the request fails."
+			},
+			"response": []
+		},
+		{
+			"name": "Check for Successful Cookie Setting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code should be 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Operate on response or request level cookies for sanity\r",
+							"pm.test(\"Cookies are set correctly\", function () {\r",
+							"    pm.expect(pm.cookies.has(\"foo1\")).to.be.true;\r",
+							"    pm.expect(pm.cookies.get(\"foo1\")).to.eql(\"bar1\");\r",
+							"\r",
+							"    pm.expect(pm.cookies.has(\"foo2\")).to.be.true;\r",
+							"    pm.expect(pm.cookies.get(\"foo2\")).to.eql(\"bar2\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/cookies/set?foo1=bar1&foo2=bar2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"cookies",
+						"set"
+					],
+					"query": [
+						{
+							"key": "foo1",
+							"value": "bar1"
+						},
+						{
+							"key": "foo2",
+							"value": "bar2"
+						}
+					]
+				},
+				"description": "This request validates if the right cookies are set."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://postman-echo.com"
+		}
+	]
+}
