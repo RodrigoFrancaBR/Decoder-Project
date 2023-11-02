@@ -1,6 +1,7 @@
 package com.ead.authuser.specifications;
 
 import com.ead.authuser.entity.UserEntity;
+import com.ead.authuser.entity.UserEntity_;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -10,20 +11,17 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 @AllArgsConstructor
-public class UserWithEmailSpec implements Specification<UserEntity> {	// 
+public class UserWithEmailSpec implements Specification<UserEntity> {
 
-	private static final long serialVersionUID = 4735832117376585820L;
-	
-	private String email;
+    private String email;
 
-	@Override
-	public Predicate toPredicate(Root<UserEntity> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-		var pattern = new StringBuilder()
-				.append("%")
-				.append(email)
-				.append("%")
-				.toString();
-		return builder.like(root.get("email"), pattern);
-	}
-
+    @Override
+    public Predicate toPredicate(Root<UserEntity> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+        var pattern = new StringBuilder()
+            .append("%")
+            .append(email)
+            .append("%")
+            .toString();
+        return builder.like(root.get(UserEntity_.email), pattern);
+    }
 }
