@@ -1,5 +1,6 @@
 package com.ead.course.entity;
 
+import com.ead.authuser.entity.UserCourseEntity;
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -64,4 +65,8 @@ public class CourseEntity {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     private Set<ModuleEntity> modules;
+
+    // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    private Set<CourseUserEntity> coursesUsers;
 }

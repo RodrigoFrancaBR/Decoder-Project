@@ -3,6 +3,7 @@ package com.ead.authuser.entity;
 import com.ead.authuser.enums.UserStatus;
 import com.ead.authuser.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -63,4 +65,8 @@ public class UserEntity {
 	@Column(nullable = false)
 	@UpdateTimestamp
 	private LocalDateTime lastUpdateDate;
+
+	// @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private Set<UserCourseEntity> userCourses;
 }
