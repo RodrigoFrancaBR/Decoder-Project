@@ -36,7 +36,7 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public PagedModel<LessonModel> findAllByTitleAndModuleId(String title, UUID moduleId, Pageable pageable) {
-        var pageEntity = repository.findAll(byTitleAndModuleId(moduleId, title), pageable);
+        var pageEntity = repository.findAll(LessonRepository.LessonSpecification.byTitleAndModuleId(moduleId, title), pageable);
         return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
     }
 

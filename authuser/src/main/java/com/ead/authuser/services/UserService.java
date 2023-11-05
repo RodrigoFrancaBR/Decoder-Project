@@ -8,22 +8,22 @@ import java.util.UUID;
 
 public interface UserService {
 
-	PagedModel<UserModel> findAll(Pageable pageable);
+    PagedModel<UserModel> findAll(Pageable pageable,  UserModel userDto);
 
-	PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto);
+    PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto);
 
-	PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto);
+    PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto);
 
-	UserModel findUser(UUID userId);
+    UserModel findUser(UUID userId);
 
-	UserModel updateImage(UUID userId, UserModel userDto);
+    UserModel updateImage(UUID userId, UserModel userDto);
 
-	UserModel save(UserModel userDto);
+    UserModel save(UserModel userDto);
 
-	UserModel updateUser(UUID userId, UserModel userDto);
+    UserModel updateUser(UUID userId, UserModel userDto);
 
-	void updatePassword(UUID userId, UserModel userDto);
+    void updatePassword(UUID userId, UserModel userDto);
 
-	void deleteById(UUID userId);
+    void deleteById(UUID userId);
 
 }
