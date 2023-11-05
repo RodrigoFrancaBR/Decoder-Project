@@ -8,11 +8,7 @@ import java.util.UUID;
 
 public interface UserService {
 
-    PagedModel<UserModel> findAll(Pageable pageable,  UserModel userDto);
-
-    PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto);
-
-    PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto);
+    PagedModel<UserModel> findAll(Pageable pageable, UserModel userDto);
 
     UserModel findUser(UUID userId);
 
@@ -26,4 +22,7 @@ public interface UserService {
 
     void deleteById(UUID userId);
 
+    PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userDto);
+
+    PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto);
 }

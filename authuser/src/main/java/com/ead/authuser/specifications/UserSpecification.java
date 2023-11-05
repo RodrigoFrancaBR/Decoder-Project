@@ -1,6 +1,7 @@
 package com.ead.authuser.specifications;
 
 import com.ead.authuser.entity.UserCourseEntity;
+import com.ead.authuser.entity.UserCourseEntity_;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.entity.UserEntity_;
 import com.ead.authuser.enums.UserStatus;
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import static com.ead.authuser.entity.UserEntity_.usersCourses;
 
 @Builder
 @AllArgsConstructor
@@ -43,24 +46,22 @@ public class UserSpecification implements Specification<UserEntity> {
             .ifPresent(predicates::add);
 
         Optional.ofNullable(userStatus)
-            .map(existUserStatus -> String.valueOf(UserEntity_.userStatus))
-            .map(fieldUserStatus -> equals(cb, root.get(fieldUserStatus), userStatus))
+            .map(existUserStatus -> equals(cb, root.get(UserEntity_.userStatus), userStatus))
             .ifPresent(predicates::add);
 
         Optional.ofNullable(userType)
-            .map(existUserStatus -> String.valueOf(UserEntity_.userStatus))
-            .map(fieldUserStatus -> equals(cb, root.get(fieldUserStatus), userStatus))
+            .map(fieldUserStatus -> equals(cb, root.get(UserEntity_.userType), userType))
             .ifPresent(predicates::add);
 
         Optional.ofNullable(courseId)
-            .map(fieldCourseId -> courseIdPredicate(cb, root.join("usersCourses"), courseId))
+            .map(fieldCourseId -> courseIdPredicate(cb, root.join(UserEntity_.usersCourses), courseId))
             .ifPresent(predicates::add);
 
         final var size = predicates.size();
         return cb.and(predicates.toArray(new Predicate[size]));
     }
 
-    private Predicate equals(CriteriaBuilder cb, Path<Object> field, Object value) {
+    private Predicate equals(CriteriaBuilder cb, Path<?> field, Object value) {
         return cb.equal(field, value);
     }
 
@@ -69,6 +70,6 @@ public class UserSpecification implements Specification<UserEntity> {
     }
 
     private Predicate courseIdPredicate(CriteriaBuilder cb, Join<UserEntity, UserCourseEntity> join, Object value) {
-        return cb.equal(join.get("courseId"), courseId);
+        return cb.equal(join.get(UserCourseEntity_.courseId), courseId);
     }
 }

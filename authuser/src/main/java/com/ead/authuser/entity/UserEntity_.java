@@ -15,4 +15,5 @@ public abstract class UserEntity_ {
     public static volatile SingularAttribute<UserEntity, UserStatus> userStatus;
     public static volatile SingularAttribute<UserEntity, UserType> userType;
     public static volatile SingularAttribute<UserEntity, String> fullName;
+    public static volatile SingularAttribute<UserEntity, UserCourseEntity> usersCourses;
 }

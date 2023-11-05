@@ -31,12 +31,6 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public UserModel save(UserModel userModel) {
-        var userEntity = entityAssembler.toEntity(userModel);
-        return modelAssembler.toModel(userRepository.save(userEntity));
-    }
-
-    @Override
     public PagedModel<UserModel> findAll(Pageable pageable, UserModel userDto) {
         final var userSpecification = buildUserSpecification(userDto);
         return pagedResourcesAssembler.toModel(userRepository.findAll(userSpecification, pageable), modelAssembler);
@@ -53,21 +47,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userModel) {
-        var pageEntity = userRepository.findAll(new UserWithEmailSpec(userModel.getEmail())
-                .and(new UserWithStatusSpec(userModel.getUserStatus()))
-                .and(new UserWithTypeSpec(userModel.getUserType())),
-            pageable);
-        return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
-    }
-
-    @Override
-    public PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto) {
-        var pageEntity = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
-                .or(new UserWithStatusSpec(userDto.getUserStatus()))
-                .or(new UserWithTypeSpec(userDto.getUserType())),
-            pageable);
-        return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
+    public UserModel save(UserModel userModel) {
+        var userEntity = entityAssembler.toEntity(userModel);
+        return modelAssembler.toModel(userRepository.save(userEntity));
     }
 
     @Override
@@ -108,5 +90,23 @@ public class UserServiceImpl implements UserService {
 
     private UserEntity findUserIfExist(UUID userId) {
         return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
+    }
+
+    @Override
+    public PagedModel<UserModel> findAllByEmailAndStatusAndType(Pageable pageable, UserModel userModel) {
+        var pageEntity = userRepository.findAll(new UserWithEmailSpec(userModel.getEmail())
+                .and(new UserWithStatusSpec(userModel.getUserStatus()))
+                .and(new UserWithTypeSpec(userModel.getUserType())),
+            pageable);
+        return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
+    }
+
+    @Override
+    public PagedModel<UserModel> findAllByEmailOrStatusOrType(Pageable pageable, UserModel userDto) {
+        var pageEntity = userRepository.findAll(new UserWithEmailSpec(userDto.getEmail())
+                .or(new UserWithStatusSpec(userDto.getUserStatus()))
+                .or(new UserWithTypeSpec(userDto.getUserType())),
+            pageable);
+        return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
     }
 }

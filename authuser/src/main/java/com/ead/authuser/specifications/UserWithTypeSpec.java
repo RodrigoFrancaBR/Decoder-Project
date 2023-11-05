@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -18,6 +19,7 @@ public class UserWithTypeSpec implements Specification<UserEntity> {
 
     @Override
     public Predicate toPredicate(Root<UserEntity> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+        Path<?> x = root.get(UserEntity_.userType);
         return builder.equal(root.get(UserEntity_.userType), userType);
     }
 }

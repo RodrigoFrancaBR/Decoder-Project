@@ -9,5 +9,5 @@ import java.util.UUID;
 @StaticMetamodel(UserCourseEntity_.class)
 public class UserCourseEntity_ {
 
-    public static volatile SingularAttribute<UserCourseEntity_, UUID> courseId;
+    public static volatile SingularAttribute<UserCourseEntity, UUID> courseId;
 }
