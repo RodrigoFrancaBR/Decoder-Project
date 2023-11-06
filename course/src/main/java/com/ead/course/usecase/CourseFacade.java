@@ -23,14 +23,13 @@ public class CourseFacade {
     private final CourseService courseService;
     private final ModuleService moduleService;
     private final LessonService lessonService;
-
     private final CourseModelAssembler modelAssembler;
     private final CourseEntityAssembler entityAssembler;
 
     private final PagedResourcesAssembler<CourseEntity> assembler;
 
-    public PagedModel<CourseModel> findAllCourse(Pageable pageable) {
-        return assembler.toModel(courseService.findAll(pageable), modelAssembler);
+    public PagedModel<CourseModel> findAllCourse(Pageable pageable, CourseModel courseModel) {
+        return assembler.toModel(courseService.findAll(pageable, courseModel), modelAssembler);
     }
 
     public CourseModel findCourse(UUID courseId) {

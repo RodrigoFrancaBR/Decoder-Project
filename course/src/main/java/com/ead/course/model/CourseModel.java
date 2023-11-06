@@ -4,7 +4,6 @@ import com.ead.course.controllers.views.CourseEntryView;
 import com.ead.course.controllers.views.CourseReturnView;
 import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -27,60 +26,66 @@ import java.util.UUID;
 @Relation(collectionRelation = "Courses")
 @JsonInclude(Include.NON_NULL)
 public class CourseModel extends RepresentationModel<CourseModel> {
-		
-	@JsonView({ CourseReturnView.Default.class})
-	private UUID courseId;
-	
-	@JsonView({ CourseEntryView.RegisterCourse.class,
-				CourseEntryView.UpdateCourse.class,
-				CourseEntryView.FilterByLevelAndStatusAndName.class,
-				CourseReturnView.Default.class } )
-	@NotBlank(groups = {CourseEntryView.RegisterCourse.class,
-						CourseEntryView.UpdateCourse.class})
-	private String name;
-	
-	@JsonView({ CourseEntryView.RegisterCourse.class,
-				CourseEntryView.UpdateCourse.class,
-				CourseReturnView.Default.class } )
-	@NotBlank(groups = {CourseEntryView.RegisterCourse.class,
-			  			CourseEntryView.UpdateCourse.class})
-	private String description;
 
-	@JsonView({ CourseEntryView.RegisterCourse.class,
-				CourseEntryView.UpdateCourse.class,
-				CourseReturnView.Default.class } )
-	private String imageUrl;
-	
-	@JsonView({ CourseReturnView.Default.class } )
-	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-	private LocalDateTime creationDate;
-		
-	@JsonView({ CourseReturnView.Default.class } )
-	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-	private LocalDateTime lastUpdateDate;
-	
-	@JsonView({ CourseEntryView.RegisterCourse.class,
-				CourseEntryView.UpdateCourse.class,
-				CourseEntryView.FilterByLevelAndStatusAndName.class,
-				CourseReturnView.Default.class})
-	@NotNull(groups = { CourseEntryView.RegisterCourse.class,
-					    CourseEntryView.UpdateCourse.class} )
-	private CourseStatus courseStatus;
-		
-	@JsonView({ CourseEntryView.RegisterCourse.class,
-				CourseEntryView.UpdateCourse.class,
-				CourseReturnView.Default.class})
-	@NotNull(groups = { CourseEntryView.RegisterCourse.class,
-						CourseEntryView.UpdateCourse.class})
-	private UUID userInstructor;
-	
-	@JsonView({ CourseEntryView.RegisterCourse.class,
-				CourseEntryView.UpdateCourse.class,
-				CourseEntryView.FilterByLevelAndStatusAndName.class,
-				CourseReturnView.Default.class } )
-	@NotNull(groups = {CourseEntryView.RegisterCourse.class,
-					   CourseEntryView.UpdateCourse.class} )
-	private CourseLevel courseLevel;
+    @JsonView({CourseReturnView.Default.class})
+    private UUID courseId;
+
+    @JsonView({CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class,
+        CourseEntryView.FilterByLevelAndStatusAndName.class,
+        CourseReturnView.Default.class,
+        CourseEntryView.FilterCourse.class})
+    @NotBlank(groups = {CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class})
+    private String name;
+
+    @JsonView({CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class,
+        CourseReturnView.Default.class})
+    @NotBlank(groups = {CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class})
+    private String description;
+
+    @JsonView({CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class,
+        CourseReturnView.Default.class})
+    private String imageUrl;
+
+    @JsonView({CourseReturnView.Default.class})
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    private LocalDateTime creationDate;
+
+    @JsonView({CourseReturnView.Default.class})
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    private LocalDateTime lastUpdateDate;
+
+    @JsonView({CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class,
+        CourseEntryView.FilterByLevelAndStatusAndName.class,
+        CourseReturnView.Default.class,
+        CourseEntryView.FilterCourse.class})
+    @NotNull(groups = {CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class})
+    private CourseStatus courseStatus;
+
+    @JsonView({CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class,
+        CourseReturnView.Default.class})
+    @NotNull(groups = {CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class})
+    private UUID userInstructor;
+
+    @JsonView({CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class,
+        CourseEntryView.FilterByLevelAndStatusAndName.class,
+        CourseReturnView.Default.class,
+        CourseEntryView.FilterCourse.class})
+    @NotNull(groups = {CourseEntryView.RegisterCourse.class,
+        CourseEntryView.UpdateCourse.class})
+    private CourseLevel courseLevel;
+
+    @JsonView({CourseEntryView.FilterCourse.class, CourseReturnView.Default.class})
+    private UUID userId;
 /*		
 	@JsonView({ CourseEntryView.RegisterCourse.class })
 	private Set<ModuleModel> modules;*/

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -48,9 +47,6 @@ public class UserController {
         return userService.findUser(userId);
     }
 
-    // aqui devo usar @Request param para cada atributo e não um objeto
-    // pageable, String email, UserStatus status, UserType type
-    // por que não ? ver qual das duas abordagens eh a melhor
     @JsonView(UserReturnView.Default.class)
     @GetMapping(path = "byEmailAndStatusAndType")
     public PagedModel<UserModel> findAllByEmailAndStatusAndType(

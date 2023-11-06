@@ -6,7 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import java.util.UUID;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
-@StaticMetamodel(UserCourseEntity_.class)
+@StaticMetamodel(UserCourseEntity.class)
 public class UserCourseEntity_ {
 
     public static volatile SingularAttribute<UserCourseEntity, UUID> courseId;

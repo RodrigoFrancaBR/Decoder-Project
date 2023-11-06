@@ -17,7 +17,10 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.UUID;
 
-import static com.ead.course.repository.CourseRepository.CourseSpecification.*;
+import static com.ead.course.specifications.CourseSpecificationFactory.byCourseLevel;
+import static com.ead.course.specifications.CourseSpecificationFactory.byCourseStatus;
+import static com.ead.course.specifications.CourseSpecificationFactory.byName;
+import static com.ead.course.specifications.CourseSpecificationFactory.byUserId;
 
 @Service
 @RequiredArgsConstructor
@@ -29,8 +32,23 @@ public class CourseServiceImpl implements CourseService {
     private final PagedResourcesAssembler<CourseEntity> pagedResourcesAssembler;
 
     @Override
-    public Page<CourseEntity> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+    public Page<CourseEntity> findAll(Pageable pageable, CourseModel courseModel) {
+        return repository.findAll(byUserId(courseModel.getUserId())
+                .and(byCourseLevel(courseModel.getCourseLevel()))
+                .and(byCourseStatus(courseModel.getCourseStatus()))
+                .and(byName(courseModel.getName()))
+            , pageable);
+    }
+
+    @Override
+    public PagedModel<CourseModel> findAllByLevelAndStatusAndName(Pageable pageable, CourseModel courseModel) {
+        // verificar se não é melhor fazer findAll(byFindAllByLevelAndStatusAndName) ou seja um unico predicado.
+        var pageEntity = repository.findAll(
+            byCourseLevel(courseModel.getCourseLevel())
+                .and(byCourseStatus(courseModel.getCourseStatus()))
+                .and(byName(courseModel.getName())), pageable);
+
+        return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
     }
 
     @Override
@@ -64,15 +82,5 @@ public class CourseServiceImpl implements CourseService {
         return findByCourseIdIfExist(courseId);
     }
 
-    @Override
-    public PagedModel<CourseModel> findAllByLevelAndStatusAndName(Pageable pageable, CourseModel courseModel) {
-        // verificar se não é melhor fazer findAll(byFindAllByLevelAndStatusAndName) ou seja um unico predicado.
-        var pageEntity = repository.findAll(
-                byCourseLevel(courseModel.getCourseLevel())
-                .and(byCourseStatus(courseModel.getCourseStatus()))
-                .and(containCourseName(courseModel.getName())), pageable);
-
-        return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
-    }
 
 }

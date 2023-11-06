@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-import static com.ead.course.repository.LessonRepository.LessonSpecification.byTitleAndModuleId;
-
 @Service
 @RequiredArgsConstructor
 public class LessonServiceImpl implements LessonService {

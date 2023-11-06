@@ -8,4 +8,6 @@ public interface CourseEntryView {
     // interface UpdatePassword {}
     // interface UpdateImage {}
     // interface FilterUser {}
+
+    interface FilterCourse{}
 }

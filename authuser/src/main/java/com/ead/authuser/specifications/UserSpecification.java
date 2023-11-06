@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.ead.authuser.entity.UserEntity_.usersCourses;
-
 @Builder
 @AllArgsConstructor
 public class UserSpecification implements Specification<UserEntity> {
@@ -54,7 +52,7 @@ public class UserSpecification implements Specification<UserEntity> {
             .ifPresent(predicates::add);
 
         Optional.ofNullable(courseId)
-            .map(fieldCourseId -> courseIdPredicate(cb, root.join(UserEntity_.usersCourses), courseId))
+            .map(fieldCourseId -> courseIdPredicate(cb, root.join(UserEntity_.usersCourses)))
             .ifPresent(predicates::add);
 
         final var size = predicates.size();
@@ -69,7 +67,7 @@ public class UserSpecification implements Specification<UserEntity> {
         return cb.like(field, "%" + searchTerm + "%");
     }
 
-    private Predicate courseIdPredicate(CriteriaBuilder cb, Join<UserEntity, UserCourseEntity> join, Object value) {
+    private Predicate courseIdPredicate(CriteriaBuilder cb, Join<UserEntity, UserCourseEntity> join) {
         return cb.equal(join.get(UserCourseEntity_.courseId), courseId);
     }
 }
