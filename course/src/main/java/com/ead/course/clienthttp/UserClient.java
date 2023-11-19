@@ -1,12 +1,13 @@
-package com.ead.authuser.clienthttp;
+package com.ead.course.clienthttp;
 
-import com.ead.authuser.model.CourseModel;
+import com.ead.course.model.UserModel;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
@@ -17,36 +18,36 @@ import java.util.UUID;
 @Log4j2
 @AllArgsConstructor
 @Component
-public class CourseClient {
+public class UserClient {
 
     private final RestTemplate restTemplate;
-    private final String REQUEST_URI = "http://localhost:8082";
+    private final String REQUEST_URI = "http://localhost:8087";
 
-    public PagedModel<CourseModel> getAllCoursesByUser(UUID userId, Pageable pageable) {
-        final var url = buildUrl(userId, pageable);
+    public PagedModel<UserModel> getAllUsersByCourse(UUID courseId, Pageable pageable) {
+        final var url = buildUrl(courseId, pageable);
         log.info("requesting URL: {} ", url);
-        var responseType = new ParameterizedTypeReference<PagedModel<CourseModel>>() {};
+        var responseType = new ParameterizedTypeReference<PagedModel<UserModel>>() {};
         try {
-            var result = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
+            ResponseEntity<PagedModel<UserModel>> result = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
             log.info("requested response: {}", result);
             return result.getBody();
         } catch (HttpStatusCodeException exception) {
             log.error("Error: {}", exception);
-            throw new RuntimeException("erro de integração");
+            throw new RuntimeException("Erro de integração");
         }
     }
 
-    private String buildUrl(UUID userId, Pageable pageable) {
+    private String buildUrl(UUID courseId, Pageable pageable) {
         StringBuilder builder = new StringBuilder(REQUEST_URI);
-        return builder.append(getEndpoint(userId))
+        return builder.append(getEndpoint(courseId))
             .append(getPage(pageable))
             .append(getPageSize(pageable))
             .append(getPageSort(pageable))
             .toString();
     }
 
-    private String getEndpoint(UUID userId) {
-        return MessageFormat.format("/courses?userId={0}", userId);
+    private String getEndpoint(UUID courseId) {
+        return MessageFormat.format("/users?courseId={0}", courseId);
     }
 
     private String getPage(Pageable pageable) {

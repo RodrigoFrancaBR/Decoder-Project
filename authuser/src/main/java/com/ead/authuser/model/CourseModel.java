@@ -2,8 +2,7 @@ package com.ead.authuser.model;
 
 import com.ead.authuser.enums.CourseLevel;
 import com.ead.authuser.enums.CourseStatus;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,64 +10,28 @@ import lombok.NoArgsConstructor;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Relation(collectionRelation = "Courses")
+// @JsonInclude(Include.NON_NULL)
+public class CourseModel extends RepresentationModel<CourseModel> {
 
-// @Relation(collectionRelation = "Courses")
-// @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CourseModel{
-
-    // @JsonView({CourseReturnView.Default.class})
     private UUID courseId;
-
-//    @JsonView({CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class,
-//        CourseEntryView.FilterByLevelAndStatusAndName.class,
-//        CourseReturnView.Default.class,
-//        CourseEntryView.FilterCourse.class})
-//    @NotBlank(groups = {CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class})
     private String name;
-
-//    @JsonView({CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class,
-//        CourseReturnView.Default.class})
-//    @NotBlank(groups = {CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class})
     private String description;
-
-//    @JsonView({CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class,
-//        CourseReturnView.Default.class})
     private String imageUrl;
-
-//    @JsonView({CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class,
-//        CourseEntryView.FilterByLevelAndStatusAndName.class,
-//        CourseReturnView.Default.class,
-//        CourseEntryView.FilterCourse.class})
-//    @NotNull(groups = {CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class})
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    private LocalDateTime creationDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    private LocalDateTime lastUpdateDate;
     private CourseStatus courseStatus;
-
-//    @JsonView({CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class,
-//        CourseReturnView.Default.class})
-//    @NotNull(groups = {CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class})
     private UUID userInstructor;
-
-//    @JsonView({CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class,
-//        CourseEntryView.FilterByLevelAndStatusAndName.class,
-//        CourseReturnView.Default.class,
-//        CourseEntryView.FilterCourse.class})
-//    @NotNull(groups = {CourseEntryView.RegisterCourse.class,
-//        CourseEntryView.UpdateCourse.class})
     private CourseLevel courseLevel;
+    // entender pq não está retornando userId
+    private UUID userId;
 }

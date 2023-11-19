@@ -35,7 +35,7 @@ public class UserController {
 
     @JsonView(UserReturnView.Default.class)
     @GetMapping
-    public PagedModel<UserModel> findAll(
+    public PagedModel<UserModel> getAllUsers(
         @PageableDefault(page = 0, size = 10, sort = "userId", direction = Sort.Direction.ASC) Pageable pageable,
         @JsonView(UserEntryView.FilterUser.class) UserModel userModel) {
         return userService.findAll(pageable, userModel);

@@ -1,0 +1,1185 @@
+2023-11-18 12:35:54.550  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 12:35:55.387  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 12:35:55.539  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 9587 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 12:35:55.547  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 12:35:57.572  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 12:35:57.812  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 225 ms. Found 4 JPA repository interfaces.
+2023-11-18 12:35:59.359  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 12:35:59.373  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 12:35:59.375  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 12:35:59.375  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 12:35:59.553  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 12:35:59.554  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3824 ms
+2023-11-18 12:36:00.040  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 12:36:00.160  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 12:36:00.312  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 12:36:00.433  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 12:36:00.778  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 12:36:00.813  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 12:36:03.794  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 12:36:03.807  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 12:36:05.984  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 12:36:07.071  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 12:36:07.113  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 12:36:07.157  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 12.477 seconds (JVM running for 14.167)
+2023-11-18 12:44:05.380  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 12:44:05.381  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 12:44:05.389  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 8 ms
+2023-11-18 12:51:38.713  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-7] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/courses?userId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,ASC 
+2023-11-18 12:51:38.838 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-7] c.e.c.c.UserClient                       : Error: {}
+org.springframework.web.client.HttpClientErrorException$NotFound: 404 : [{"timestamp":"2023-11-18T15:51:38.820+00:00","status":404,"error":"Not Found","path":"/courses"}]
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:113)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:186)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:125)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:819)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 12:53:31.695  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 12:53:31.703  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 12:53:31.711  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 12:53:38.032  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 12:53:39.861  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 12:53:40.090  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 10934 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 12:53:40.123  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 12:53:42.212  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 12:53:42.415  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 187 ms. Found 4 JPA repository interfaces.
+2023-11-18 12:53:43.627  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 12:53:43.636  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 12:53:43.637  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 12:53:43.637  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 12:53:43.772  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 12:53:43.773  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3477 ms
+2023-11-18 12:53:44.203  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 12:53:44.308  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 12:53:44.456  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 12:53:44.562  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 12:53:44.898  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 12:53:44.926  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 12:53:47.648  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 12:53:47.658  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 12:53:48.959  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 12:53:49.566  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 12:53:49.583  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 12:53:49.598  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 11.313 seconds (JVM running for 13.099)
+2023-11-18 13:11:09.579  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 13:11:09.581  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 13:11:09.589  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 8 ms
+2023-11-18 13:11:09.714  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?userId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,ASC 
+2023-11-18 13:11:10.562  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requested response: <200,ResponseUser(embedded={Users=[{userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, creationDate=04-11-2023 18:24:50, lastUpdateDate=04-11-2023 18:24:50, _links={self={href=http://localhost:8087/users/309fcd74-0887-4820-accd-6636baa02777}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}, {userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, creationDate=02-11-2023 16:22:41, lastUpdateDate=02-11-2023 16:22:41, _links={self={href=http://localhost:8087/users/a0e86e38-b63c-4bd8-aa28-c0565127038c}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}]}, links=LinksModel(self=SelfModel(href=http://localhost:8087/users?userId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,asc)), page=PageModel(size=10, totalElements=2, totalPages=1, number=0)),[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Sat, 18 Nov 2023 16:11:10 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 13:14:51.530  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-5] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?userId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,ASC 
+2023-11-18 13:14:51.642  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-5] c.e.c.c.UserClient                       : requested response: <200,ResponseUser(embedded={Users=[{userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, creationDate=04-11-2023 18:24:50, lastUpdateDate=04-11-2023 18:24:50, _links={self={href=http://localhost:8087/users/309fcd74-0887-4820-accd-6636baa02777}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}, {userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, creationDate=02-11-2023 16:22:41, lastUpdateDate=02-11-2023 16:22:41, _links={self={href=http://localhost:8087/users/a0e86e38-b63c-4bd8-aa28-c0565127038c}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}]}, links=LinksModel(self=SelfModel(href=http://localhost:8087/users?userId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,asc)), page=PageModel(size=10, totalElements=2, totalPages=1, number=0)),[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Sat, 18 Nov 2023 16:14:51 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 13:17:05.572  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-7] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?userId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,ASC 
+2023-11-18 13:17:05.719 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-7] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.RestClientException: Error while extracting response for type [class com.ead.course.model.ResponseUser] and content type [application/json]; nested exception is org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable; nested exception is com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])] with root cause
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:987)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1974)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1701)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1679)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:330)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:402)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:195)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4593)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3601)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:378)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:342)
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:105)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1037)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1020)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:778)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 13:18:07.212  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?userId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,ASC 
+2023-11-18 13:18:07.308 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.RestClientException: Error while extracting response for type [class com.ead.course.model.ResponseUser] and content type [application/json]; nested exception is org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable; nested exception is com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])] with root cause
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:987)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1974)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1701)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1679)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:330)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:402)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:195)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4593)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3601)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:378)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:342)
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:105)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1037)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1020)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:778)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 13:24:13.338  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 13:24:13.345  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 13:24:13.354  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 13:24:18.924  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 13:24:19.534  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 13:24:19.617  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 13258 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 13:24:19.623  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 13:24:20.976  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 13:24:21.135  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 4 JPA repository interfaces.
+2023-11-18 13:24:23.150  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 13:24:23.163  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 13:24:23.166  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 13:24:23.166  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 13:24:23.480  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 13:24:23.481  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3772 ms
+2023-11-18 13:24:23.920  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 13:24:24.082  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 13:24:24.236  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 13:24:24.331  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 13:24:24.660  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 13:24:24.726  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 13:24:27.897  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 13:24:27.907  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 13:24:29.264  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 13:24:29.850  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 13:24:29.868  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 13:24:29.881  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 10.85 seconds (JVM running for 12.131)
+2023-11-18 13:30:18.372  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 13:30:18.373  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 13:30:18.381  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 7 ms
+2023-11-18 13:30:18.462  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,ASC 
+2023-11-18 13:30:18.642 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : Error: {}
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : [{"timestamp":"2023-11-18T16:30:18.628+00:00","status":500,"error":"Internal Server Error","path":"/users"}]
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:100)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:188)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:125)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:819)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 13:30:28.613  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-3] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,ASC 
+2023-11-18 13:30:28.650 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-3] c.e.c.c.UserClient                       : Error: {}
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : [{"timestamp":"2023-11-18T16:30:28.646+00:00","status":500,"error":"Internal Server Error","path":"/users"}]
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:100)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:188)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:125)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:819)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 13:32:33.205  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 13:32:33.209  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 13:32:33.213  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 13:32:40.036  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 13:32:40.728  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 13:32:40.770  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 13909 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 13:32:40.781  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 13:32:42.177  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 13:32:42.345  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 158 ms. Found 4 JPA repository interfaces.
+2023-11-18 13:32:43.301  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 13:32:43.311  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 13:32:43.312  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 13:32:43.313  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 13:32:43.422  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 13:32:43.422  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2546 ms
+2023-11-18 13:32:43.874  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 13:32:43.921  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 13:32:44.025  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 13:32:44.172  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 13:32:44.443  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 13:32:44.471  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 13:32:46.888  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 13:32:46.900  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 13:32:48.350  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 13:32:48.923  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 13:32:48.941  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 13:32:48.955  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 8.788 seconds (JVM running for 10.648)
+2023-11-18 14:24:32.313  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 14:24:32.314  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 14:24:32.324  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 10 ms
+2023-11-18 14:25:48.847  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,ASC 
+2023-11-18 14:25:48.848  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m2s366ms).
+2023-11-18 14:29:21.140  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m32s294ms).
+2023-11-18 14:29:21.143 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-2] c.e.c.c.UserClient                       : Error: {}
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : [{"timestamp":"2023-11-18T17:25:50.778+00:00","status":500,"error":"Internal Server Error","path":"/users"}]
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:100)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:188)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:125)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:819)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:32)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 14:29:21.270  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 14:29:21.277  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 14:29:21.289  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 15:46:07.527  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 15:46:08.114  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 15:46:08.189  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 24452 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 15:46:08.194  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 15:46:09.505  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 15:46:09.662  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 150 ms. Found 4 JPA repository interfaces.
+2023-11-18 15:46:10.640  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 15:46:10.648  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 15:46:10.649  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 15:46:10.649  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 15:46:10.758  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 15:46:10.758  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2478 ms
+2023-11-18 15:46:10.981  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 15:46:11.068  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 15:46:11.198  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 15:46:11.283  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 15:46:11.523  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 15:46:11.544  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 15:46:13.351  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 15:46:13.365  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 15:46:14.425  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 15:46:14.995  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 15:46:15.013  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 15:46:15.027  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.401 seconds (JVM running for 8.606)
+2023-11-18 15:51:08.863  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 15:51:08.864  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 15:51:08.875  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 11 ms
+2023-11-18 15:51:08.944  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.util.UUID'; nested exception is java.lang.IllegalArgumentException: UUID string too large]
+2023-11-18 15:51:44.756  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 15:52:35.994  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 15:52:50.098  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 15:52:55.163  WARN PPM-JAMF-S-12177 --- [io-8082-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 15:53:04.395  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 15:53:04.402  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 15:53:04.416  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 15:56:04.973  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 15:56:05.675  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 15:56:05.724  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 25626 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 15:56:05.740  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 15:56:07.212  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 15:56:07.377  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 155 ms. Found 4 JPA repository interfaces.
+2023-11-18 15:56:08.449  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 15:56:08.461  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 15:56:08.462  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 15:56:08.462  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 15:56:08.561  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 15:56:08.562  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2706 ms
+2023-11-18 15:56:08.802  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 15:56:08.846  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 15:56:08.979  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 15:56:09.068  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 15:56:09.392  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 15:56:09.418  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 15:56:11.485  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 15:56:11.495  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 15:56:13.033  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 15:56:13.446  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 15:56:13.463  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 15:56:13.475  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 8.376 seconds (JVM running for 9.881)
+2023-11-18 15:57:36.420  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 15:57:36.423  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 15:57:36.515  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 91 ms
+2023-11-18 15:58:52.139  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.util.UUID'; nested exception is java.lang.IllegalArgumentException: Invalid UUID string: courses]
+2023-11-18 15:59:16.913  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 16:18:37.687  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m28s124ms).
+2023-11-18 16:23:50.748  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m13s68ms).
+2023-11-18 16:42:47.093  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m56s344ms).
+2023-11-18 17:08:38.434  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m51s341ms).
+2023-11-18 18:03:07.372  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54m28s938ms).
+2023-11-18 18:51:21.737  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48m14s365ms).
+2023-11-18 19:16:32.990  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m11s254ms).
+2023-11-18 20:08:54.938  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52m21s948ms).
+2023-11-18 21:09:07.819  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h12s881ms).
+2023-11-18 21:43:50.456  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=34m42s636ms).
+2023-11-18 22:22:49.789  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=38m29s322ms).
+2023-11-18 22:28:22.010  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 22:28:51.572  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 22:28:51.579  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 22:28:51.592  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 22:28:54.916  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 22:28:55.761  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 22:28:55.817  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 28429 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 22:28:55.829  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 22:28:58.059  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 22:28:58.312  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 241 ms. Found 4 JPA repository interfaces.
+2023-11-18 22:28:59.360  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 22:28:59.370  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 22:28:59.371  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 22:28:59.371  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 22:28:59.486  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 22:28:59.487  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3537 ms
+2023-11-18 22:28:59.824  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 22:28:59.888  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 22:29:00.017  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 22:29:00.129  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 22:29:00.438  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 22:29:00.463  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 22:29:02.751  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 22:29:02.762  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 22:29:04.160  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 22:29:04.804  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 22:29:04.824  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 22:29:04.838  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 9.782 seconds (JVM running for 11.581)
+2023-11-18 22:29:13.964  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 22:29:13.965  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 22:29:13.970  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2023-11-18 22:29:14.070  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 22:33:35.670  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 22:33:35.677  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 22:33:35.684  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 22:33:40.431  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 22:33:41.148  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 22:33:41.197  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 28897 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 22:33:41.209  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 22:33:42.564  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 22:33:42.767  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 194 ms. Found 4 JPA repository interfaces.
+2023-11-18 22:33:43.680  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 22:33:43.689  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 22:33:43.691  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 22:33:43.691  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 22:33:43.793  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 22:33:43.794  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2490 ms
+2023-11-18 22:33:44.080  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 22:33:44.129  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 22:33:44.243  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 22:33:44.332  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 22:33:44.602  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 22:33:44.628  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 22:33:46.639  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 22:33:46.650  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 22:33:47.946  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 22:33:48.462  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 22:33:48.479  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 22:33:48.495  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.94 seconds (JVM running for 9.357)
+2023-11-18 22:33:59.881  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 22:33:59.882  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 22:33:59.900  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 17 ms
+2023-11-18 22:34:00.032  WARN PPM-JAMF-S-12177 --- [nio-8082-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'courseModel' on field 'courseId': rejected value [a0e86e38-b63c-4bd8-aa28-c0565127038b/users]; codes [typeMismatch.courseModel.courseId,typeMismatch.courseId,typeMismatch.java.util.UUID,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [courseModel.courseId,courseId]; arguments []; default message [courseId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.UUID' for property 'courseId'; nested exception is java.lang.IllegalArgumentException: UUID string too large]]
+2023-11-18 22:34:23.924  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 22:34:23.928  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 22:34:23.934  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 22:39:04.376  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 22:39:05.207  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 22:39:05.268  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 29943 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 22:39:05.284  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 22:39:07.107  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 22:39:07.465  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 342 ms. Found 4 JPA repository interfaces.
+2023-11-18 22:39:08.725  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 22:39:08.738  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 22:39:08.739  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 22:39:08.739  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 22:39:08.876  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 22:39:08.877  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3488 ms
+2023-11-18 22:39:09.161  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 22:39:09.225  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 22:39:09.331  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 22:39:09.466  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 22:39:10.085  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 22:39:10.117  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 22:39:12.916  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 22:39:12.929  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 22:39:14.146  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 22:39:14.536  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 22:39:14.551  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 22:39:14.562  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 10.066 seconds (JVM running for 11.768)
+2023-11-18 22:39:58.675  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 22:39:58.677  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 22:39:58.687  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 10 ms
+2023-11-18 22:41:05.268  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m25s73ms).
+2023-11-18 22:41:10.542  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,ASC 
+2023-11-18 22:41:32.761  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requested response: <200,ResponseUser(embedded={Users=[{userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, creationDate=04-11-2023 18:24:50, lastUpdateDate=04-11-2023 18:24:50, _links={self={href=http://localhost:8087/users/309fcd74-0887-4820-accd-6636baa02777}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}, {userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, creationDate=02-11-2023 16:22:41, lastUpdateDate=02-11-2023 16:22:41, _links={self={href=http://localhost:8087/users/a0e86e38-b63c-4bd8-aa28-c0565127038c}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}]}, links=LinksModel(self=SelfModel(href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,asc)), page=PageModel(size=10, totalElements=2, totalPages=1, number=0)),[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 01:41:12 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 22:42:14.656  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-3] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 22:42:16.319 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-3] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.RestClientException: Error while extracting response for type [class com.ead.course.model.ResponseUser] and content type [application/json]; nested exception is org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable; nested exception is com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])] with root cause
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:987)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1974)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1701)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1679)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:330)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:402)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:195)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4593)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3601)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:378)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:342)
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:105)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1037)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1020)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:778)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:28)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 22:47:01.835  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-4] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,ASC 
+2023-11-18 22:47:03.088  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-4] c.e.c.c.UserClient                       : requested response: <200,ResponseUser(embedded={Users=[{userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, creationDate=04-11-2023 18:24:50, lastUpdateDate=04-11-2023 18:24:50, _links={self={href=http://localhost:8087/users/309fcd74-0887-4820-accd-6636baa02777}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}, {userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, creationDate=02-11-2023 16:22:41, lastUpdateDate=02-11-2023 16:22:41, _links={self={href=http://localhost:8087/users/a0e86e38-b63c-4bd8-aa28-c0565127038c}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}]}, links=LinksModel(self=SelfModel(href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,asc)), page=PageModel(size=10, totalElements=2, totalPages=1, number=0)),[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 01:47:02 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 22:49:43.917  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m8s597ms).
+2023-11-18 22:50:15.911  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-6] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,ASC 
+2023-11-18 22:50:17.576  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-6] c.e.c.c.UserClient                       : requested response: <200,ResponseUser(embedded={Users=[{userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, creationDate=04-11-2023 18:24:50, lastUpdateDate=04-11-2023 18:24:50, _links={self={href=http://localhost:8087/users/309fcd74-0887-4820-accd-6636baa02777}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}, {userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, creationDate=02-11-2023 16:22:41, lastUpdateDate=02-11-2023 16:22:41, _links={self={href=http://localhost:8087/users/a0e86e38-b63c-4bd8-aa28-c0565127038c}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}]}, links=LinksModel(self=SelfModel(href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,asc)), page=PageModel(size=10, totalElements=2, totalPages=1, number=0)),[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 01:50:16 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 22:51:20.518  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m6s215ms).
+2023-11-18 22:51:50.683  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-7] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 22:52:05.539  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s28ms).
+2023-11-18 22:52:11.072 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-7] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.RestClientException: Error while extracting response for type [class com.ead.course.model.ResponseUser] and content type [application/json]; nested exception is org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable; nested exception is com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])] with root cause
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:987)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1974)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1701)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1679)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:330)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:402)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:195)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4593)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3601)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:378)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:342)
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:105)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1037)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1020)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:778)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:28)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 22:53:59.306  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-9] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 22:55:35.096  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m59s527ms).
+2023-11-18 22:55:35.151 ERROR PPM-JAMF-S-12177 --- [nio-8082-exec-9] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.RestClientException: Error while extracting response for type [class com.ead.course.model.ResponseUser] and content type [application/json]; nested exception is org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable; nested exception is com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])] with root cause
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "first" (class com.ead.course.model.LinksModel), not marked as ignorable (one known property: "self"])
+ at [Source: (PushbackInputStream); line: 1, column: 553] (through reference chain: com.ead.course.model.ResponseUser["_links"]->com.ead.course.model.LinksModel["first"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:987)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1974)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1701)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1679)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:330)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:187)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:402)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:195)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4593)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3601)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:378)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:342)
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:105)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1037)
+	at org.springframework.web.client.RestTemplate$ResponseEntityResponseExtractor.extractData(RestTemplate.java:1020)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:778)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:602)
+	at com.ead.course.clienthttp.UserClient.getAllUsersByCourse(UserClient.java:32)
+	at com.ead.course.controllers.UserController.getAllUsersByCourse(UserController.java:28)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-18 23:02:53.433  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:02:53.440  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 23:02:53.449  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 23:02:58.790  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 23:02:59.553  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 23:02:59.606  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 32689 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 23:02:59.618  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 23:03:01.071  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 23:03:01.277  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 196 ms. Found 4 JPA repository interfaces.
+2023-11-18 23:03:02.241  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 23:03:02.251  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:03:02.252  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 23:03:02.252  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 23:03:02.356  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 23:03:02.356  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2640 ms
+2023-11-18 23:03:02.672  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 23:03:02.718  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 23:03:02.839  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 23:03:02.937  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 23:03:03.190  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 23:03:03.214  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 23:03:05.367  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 23:03:05.378  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:03:06.611  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 23:03:07.188  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:03:07.207  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 23:03:07.230  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 8.317 seconds (JVM running for 9.856)
+2023-11-18 23:04:37.910  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 23:04:37.911  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 23:04:37.917  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2023-11-18 23:04:41.129  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,ASC 
+2023-11-18 23:04:42.248  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requested response: <200,ResponseUser(embedded={Users=[{userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, creationDate=04-11-2023 18:24:50, lastUpdateDate=04-11-2023 18:24:50, _links={self={href=http://localhost:8087/users/309fcd74-0887-4820-accd-6636baa02777}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}, {userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, creationDate=02-11-2023 16:22:41, lastUpdateDate=02-11-2023 16:22:41, _links={self={href=http://localhost:8087/users/a0e86e38-b63c-4bd8-aa28-c0565127038c}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}]}, links={self={href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=10&sort=userId,asc}}, page=PageModel(size=10, totalElements=2, totalPages=1, number=0)),[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 02:04:41 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 23:05:05.788  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-3] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 23:09:43.407  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-3] c.e.c.c.UserClient                       : requested response: <200,ResponseUser(embedded={Users=[{userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, creationDate=04-11-2023 18:24:50, lastUpdateDate=04-11-2023 18:24:50, _links={self={href=http://localhost:8087/users/309fcd74-0887-4820-accd-6636baa02777}, Users={href=http://localhost:8087/users{?page,size,sort,direction,userType,email,courseId,userStatus}, templated=true}}}]}, links={first={href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc}, self={href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc}, next={href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc}, last={href=http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc}}, page=PageModel(size=1, totalElements=2, totalPages=2, number=0)),[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 02:05:06 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 23:09:43.413  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m39s968ms).
+2023-11-18 23:20:07.398  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:20:07.404  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 23:20:07.410  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 23:20:14.175  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 23:20:14.843  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 23:20:14.886  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 34046 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 23:20:14.898  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 23:20:16.256  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 23:20:16.411  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 4 JPA repository interfaces.
+2023-11-18 23:20:17.364  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 23:20:17.373  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:20:17.374  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 23:20:17.374  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 23:20:17.477  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 23:20:17.478  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2487 ms
+2023-11-18 23:20:17.788  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 23:20:17.845  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 23:20:17.955  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 23:20:18.054  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 23:20:18.333  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 23:20:18.359  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 23:20:20.304  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 23:20:20.316  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:20:21.541  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 23:20:22.066  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:20:22.082  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 23:20:22.095  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.79 seconds (JVM running for 9.167)
+2023-11-18 23:20:50.302  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 23:20:50.303  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 23:20:50.307  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2023-11-18 23:20:55.106  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 23:20:55.683  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-2] c.e.c.c.UserClient                       : requested response: <200,PagedModel { content: [UserModel(userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, password=null, oldPassword=null, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, imageUrl=null, creationDate=2023-11-04T18:24:50, lastUpdateDate=2023-11-04T18:24:50, courseId=null)], metadata: Metadata { number: 0, total pages: 2, total elements: 2, size: 1 }, links: <http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="first",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="self",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="next",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="last" },[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/hal+json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 02:20:55 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 23:21:20.379  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-3] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 23:22:49.653  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m30s663ms).
+2023-11-18 23:22:49.650  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-3] c.e.c.c.UserClient                       : requested response: <200,PagedModel { content: [UserModel(userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, password=null, oldPassword=null, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, imageUrl=null, creationDate=2023-11-04T18:24:50, lastUpdateDate=2023-11-04T18:24:50, courseId=null)], metadata: Metadata { number: 0, total pages: 2, total elements: 2, size: 1 }, links: <http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="first",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="self",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="next",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="last" },[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/hal+json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 02:21:29 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 23:23:44.551  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s902ms).
+2023-11-18 23:23:52.814  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-4] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 23:25:23.538  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m38s991ms).
+2023-11-18 23:25:23.539  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-4] c.e.c.c.UserClient                       : requested response: <200,PagedModel { content: [UserModel(userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, password=null, oldPassword=null, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, imageUrl=null, creationDate=2023-11-04T18:24:50, lastUpdateDate=2023-11-04T18:24:50, courseId=null)], metadata: Metadata { number: 0, total pages: 2, total elements: 2, size: 1 }, links: <http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="first",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="self",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="next",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="last" },[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/hal+json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 02:23:54 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 23:28:49.336  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:28:49.348  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 23:28:49.365  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 23:28:55.519  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 23:28:56.285  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 23:28:56.340  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 34778 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 23:28:56.355  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 23:28:57.757  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 23:28:57.919  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 153 ms. Found 4 JPA repository interfaces.
+2023-11-18 23:28:58.901  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 23:28:58.913  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:28:58.913  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 23:28:58.914  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 23:28:59.018  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 23:28:59.018  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2545 ms
+2023-11-18 23:28:59.350  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 23:28:59.400  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 23:28:59.507  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 23:28:59.597  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 23:28:59.865  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 23:28:59.890  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 23:29:01.803  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 23:29:01.814  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:29:03.020  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 23:29:03.585  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:29:03.601  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 23:29:03.617  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.975 seconds (JVM running for 9.383)
+2023-11-18 23:29:35.319  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-18 23:29:35.320  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-18 23:29:35.338  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 17 ms
+2023-11-18 23:29:41.940  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,ASC 
+2023-11-18 23:29:49.162  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] c.e.c.c.UserClient                       : requested response: <200,PagedModel { content: [UserModel(userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, password=null, oldPassword=null, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, imageUrl=null, creationDate=2023-11-04T18:24:50, lastUpdateDate=2023-11-04T18:24:50, courseId=null)], metadata: Metadata { number: 0, total pages: 2, total elements: 2, size: 1 }, links: <http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="first",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=0&size=1&sort=userId,asc>;rel="self",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="next",<http://localhost:8087/users?courseId=a0e86e38-b63c-4bd8-aa28-c0565127038b&page=1&size=1&sort=userId,asc>;rel="last" },[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/hal+json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 02:29:43 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-18 23:33:11.128  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:33:11.140  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 23:33:11.153  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 23:51:58.976  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 23:51:59.531  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 23:51:59.595  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 36559 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 23:51:59.603  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 23:52:00.940  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 23:52:01.091  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 4 JPA repository interfaces.
+2023-11-18 23:52:01.983  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 23:52:01.993  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:52:01.994  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 23:52:01.994  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 23:52:02.089  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 23:52:02.089  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2381 ms
+2023-11-18 23:52:02.277  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 23:52:02.353  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 23:52:02.452  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 23:52:02.522  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 23:52:02.767  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 23:52:02.789  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 23:52:04.606  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 23:52:04.616  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:52:06.018  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 23:52:06.512  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:52:06.531  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 23:52:06.542  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.459 seconds (JVM running for 8.619)
+2023-11-18 23:57:43.282  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:57:43.300  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-18 23:57:43.412  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-18 23:59:11.798  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-18 23:59:12.952  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-18 23:59:13.066  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 37215 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-18 23:59:13.076  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-18 23:59:15.176  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-18 23:59:15.362  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176 ms. Found 4 JPA repository interfaces.
+2023-11-18 23:59:16.538  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-18 23:59:16.547  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:59:16.549  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-18 23:59:16.549  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-18 23:59:16.672  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-18 23:59:16.673  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3462 ms
+2023-11-18 23:59:16.964  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-18 23:59:17.076  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-18 23:59:17.194  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-18 23:59:17.286  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-18 23:59:17.547  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-18 23:59:17.574  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-18 23:59:19.295  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-18 23:59:19.303  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-18 23:59:20.692  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-18 23:59:21.236  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-18 23:59:21.254  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-18 23:59:21.264  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 9.321 seconds (JVM running for 11.286)
+2023-11-19 00:04:31.010  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-19 00:04:31.012  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-19 00:04:31.021  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 9 ms
+2023-11-19 00:05:59.152  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-19 00:05:59.158  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-19 00:05:59.167  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-19 00:07:26.966  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-19 00:07:27.571  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-19 00:07:27.658  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 37889 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-19 00:07:27.665  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-19 00:07:28.939  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-19 00:07:29.080  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 4 JPA repository interfaces.
+2023-11-19 00:07:30.015  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-19 00:07:30.022  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-19 00:07:30.023  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-19 00:07:30.024  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-19 00:07:30.118  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-19 00:07:30.119  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2361 ms
+2023-11-19 00:07:30.383  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-19 00:07:30.448  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-19 00:07:30.556  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-19 00:07:30.644  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-19 00:07:30.896  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-19 00:07:30.920  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-19 00:07:32.883  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-19 00:07:32.893  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-19 00:07:34.030  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-19 00:07:34.549  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-19 00:07:34.565  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-19 00:07:34.577  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.516 seconds (JVM running for 8.674)
+2023-11-19 00:07:55.331  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-19 00:07:55.332  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-19 00:07:55.341  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 9 ms
+2023-11-19 00:11:39.851  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-19 00:11:39.858  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-11-19 00:11:39.865  INFO PPM-JAMF-S-12177 --- [ionShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-11-19 00:11:42.867  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : OLA LOGGER
+2023-11-19 00:11:43.569  INFO PPM-JAMF-S-12177 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 6.2.0.Final
+2023-11-19 00:11:43.624  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Starting CourseApplication using Java 17.0.2 on PPM-JAMF-S-12177 with PID 38134 (/Users/rodrigocosta/github-franca/Decoder-Project/course/target/classes started by rodrigocosta in /Users/rodrigocosta/github-franca/Decoder-Project/authuser)
+2023-11-19 00:11:43.637  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : No active profile set, falling back to default profiles: default
+2023-11-19 00:11:44.994  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-19 00:11:45.218  INFO PPM-JAMF-S-12177 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 216 ms. Found 4 JPA repository interfaces.
+2023-11-19 00:11:46.088  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8082 (http)
+2023-11-19 00:11:46.096  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8082"]
+2023-11-19 00:11:46.097  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-11-19 00:11:46.097  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2023-11-19 00:11:46.205  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-11-19 00:11:46.206  INFO PPM-JAMF-S-12177 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2482 ms
+2023-11-19 00:11:46.512  INFO PPM-JAMF-S-12177 --- [           main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-19 00:11:46.554  INFO PPM-JAMF-S-12177 --- [           main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.4.32.Final
+2023-11-19 00:11:46.652  INFO PPM-JAMF-S-12177 --- [           main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-11-19 00:11:46.739  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-11-19 00:11:46.984  INFO PPM-JAMF-S-12177 --- [           main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-11-19 00:11:47.005  INFO PPM-JAMF-S-12177 --- [           main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2023-11-19 00:11:48.958  INFO PPM-JAMF-S-12177 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-19 00:11:48.969  INFO PPM-JAMF-S-12177 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-19 00:11:50.113  WARN PPM-JAMF-S-12177 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-19 00:11:50.581  INFO PPM-JAMF-S-12177 --- [           main] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8082"]
+2023-11-19 00:11:50.598  INFO PPM-JAMF-S-12177 --- [           main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8082 (http) with context path ''
+2023-11-19 00:11:50.612  INFO PPM-JAMF-S-12177 --- [           main] c.e.c.CourseApplication                  : Started CourseApplication in 7.628 seconds (JVM running for 9.003)
+2023-11-19 00:12:23.889  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-19 00:12:23.890  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-11-19 00:12:23.895  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2023-11-19 00:22:26.079  WARN PPM-JAMF-S-12177 --- [l-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m27s331ms).
+2023-11-19 00:53:40.726  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-8] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,ASC 
+2023-11-19 00:53:41.355  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-8] c.e.c.c.UserClient                       : requested response: <200,PagedModel { content: [UserModel(userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, password=null, oldPassword=null, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, imageUrl=null, creationDate=2023-11-02T16:22:41, lastUpdateDate=2023-11-02T16:22:41, courseId=null)], metadata: Metadata { number: 0, total pages: 1, total elements: 1, size: 1 }, links: <http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,asc>;rel="self" },[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/hal+json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 03:53:41 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-19 00:58:06.550  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-4] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,ASC 
+2023-11-19 00:58:06.638  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-4] c.e.c.c.UserClient                       : requested response: <200,PagedModel { content: [UserModel(userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, password=null, oldPassword=null, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, imageUrl=null, creationDate=2023-11-04T18:24:50, lastUpdateDate=2023-11-04T18:24:50, courseId=null), UserModel(userId=a0e86e38-b63c-4bd8-aa28-c0565127038c, nickName=bpaula, email=bpaula@gmail.com, password=null, oldPassword=null, fullName=Bruna Lima, userStatus=ACTIVE, userType=STUDENT, phoneNumber=639852471, cpf=45698736982, imageUrl=null, creationDate=2023-11-02T16:22:41, lastUpdateDate=2023-11-02T16:22:41, courseId=null)], metadata: Metadata { number: 0, total pages: 1, total elements: 2, size: 10 }, links: <http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=10&sort=userId,asc>;rel="self" },[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/hal+json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 03:58:06 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2023-11-19 00:58:22.483  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-5] c.e.c.c.UserClient                       : requesting URL: http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,ASC 
+2023-11-19 00:58:22.544  INFO PPM-JAMF-S-12177 --- [nio-8082-exec-5] c.e.c.c.UserClient                       : requested response: <200,PagedModel { content: [UserModel(userId=309fcd74-0887-4820-accd-6636baa02777, nickName=bpaula1, email=bpaula@gmail1.com, password=null, oldPassword=null, fullName=Bruna Lima1, userStatus=BLOCKED, userType=ADMIN, phoneNumber=639852471, cpf=45698736981, imageUrl=null, creationDate=2023-11-04T18:24:50, lastUpdateDate=2023-11-04T18:24:50, courseId=null)], metadata: Metadata { number: 0, total pages: 2, total elements: 2, size: 1 }, links: <http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,asc>;rel="first",<http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=0&size=1&sort=userId,asc>;rel="self",<http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=1&size=1&sort=userId,asc>;rel="next",<http://localhost:8087/users?courseId=9d8a41bb-687d-4bb9-9bba-9241fbcef132&page=1&size=1&sort=userId,asc>;rel="last" },[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/hal+json", Transfer-Encoding:"chunked", Date:"Sun, 19 Nov 2023 03:58:22 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>

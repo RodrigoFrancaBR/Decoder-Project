@@ -1,7 +1,5 @@
 package com.ead.authuser.specifications;
 
-import com.ead.authuser.entity.UserCourseEntity;
-import com.ead.authuser.entity.UserCourseEntity_;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.entity.UserEntity_;
 import com.ead.authuser.enums.UserStatus;
@@ -12,7 +10,6 @@ import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -52,7 +49,7 @@ public class UserSpecification implements Specification<UserEntity> {
             .ifPresent(predicates::add);
 
         Optional.ofNullable(courseId)
-            .map(fieldCourseId -> courseIdPredicate(cb, root.join(UserEntity_.usersCourses)))
+            .map(fieldCourseId -> courseIdPredicate(cb, root))
             .ifPresent(predicates::add);
 
         final var size = predicates.size();
@@ -67,7 +64,8 @@ public class UserSpecification implements Specification<UserEntity> {
         return cb.like(field, "%" + searchTerm + "%");
     }
 
-    private Predicate courseIdPredicate(CriteriaBuilder cb, Join<UserEntity, UserCourseEntity> join) {
-        return cb.equal(join.get(UserCourseEntity_.courseId), courseId);
+    private Predicate courseIdPredicate(CriteriaBuilder cb, Root<UserEntity> userEntityRoot) {
+        final var usersCourses = userEntityRoot.join("usersCourses");
+        return cb.equal(usersCourses.get("courseId"), courseId);
     }
 }
