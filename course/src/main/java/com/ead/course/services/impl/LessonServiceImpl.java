@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-import static com.ead.course.repository.LessonRepository.LessonSpecification.byTitleAndModuleId;
-
 @Service
 @RequiredArgsConstructor
 public class LessonServiceImpl implements LessonService {
@@ -36,7 +34,7 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public PagedModel<LessonModel> findAllByTitleAndModuleId(String title, UUID moduleId, Pageable pageable) {
-        var pageEntity = repository.findAll(byTitleAndModuleId(moduleId, title), pageable);
+        var pageEntity = repository.findAll(LessonRepository.LessonSpecification.byTitleAndModuleId(moduleId, title), pageable);
         return pagedResourcesAssembler.toModel(pageEntity, modelAssembler);
     }
 

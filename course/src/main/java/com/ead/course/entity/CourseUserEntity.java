@@ -1,6 +1,6 @@
 package com.ead.course.entity;
 
-import com.ead.authuser.entity.UserEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

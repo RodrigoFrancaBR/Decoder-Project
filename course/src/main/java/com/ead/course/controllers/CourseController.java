@@ -13,7 +13,15 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
@@ -31,28 +39,28 @@ public class CourseController {
     private final CourseFacade facade;
     private final LinksCourse links;
 
+    @JsonView(CourseReturnView.Default.class)
+    @GetMapping
+    public PagedModel<CourseModel> findAll(
+        @PageableDefault(page = 0, size = 10, sort = "courseId", direction = Sort.Direction.ASC) Pageable pageable,
+        @JsonView(CourseEntryView.FilterCourse.class) CourseModel courseModel) {
+        return facade.findAllCourse(pageable, courseModel);
+    }
+
     // receber requestParam ao invés do objeto CourseModel
     // ver como funciona o uso do JPA Search using Spring Data Example
     @JsonView(CourseReturnView.Default.class)
     @GetMapping(path = "byLevelAndStatusAndName")
     public PagedModel<CourseModel> findAllByLevelAndStatusAndName(
-            @PageableDefault(page = 0, size = 10, sort = "courseId", direction = Sort.Direction.DESC)
-            Pageable pageable,
-            @JsonView(CourseEntryView.FilterByLevelAndStatusAndName.class)
-            @Validated(CourseEntryView.FilterByLevelAndStatusAndName.class)
-            CourseModel courseModel
+        @PageableDefault(page = 0, size = 10, sort = "courseId", direction = Sort.Direction.DESC)
+        Pageable pageable,
+        @JsonView(CourseEntryView.FilterByLevelAndStatusAndName.class)
+        @Validated(CourseEntryView.FilterByLevelAndStatusAndName.class)
+        CourseModel courseModel
     ) {
         return facade.findAllByLevelAndStatusAndName(pageable, courseModel);
     }
 
-    @JsonView(CourseReturnView.Default.class)
-    @GetMapping
-    public PagedModel<CourseModel> findAll(
-            @PageableDefault(page = 0, size = 10,
-                    sort = "courseId", direction = Sort.Direction.ASC)
-            Pageable pageable) {
-        return facade.findAllCourse(pageable);
-    }
 
     @JsonView(CourseReturnView.Default.class)
     @GetMapping(path = "/{courseId}")
@@ -63,10 +71,10 @@ public class CourseController {
     @JsonView(CourseReturnView.Default.class)
     @PostMapping
     public ResponseEntity<CourseModel> save(
-            @RequestBody
-            @JsonView(CourseEntryView.RegisterCourse.class)
-            @Validated(CourseEntryView.RegisterCourse.class)
-            CourseModel courseModel) {
+        @RequestBody
+        @JsonView(CourseEntryView.RegisterCourse.class)
+        @Validated(CourseEntryView.RegisterCourse.class)
+        CourseModel courseModel) {
 
         var savedModel = facade.saveCourse(courseModel);
         var location = links.buildUriLocation(savedModel.getCourseId());
@@ -76,18 +84,18 @@ public class CourseController {
     @JsonView(CourseReturnView.Default.class)
     @PutMapping(path = "{courseId}")
     public CourseModel update(
-            @PathVariable UUID courseId,
-            @RequestBody
-            @Validated(CourseEntryView.UpdateCourse.class)
-            @JsonView(CourseEntryView.UpdateCourse.class)
-            CourseModel courseModel) {
+        @PathVariable UUID courseId,
+        @RequestBody
+        @Validated(CourseEntryView.UpdateCourse.class)
+        @JsonView(CourseEntryView.UpdateCourse.class)
+        CourseModel courseModel) {
 
         return facade.updateCourse(courseId, courseModel);
     }
 
     @DeleteMapping(path = "/{courseId}")
     public ResponseEntity<String> delete(
-            @PathVariable(value = "courseId") UUID courseId) {
+        @PathVariable(value = "courseId") UUID courseId) {
         facade.deleteCourse(courseId);
         return ok().body("Course deleted successfully");
     }

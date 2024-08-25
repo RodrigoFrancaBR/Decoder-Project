@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface CourseService {
 
-    public Page<CourseEntity> findAll(Pageable pageable);
+    public Page<CourseEntity> findAll(Pageable pageable, CourseModel courseModel);
 
     public CourseEntity findByCourseId(UUID courseId);
 

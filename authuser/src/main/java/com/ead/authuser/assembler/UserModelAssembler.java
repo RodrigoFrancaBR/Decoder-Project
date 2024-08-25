@@ -4,7 +4,11 @@ import com.ead.authuser.controllers.UserController;
 import com.ead.authuser.controllers.links.LinksFactory;
 import com.ead.authuser.entity.UserEntity;
 import com.ead.authuser.model.UserModel;
-import org.mapstruct.*;
+import org.mapstruct.AfterMapping;
+import org.mapstruct.Builder;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 
